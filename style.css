@@ -702,8 +702,76 @@ textarea {
 .main-navigation.toggled ul {
 	display: block;
 }
+/*agregamos estilos personalizados*/
+.header1{
+	
+}
+.header-iconos{
+	display: flex;
+    background: #00a0df;
+    min-width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+}
 
+.children-iconos-header{
+	
+	width: 90%;
+    display: flex;
+    justify-content: space-between;
+	align-items: center;
+	
+   
+}
+
+.custom-logo-link{
+	width: 60%;
+}
+
+.main-navigation{
+	width: 30%;
+}
+.header2{
+	background: red !important;
+	display: flex;
+	justify-content: space-between;
+	
+	padding: 0 20px;
+}
+
+
+.logo-header{
+	
+	width: 20px;
+
+}
+
+.font-header{
+	font-size: 10px;
+	font-weight: bold;
+	color: white;
+	padding: 0 5px;
+	margin: 5px 0;
+
+}
+.logo-header{
+	display: flex;
+	
+}
+.wrapp-icon{
+	display: flex;
+    align-items: center !important;
+    height: 100%;
+    width: 48%;
+
+
+}
+/*fin de los estilos personalizados*/
 @media screen and (min-width: 37.5em) {
+	body{
+		background: blue !important;
+	}
 
 	.menu-toggle {
 		display: none;
