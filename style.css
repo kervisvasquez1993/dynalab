@@ -733,18 +733,31 @@ textarea {
 	width: 30%;
 }
 .header2{
-	background: red !important;
+	
 	display: flex;
 	justify-content: space-between;
+	background: transparent!important;
+
 	
 	padding: 0 20px;
 }
-
+.btn-menu{
+	margin: 20px 10px !important;
+}
+.nav-menu{
+	margin: -20px -60px !important;
+	
+}
+.min-h-40{
+	min-height: 45vh;
+	background: grey;
+	
+}
 
 .logo-header{
 	
 	width: 20px;
-
+	
 }
 
 .font-header{
@@ -765,6 +778,15 @@ textarea {
     height: 100%;
     width: 48%;
 
+
+}
+.position-a{
+	position: absolute;
+	z-index: 100;
+}
+.position-r{
+	position: relative;
+	z-index: 1;
 
 }
 /*fin de los estilos personalizados*/

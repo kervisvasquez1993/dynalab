@@ -26,8 +26,8 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'test' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-            <div class="site-title flex-column alert-primary">
+		<div class="site-branding position-a">
+            <div class="site-title flex-column">
 				<div class="header1 header-iconos ">
             	      <span>
 				         <img  class="logo-header" src="<?php echo get_stylesheet_directory_uri().'/assets/buscar-header.png';?>" alt="">   
@@ -49,11 +49,11 @@
 				      </div>
 
                 </div>
-				<div class="header2">
+				<div class="header2 position-a">
 				    <?php the_custom_logo();  ?><!-- invocar el logo .site-branding -->
                        <nav id="site-navigation" class="main-navigation">
        
-			            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'dynalab' ); ?></button>
+			            <button class="menu-toggle btn-menu" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'dynalab' ); ?></button>
 			       
 			       
 			                   <?php
@@ -67,13 +67,6 @@
 			                   ?>
 				       </nav><!-- #site-navigation -->
 				</div>
-
-
-            	
-			</div>
-			
+            </div>
 		</div> <!--fin de site-branding-->
-		
-		
-		
-	</header><!-- #masthead -->
+		<!-- #masthead -->
