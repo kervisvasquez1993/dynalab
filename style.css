@@ -789,6 +789,14 @@ textarea {
 	z-index: 1;
 
 }
+
+
+.conatiner-slider{
+	background: red;
+	min-height: 50vh;
+}
+
+
 /*fin de los estilos personalizados*/
 @media screen and (min-width: 37.5em) {
 	body{
