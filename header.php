@@ -50,7 +50,7 @@
 
                 </div>
 				<div class="header2 position-a">
-				    <?php the_custom_logo();  ?><!-- invocar el logo .site-branding -->
+				    <?php /*the_custom_logo();*/  ?><!-- invocar el logo .site-branding -->
                        <nav id="site-navigation" class="main-navigation">
        
 			            <button class="menu-toggle btn-menu" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'dynalab' ); ?></button>

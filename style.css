@@ -796,6 +796,13 @@ textarea {
 	min-height: 50vh;
 }
 
+.flex-center-column{
+	font-size: 100px;
+}
+/*seccion del footer*/
+.footer-1{
+	
+}
 
 /*fin de los estilos personalizados*/
 @media screen and (min-width: 37.5em) {

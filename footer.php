@@ -1,32 +1,67 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package Dynalab
- */
+<footer id="colophon" class="site-footer maquetacion-footer">
+	<article class="footer-1">
+		<div>
+		    <h6 class="suscribete">
+		    	SUSCRÍBETE A NUESTRO BLOG
+		    </h6>
+		    <p class="footer-content">Cada dos meses haremos una selección de lo más destacado para ti</p>
+		</div>
+        <form class="formulario">
+              <div class="form-group">
+                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe aquí tu e-mail">              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">He leído y acepto aviso legal y la política de privacidad</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+	</article>
+	<article class="footer-2">
 
-?>
+		<div class="contact-1">
+		    <div class="footer-contacto">
+		    	<h4 class="titulo">CONTACTO</h4>
+    
+		    </div>
+		    <div class="footer-logo">
+		    		<div class="icono-contactos">
+		    			<img  class="icono" src="<?php echo get_template_directory_uri();?>/img/footer-icono/telefono-footer.png" alt="">
+		    			<p>(+58) 294 000 000</p>
+		    		</div>
+		    		<div class="icono-contactos">
+		    		    <img  class="icono" src="<?php echo get_template_directory_uri();?>/img/footer-icono/correo-footer.png" alt="">
+		    			<p>atencion@dynamics.com</p>
+		    		</div>
+		    		<div class="icono-contactos">
+		    		    <img  class="icono" src="<?php echo get_template_directory_uri();?>/img/footer-icono/reloj-footer.png" alt="">
+		    			<p>Lunes a Viernes</p>
+		    			<p>8:00 am a 5:00 pm</p>
+		    		</div>
+    
+		    		<div class="icono-contactos">
+		    		    <img  class="icono" src="<?php echo get_template_directory_uri();?>/img/footer-icono/ubicacion-footer.png" alt="">
+		    			<p>Valencia, Carabobo, Venezuela</p>
+		    		</div>
+		    </div>
+		</div>
+		<div class="contact-2">
+		   <img  class="icono" src="<?php echo get_template_directory_uri();?>/img/footer-icono/logo-footer.png" alt="">
+		</div>
+		
+	</article>
+	<article class="footer-3">
+		<p> Privacidad</p>
+		<p> Aviso Legal</p>
+		<p>Política de Cookies</p>
+	</article>
+	<article class="footer-4">
+		<p> Última actualización 07/04/2020 </p>
+		<p> | </p>
+		<p> &copy Dynamics. Todos los derechos reservados</p>
+	</article>
+		
+</footer>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'dynalab' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'dynalab' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'dynalab' ), 'dynalab', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
 
 <?php wp_footer(); ?>
 
