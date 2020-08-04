@@ -1,9 +1,12 @@
-<?php 
+<?php
 /**
- * Template Name: dynalab
- * **/
-get_header();
-$iconos = get_post_meta( get_the_ID(), 'campos_repetidos', true );
+ * Template Name: Areas Terapeutica 
+ * 
+ */
+
+ get_header();
+ 
+    $iconos = get_post_meta( get_the_ID(), 'campos_repetidos', true );
 ?>
 <div class="hero-page" style="background:url('<?php echo get_the_post_thumbnail_url();?>');" >
     <div class="wrap-hero">
@@ -26,51 +29,26 @@ $iconos = get_post_meta( get_the_ID(), 'campos_repetidos', true );
 
 <main id="primary" class="site-main">
     <div class="container">
-        <img src="<?php the_field('quienes_somos_img')?>" alt="quienes_somos_img">
-
-        <p>
-            <?php the_field('quienes_somos');?>
-        </p>
-    </div>
-    <!--   Icon Section   -->
-   <div class="container-slider-3">
-     <!-- Swiper -->
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
+        <div class="row">
                 <?php foreach($iconos as $icono):?>
-                    <div class="swiper-slide card">
-                        <div class="image_card">
-                            <img class="icono-imagen" src="<?php echo $icono[image]?>">
+                    <div class="col-12 col-6 col-sm-6 col-md-4 col-lg-3 flex-card">
+                        <div class="imagen-terapeutica">
+                            <img class="imagen-card" src="<?php echo $icono[image]?>">
                          </div> 
-                         <div class="body_card">
-                             <h5 class="center color-titulos"><?php echo $icono[title]?></h5>
-                             <p class="light center"><?php echo $icono[description] ?></p>
+                         <div class="body_card" style="background: <?php  echo $icono[background]?>">
+                             <h5 class="titulo-terapeutica"><?php echo $icono[title]?></h5>
+                             <p class=""><?php  $icono[description] ?></p>
                           </div>
                     </div>
                <?php endforeach;?> 
-               
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
+            
+    
    </div>
 
-   <div class="container">
-        <img src="<?php the_field('mision_img')?>" alt="mision de dynalab">
-
-        <p>
-            <?php the_field('mision');?>
-        </p>
-    </div>
-
-    <div class="container">
-        <img src="<?php the_field('vision_img')?>" alt="vision de dynalab">
-
-        <p>
-            <?php the_field('vision');?>
-        </p>
-    </div>
+    
 </main><!-- #main -->
+
 <section class="flex-center-column section-info-front" style=" 
 background: url('<?php echo get_template_directory_uri();?>/img/img1.jpg');
 background-position: center center;

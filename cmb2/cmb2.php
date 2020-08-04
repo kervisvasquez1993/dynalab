@@ -510,7 +510,7 @@ function yourprefix_register_repeatable_group_field_metabox() {
 		'id'           => 'campos_repetidos',
 		'title'        => esc_html__( 'Campos repetidos', 'cmb2' ),
 		'object_types' => array( 'page' ),
-		'show_on'      => array( 'key' => 'id', 'value' => array( 12 ) ),
+		'show_on'      => array( 'key' => 'id', 'value' => array( 12,14 ) ),
 	    'context'      => 'normal', //  'normal', 'advanced', or 'side'
 	    'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
 	    'show_names'   => true, // Show field names on the left
@@ -520,11 +520,11 @@ function yourprefix_register_repeatable_group_field_metabox() {
 	$group_field_id = $cmb_group->add_field( array(
 		'id'          => 'campos_repetidos',
 		'type'        => 'group',
-		'description' => esc_html__( 'Generates reusable form entries', 'cmb2' ),
+		'description' => esc_html__( 'Crear Campos dinamicos para mostrar en pantalla', 'cmb2' ),
 		'options'     => array(
-			'group_title'    => esc_html__( 'Entry {#}', 'cmb2' ), // {#} gets replaced by row number
-			'add_button'     => esc_html__( 'Add Another Entry', 'cmb2' ),
-			'remove_button'  => esc_html__( 'Remove Entry', 'cmb2' ),
+			'group_title'    => esc_html__( 'Campo {#}', 'cmb2' ), // {#} gets replaced by row number
+			'add_button'     => esc_html__( 'Agregar Otro Campo', 'cmb2' ),
+			'remove_button'  => esc_html__( 'Eliminar Campo', 'cmb2' ),
 			'sortable'       => true,
 			// 'closed'      => true, // true to have the groups closed by default
 			// 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
@@ -538,30 +538,40 @@ function yourprefix_register_repeatable_group_field_metabox() {
 	 * The parent field's id needs to be passed as the first argument.
 	 */
 	$cmb_group->add_group_field( $group_field_id, array(
-		'name'       => esc_html__( 'Entry Title', 'cmb2' ),
+		'name'       => esc_html__( 'Titulo', 'cmb2' ),
 		'id'         => 'title',
 		'type'       => 'text',
 		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
 	) );
+	
+
 
 	$cmb_group->add_group_field( $group_field_id, array(
-		'name'        => esc_html__( 'Description', 'cmb2' ),
-		'description' => esc_html__( 'Write a short description for this entry', 'cmb2' ),
+		'name'        => esc_html__( 'Descripción', 'cmb2' ),
+		'description' => esc_html__( 'Escribe la descripción que corresponda', 'cmb2' ),
 		'id'          => 'description',
 		'type'        => 'textarea_small',
 	) );
 
 	$cmb_group->add_group_field( $group_field_id, array(
-		'name' => esc_html__( 'Entry Image', 'cmb2' ),
+		'name' => esc_html__( 'Imagen', 'cmb2' ),
 		'id'   => 'image',
 		'type' => 'file',
 	) );
-
+	$cmb_group->add_group_field($group_field_id, array(
+		'name'    => esc_html__( 'Color de Fondo', 'cmb2' ),
+		'desc'    => esc_html__( 'Elige el color de Fondo', 'cmb2' ),
+		'id'      => 'background',
+		'type'    => 'colorpicker',
+		'default' => '#ffffff',
+	));
 	$cmb_group->add_group_field( $group_field_id, array(
 		'name' => esc_html__( 'Image Caption', 'cmb2' ),
 		'id'   => 'image_caption',
 		'type' => 'text',
 	) );
+
+	
 
 }
 
