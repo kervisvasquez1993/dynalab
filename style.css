@@ -650,6 +650,7 @@ textarea {
 .main-navigation {
 	display: block;
 	width: 100%;
+	z-index: 1000 !important;
 }
 
 .main-navigation ul {
@@ -1071,4 +1072,15 @@ textarea {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 1.5em;
+}
+
+
+
+.test-test{
+	background: green !important;
+}
+
+html.pushbar_locked .pushbar_overlay{
+	opacity: .8;
+    z-index: 0 !important;
 }

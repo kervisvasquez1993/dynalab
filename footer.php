@@ -1,4 +1,5 @@
 <footer id="colophon" class="site-footer maquetacion-footer">
+
 	<article class="footer-1">
 		<div>
 		    <h6 class="suscribete">
@@ -11,7 +12,7 @@
                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe aquí tu e-mail">              </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">He leído y acepto aviso legal y la política de privacidad</label>
+                <label class="form-check-label " for="exampleCheck1">He leído y acepto aviso legal y la política de privacidad</label>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -34,8 +35,11 @@
 		    		</div>
 		    		<div class="icono-contactos">
 		    		    <img  class="icono" src="<?php echo get_template_directory_uri();?>/img/footer-icono/reloj-footer.png" alt="">
-		    			<p>Lunes a Viernes</p>
-		    			<p>8:00 am a 5:00 pm</p>
+						
+						<div>
+							<p>Lunes a Viernes</p>
+						    <p>8:00 am a 5:00 pm</p>
+                        </div>
 		    		</div>
     
 		    		<div class="icono-contactos">
@@ -45,18 +49,18 @@
 		    </div>
 		</div>
 		<div class="contact-2">
-		   <img  class="icono" src="<?php echo get_template_directory_uri();?>/img/footer-icono/logo-footer.png" alt="">
+		   <img  class="icono-logo" src="<?php echo get_template_directory_uri();?>/img/footer-icono/logo-footer.png" alt="">
 		</div>
 		
 	</article>
 	<article class="footer-3">
-		<p> Privacidad</p>
-		<p> Aviso Legal</p>
-		<p>Política de Cookies</p>
+		<a href="#"> Privacidad</a>
+		<a href="#"> Aviso Legal</a>
+		<a href="#">Política de Cookies</a>
 	</article>
 	<article class="footer-4">
 		<p> Última actualización 07/04/2020 </p>
-		<p> | </p>
+		<p class="derecho-none"> | </p>
 		<p> &copy Dynamics. Todos los derechos reservados</p>
 	</article>
 		

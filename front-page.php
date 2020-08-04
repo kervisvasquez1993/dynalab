@@ -76,12 +76,12 @@ background-position: center center;
           <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide imagen-producto">
-                  <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
-                  <div class="wrapper-content-card">
-                    <h3>Lorem idivsum dolor sit amet </h3> 
-                    <a href="#" class="leer-mas">Leer Más</a>
-                  </div>
-                </div>
+                      <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
+                      <div class="wrapper-content-card">
+                        <h3>Lorem idivsum dolor sit amet </h3> 
+                        <a href="#" class="leer-mas">Leer Más</a>
+                      </div>
+                 </div>
                 <div class="swiper-slide imagen-producto">
                   <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eum quaerat explicabo? Ullam, laborum nisi!</p>

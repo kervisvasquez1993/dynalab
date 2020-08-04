@@ -7,6 +7,15 @@
  * @package Dynalab
  */
 
+
+if( !class_exists("cmb2") ){
+    require_once( dirname(__FILE__)."/cmb2/init.php" );
+    
+}
+require_once ( get_template_directory() . '/cmb2/cmb2.php' );
+require_once ( get_template_directory() . '/inc/cmb2.php' );
+
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
@@ -145,7 +154,8 @@ add_action( 'widgets_init', 'dynalab_widgets_init' );
 function dynalab_scripts() {
 
 
-	wp_enqueue_style('bootstrap-style','https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css', array(),'4.5.0'.'all');  
+	wp_enqueue_style('bootstrap-style','https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css', array(),'4.5.0','all'); 
+	wp_enqueue_style('menu-responsive','https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.css', array(),'1.0.0','all');  
 
 	wp_enqueue_style('slider-css', 'https://unpkg.com/swiper/swiper-bundle.min.css', array(), '6.0.4', 'all');
 	wp_enqueue_style( 'dynalab-style', get_stylesheet_uri(), array(), _S_VERSION );
@@ -154,6 +164,7 @@ function dynalab_scripts() {
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/script-principal.js', array(), '1.0.0', true );
 	wp_enqueue_script('slider-js','https://unpkg.com/swiper/swiper-bundle.min.js', array(),'1.0.0', true);
+	wp_enqueue_script('menu-navegacion','https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.js', array(),'1.0.0', true);
 	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js'), '1.0.0', true );
 
 	wp_enqueue_script('jquery');
