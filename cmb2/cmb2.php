@@ -510,7 +510,7 @@ function yourprefix_register_repeatable_group_field_metabox() {
 		'id'           => 'campos_repetidos',
 		'title'        => esc_html__( 'Campos repetidos', 'cmb2' ),
 		'object_types' => array( 'page' ),
-		'show_on'      => array( 'key' => 'id', 'value' => array( 12,14 ) ),
+		'show_on'      => array( 'key' => 'id', 'value' => array( 12,14,20 ) ),
 	    'context'      => 'normal', //  'normal', 'advanced', or 'side'
 	    'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
 	    'show_names'   => true, // Show field names on the left
@@ -574,6 +574,15 @@ function yourprefix_register_repeatable_group_field_metabox() {
 	
 
 }
+
+
+/**campos repetidos dos */
+
+
+
+
+
+/**fin ****/
 
 add_action( 'cmb2_admin_init', 'yourprefix_register_user_profile_metabox' );
 /**
