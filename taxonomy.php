@@ -17,15 +17,25 @@ get_header();
 			<header class="page-header">
 
                 
-                <?php $termino_actual = get_queried_object();
-
-                    $taxonomia = get_taxonomy($termino_actual->taxonomy);
-                    echo "" . $taxonomia->label . ': ' . $termino_actual->name . '';
+                <?php //$termino_actual = get_queried_object();
                     
+                    //$taxonomia = get_taxonomy($termino_actual->taxonomy);
+                   // echo "" . $taxonomia->label . ': ' . $termino_actual->name . '';
+                    $terminos = get_terms(array(
+						'taxonomy' => 'categoria-producto'
+					));
+
+					foreach($terminos as $termino):
+					echo "<li><a href='#".$termino->slug."'>". $termino->name."</a></li>";
+					endforeach;
                 ?>
+			
 			</header><!-- .page-header -->
 
 			<?php
+            echo "<pre>";
+            print_r($termino_actual);
+            echo "</pre>";
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();

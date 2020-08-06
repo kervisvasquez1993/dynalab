@@ -22,12 +22,15 @@
         </div>
 </header>
 
-<?php $terminos = get_term(array(
-  'taxonomy' => 'tipo-producto'
+<?php
+ $terminos = get_terms(array(
+  'taxonomy' => 'categoria-producto'
 ));
-  echo "<pre>";
-  print_r($terminos);
-  echo "</pre>";
+
+echo "<pre>";
+   print_r($terminos);
+echo "</pre>";
+
 ?>
 <div class="container">
 <section class="container-slider">

@@ -204,3 +204,15 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+
+function mostrar_post_type($query){
+	//que no se ala pantalla de admin y que sea el query principal
+	if(!is_admin() && $query->is_main_query){
+		// que sea el homepage
+		if(is_home()){
+			$query->set('post_type', array('post', 'productos'));
+		}
+	}
+}
+add_action('pre_get_posts', 'mostrar_post_type' );
