@@ -216,3 +216,66 @@ function mostrar_post_type($query){
 	}
 }
 add_action('pre_get_posts', 'mostrar_post_type' );
+
+function filtrar_productos($busqueda){
+	$termino_actual = get_queried_object();
+	//print_r($termino_actual);
+	$taxonomia = get_taxonomy($termino_actual->taxonomy);
+	$slug_actual =$termino_actual->slug;
+	$a;
+	if($busqueda == '')
+	{
+		$a = 'OR';
+	}else{
+		$a ='AND';
+	}
+   
+
+   /*
+			 $terms = get_terms(array(
+				 'taxonomy' => 'categoria-producto',
+				 'hide_empty' =>true,
+				 ));
+			 echo "<pre>";	 
+			   print_r($terms);
+			 echo "</pre>";
+
+			 */
+				
+	$args = array(
+		'posts_per_page' => -1,
+		'post_type' => 'productos',
+		'order' => 'rand',
+		'tax_query' => array(
+			'relation' => $a,
+			[
+				'taxonomy'         => 'tipo-Producto',
+				'field'            => 'slug',
+				'terms'            => $slug_actual,
+			],
+			[
+				'taxonomy'         => 'categoria-producto',
+				'field'            => 'slug',
+				'terms'            => $busqueda,
+			],
+
+		),
+	  );
+	  $farmaco = new WP_Query($args);
+	  if($farmaco->have_posts()) {
+		  echo '<div id="'.$busqueda.'" class="row">';
+
+		  while($farmaco->have_posts()): $farmaco->the_post();
+			  echo '<div class="small-6 medium-3 columns">';
+			  echo '<div class="platillo">';
+
+			  echo '<a href="'.get_the_permalink($post->ID).'">';
+			  echo get_the_post_thumbnail( $post->ID, 'platilloBuscado');
+			  echo '</a>';
+			  echo '<h2 class="text-center">'.  get_the_title() . '</h2>';
+			  echo '</div>';
+			  echo '</div>';
+	  endwhile; wp_reset_postdata();
+		  echo '</div>';
+	  }
+}

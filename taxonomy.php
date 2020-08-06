@@ -12,55 +12,46 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
+		
 
 			<header class="page-header">
 
                 
-                <?php //$termino_actual = get_queried_object();
-                    
-                    //$taxonomia = get_taxonomy($termino_actual->taxonomy);
-                   // echo "" . $taxonomia->label . ': ' . $termino_actual->name . '';
-                    $terminos = get_terms(array(
-						'taxonomy' => 'categoria-producto'
-					));
-
-					foreach($terminos as $termino):
-					echo "<li><a href='#".$termino->slug."'>". $termino->name."</a></li>";
-					endforeach;
-                ?>
-			
+                
 			</header><!-- .page-header -->
 
+
+			
+	
+		 <div id="filtrar">
+		 		<ul class="menu">
 			<?php
-            echo "<pre>";
-            print_r($termino_actual);
-            echo "</pre>";
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			
+			        $terms = get_terms( array('taxonomy' => 'categoria-producto',) );
+			        foreach($terms as $term) {
+			          echo "<li><a href='#". $term->slug . "'>" . $term->name ."</a></li>";
+			        } echo "<li><a href='#todos'>Todas las categorias </a></li>";
+        
+			        ?>
+			    </ul>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+
+			     <div id="productos">
+			         <?php
+		                    foreach($terms as $term){
+			                	$busqueda = $term->slug;
+			                	filtrar_productos($busqueda);
+			                	
+			                }	  				 
+                    ?>
+			     </div>
+
+			</div>
+
+
 				
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
-
-<?php
-get_sidebar();
+				
+				
+				
+<?php        
 get_footer();
