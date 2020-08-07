@@ -20,7 +20,7 @@ get_header();
                 
 			</header><!-- .page-header -->
 
-
+			
 			
 	
 		 <div id="filtrar">
@@ -51,7 +51,8 @@ get_header();
 
 				
 				
+			
 				
-				
-<?php        
+<?php   
+	
 get_footer();
