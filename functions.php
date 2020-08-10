@@ -154,9 +154,9 @@ add_action( 'widgets_init', 'dynalab_widgets_init' );
 function dynalab_scripts() {
 
 
-	wp_enqueue_style('bootstrap-style','https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css', array(),'4.5.0','all'); 
+	
 	wp_enqueue_style('menu-responsive','https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.css', array(),'1.0.0','all');  
-
+	wp_enqueue_style('materialize','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', array(),'1.0.0'.'all');
 	wp_enqueue_style('slider-css', 'https://unpkg.com/swiper/swiper-bundle.min.css', array(), '6.0.4', 'all');
 	wp_enqueue_style( 'dynalab-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'dynalab-style', 'rtl', 'replace' );
@@ -168,9 +168,7 @@ function dynalab_scripts() {
 	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js'), '1.0.0', true );
 
 	wp_enqueue_script('jquery');
-        wp_enqueue_script('popper','https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', array('jquery'),'4.5.0',true);
-        wp_enqueue_script('bootstrap-js','https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array('popper'),'4.5.0', true);
-
+	wp_enqueue_script('materialize-js','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js', array(),'1.0.0', true);
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -217,7 +215,10 @@ function mostrar_post_type($query){
 }
 add_action('pre_get_posts', 'mostrar_post_type' );
 
-function filtrar_productos($busqueda){
+
+
+function filtrar_productos($busqueda)
+{
 	$termino_actual = get_queried_object();
 	//print_r($termino_actual);
 	$taxonomia = get_taxonomy($termino_actual->taxonomy);
@@ -263,19 +264,31 @@ function filtrar_productos($busqueda){
 	  );
 	  $farmaco = new WP_Query($args);
 	  if($farmaco->have_posts()) {
-		  echo '<div id="'.$busqueda.'" class="row">';
-
-		  while($farmaco->have_posts()): $farmaco->the_post();
-			  echo '<div class="small-6 medium-3 columns">';
-			  echo '<div class="platillo">';
-
-			  echo '<a href="'.get_the_permalink($post->ID).'">';
-			  echo get_the_post_thumbnail( $post->ID, 'platilloBuscado');
-			  echo '</a>';
-			  echo '<h2 class="text-center">'.  get_the_title() . '</h2>';
-			  echo '</div>';
-			  echo '</div>';
-	  endwhile; wp_reset_postdata();
-		  echo '</div>';
+		echo '<div id="'.$busqueda.'" class="card_ui">';
+			while($farmaco->have_posts()): $farmaco->the_post();?>
+			            <div class="face face1">
+							<div class="content">
+                                  <?php echo get_the_post_thumbnail( $post->ID); ?>
+					             
+							</div>
+						</div>
+						<div class="face face2">
+							<div class="content">	
+							    <h3>
+							      	<?php the_title(); ?>
+							    </h3>
+							    <p>
+							    	<?php the_excerpt(); ?>
+							    </p>
+							    <a href="<?php echo get_the_permalink($post->ID)?>">
+							    	<p>leer mas</p>	
+							    </a>
+							</div>
+			            </div>
+			<?php
+			endwhile; wp_reset_postdata();
+			?>
+		</div>
+		<?php 
 	  }
 }
