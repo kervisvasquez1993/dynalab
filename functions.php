@@ -266,17 +266,36 @@ function filtrar_productos($busqueda)
 	  if($farmaco->have_posts()) {
 		echo '<div id="'.$busqueda.'" class="card_ui">';
 			while($farmaco->have_posts()): $farmaco->the_post();?>
+			                    <style>
+									 .container_ui .card_ui .face.face1 img{
+                                        border: 15px  solid #7ca7ad;
+	                                 	height: 300px;
+                                        border-radius: 30px 30px 0 0;
+	                                 }
+									 
+									 .container_ui .card_ui .face.face2{
+										border-top: 15px solid <?php the_field('color');?>;
+										border-bottom: 15px solid <?php the_field('color');?>;
+										display: flex;
+                                        justify-content: flex-end;
+									 }
+									 
+                               </style>
 			            <div class="face face1">
 							<div class="content">
-                                  <?php echo get_the_post_thumbnail( $post->ID); ?>
+								  
+                                  <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
 					             
 							</div>
 						</div>
-						<div class="face face2">
+						<div class="face face2" style="color: <?php the_field('color');?>">
+								<div>
+									 <img class="contenido-title"  src="<?php the_field('imagen_fondo_producto')?>" alt=""> 
+									 <p class="titulo_producto"><?php the_title();?></p>
+									 <img src="<?php echo $image ?>">
+								</div>
 							<div class="content">	
-							    <h3>
-							      	<?php the_title(); ?>
-							    </h3>
+								
 							    <p>
 							    	<?php the_excerpt(); ?>
 							    </p>
