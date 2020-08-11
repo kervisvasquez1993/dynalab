@@ -103,11 +103,48 @@ if(elmento2){
   })
  
     }
-  
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.slider');
+      var elems2 = document.querySelectorAll('.sidenav');
+      var instances = M.Slider.init(elems),
+          instances2 = M.Sidenav.init(elems2);
+      
+    });  
 
 ;
 ((d,c,$) => {
+
+  
+
+
+
     $(function($){
+
+      // buscador desde input
+      $('#btn_buscar').on('click', function(){
+        var termino = $('#buscar').val()
+        
+        
+        
+        var postData = {
+          action : 'buscarResultado',
+          buscar : termino
+        }
+        jQuery.ajax({
+          url: admin_url.ajax_url,
+          type:'post',
+          data: postData
+        }).done(function(response){
+          var obj = JSON.parse(response)
+          
+          
+        })
+      
+      
+      
+      })
+
+
         $('#filtrar .menu  a').on('click', function(){
           var enlaces = $(this).attr('href')
           if( enlaces == '#todos'){

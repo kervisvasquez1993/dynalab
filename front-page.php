@@ -1,53 +1,57 @@
-<?php get_header();?>
-<div id="carouselExampleControls" class="carousel slide position-r" data-ride="carousel">
-             <div class="carousel-inner min-h-40">
-                     <div class="carousel-item active">
-                       <img src="..." class="d-block w-100" alt="...">
-                     </div>
-                     <div class="carousel-item">
-                       <img src="..." class="d-block w-100" alt="...">
-                     </div>
-                     <div class="carousel-item">
-                       <img src="..." class="d-block w-100" alt="...">
-                     </div>
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
+<?php 
+get_header();
+$sliders = get_post_meta( get_the_ID(), 'slider', true );
+
+?>
+<nav>
+    <div class="nav-wrapper">
+      <ul class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="sass.html">Sass</a></li>
+    <li><a href="badges.html">Components</a></li>
+    <li><a href="collapsible.html">Javascript</a></li>
+    <li><a href="mobile.html">Mobile</a></li>
+  </ul>
+<div class="slider">
+                <ul class="slides">
+                  
+                <?php foreach($sliders as $slider): ?>
+                  <li>
+                    <img src="<?php echo $slider['image']?>"> <!-- random image -->
+                    <div class="caption center-align">
+                      <h3><?php echo $slider['title']?></h3>
+                      <h5 class="light grey-text text-lighten-3">
+                        <?php echo $slider['yourprefix_demo_wysiwyg']; ?>
+                      </h5>
+                    </div>
+                  </li>
+                <?php endforeach;?>
+                </ul>
         </div>
+      
 </header>
 
 
-<div class="container">
+<div class="container c">
 <section class="container-slider">
 
 <!-- Swiper -->
 <div class="swiper-container ">
     <div class="swiper-wrapper">
-      <div class="swiper-slide swiper-slide-border test">
-        <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
-      </div>
-      <div class="swiper-slide swiper-slide-border">
-        <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
-      </div>
-      <div class="swiper-slide swiper-slide-border">
-         <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
-      </div>
-      <div class="swiper-slide swiper-slide-border">
-         <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
-      </div>
-      <div class="swiper-slide swiper-slide-border">
-          <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
-      </div>
-      
+     <?php productos();?>
     </div>
     <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
   </div>
 
 

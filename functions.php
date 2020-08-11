@@ -157,6 +157,7 @@ function dynalab_scripts() {
 	
 	wp_enqueue_style('menu-responsive','https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.css', array(),'1.0.0','all');  
 	wp_enqueue_style('materialize','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', array(),'1.0.0'.'all');
+	wp_enqueue_style('material-icom','https://fonts.googleapis.com/icon?family=Material+Icons', array(),'4.7.0'.'all');
 	wp_enqueue_style('slider-css', 'https://unpkg.com/swiper/swiper-bundle.min.css', array(), '6.0.4', 'all');
 	wp_enqueue_style( 'dynalab-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'dynalab-style', 'rtl', 'replace' );
@@ -164,14 +165,14 @@ function dynalab_scripts() {
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/script-principal.js', array(), '1.0.0', true );
 	wp_enqueue_script('slider-js','https://unpkg.com/swiper/swiper-bundle.min.js', array(),'1.0.0', true);
-	wp_enqueue_script('menu-navegacion','https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.js', array(),'1.0.0', true);
-	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js'), '1.0.0', true );
-
-	wp_enqueue_script('jquery');
 	wp_enqueue_script('materialize-js','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js', array(),'1.0.0', true);
+	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js'), '1.0.0', true );
+	wp_localize_script( 'script', 'admin_url', array('ajax_url' => admin_url( 'admin-ajax.php' )));
+	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	
 }
 add_action( 'wp_enqueue_scripts', 'dynalab_scripts' );
 
@@ -311,3 +312,65 @@ function filtrar_productos($busqueda)
 		<?php 
 	  }
 }
+
+
+function productos()
+{
+	$args = array(
+		'posts_per_page' => 4,
+		'post_type' => 'productos',
+		'order' => 'rand',
+		);
+	  $farmaco = new WP_Query($args);
+	  if($farmaco->have_posts()) {
+		
+			while($farmaco->have_posts()): $farmaco->the_post();?>
+			            <div class="swiper-slide swiper-slide-border test">
+							  <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
+					    </div>
+						
+			<?php
+			endwhile; wp_reset_postdata();
+			?>
+		</div>
+		<?php 
+	  }
+}
+
+
+
+//curpo de la funcion
+function buscarResultado(){
+	$buscar = $_POST['buscar'];
+	
+	$args = array(
+		'post_type'      => 'productos',
+		'posts_per_page' => 5000,
+		's'              => $buscar
+	);
+	$posts = get_posts($args);
+	$listado = array();
+	foreach ($posts as $post){
+		setup_postdata($post);
+		$listado[] = array(
+			'objeto'    => $post,
+			'id'        => $post->ID,
+			'nombre'    => $post->post_title,
+			'contenido' => $post->post_content,
+			'imagen'    => get_the_post_thumbnail($post->ID),
+			'link'      => get_permalink($post->ID),
+			
+		);
+	}
+	header("Conten-type: application/json");
+	echo json_encode($listado);
+	die;
+}
+
+
+add_action('wp_ajax_nopriv_buscarResultado', 'buscarResultado');
+add_action('wp_ajax_buscarResultado', 'buscarResultado');
+
+
+//url con ajax
+

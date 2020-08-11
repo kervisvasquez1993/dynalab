@@ -53,27 +53,25 @@
 					<a href="<?php ?>" class="custom-log-link">
 					    <img  class="custom-logo" src="<?php echo get_template_directory_uri();?>/img/logo.png" alt="logo de dyanlab">
 					</a>
-				    <!-- invocar el logo .site-branding -->
-					  
-                       <nav id="site-navigation" class="main-navigation">
-					   <button class="menu-toggle btn-menu" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'dynalab' ); ?></button>
-                            <div data-pushbar-id="pushbar-menu" data-pushbar-direction="left" class="test-test">
-					              
-								  <?php
-			                          wp_nav_menu(
-			                          	array(
-			                          		'theme_location' => 'menu-1',
-											  'menu_id'        => 'primary-menu',
-											  'menu_class' => 'kervis-class',
-											  'container' => 'ul',
-											  'container_class' => 'test1'
-			                          	)
-			                          );
-			                       
-			                    ?>
-			                </div>    
-				       </nav><!-- #site-navigation -->
 				</div>
             </div>
-		</div> <!--fin de site-branding-->
+		</div>
+		
+		
+		
+		<!--fin de site-branding-->
 		<!-- #masthead -->
+
+		<?php
+		/*wp_nav_menu(
+		array(
+		  'theme_location' => 'menu-1',
+		  'menu_id'        => 'primary-menu',
+		  'menu_class' => 'kervis-class',
+		  'container' => 'ul',
+		  'container_class' => 'test1'
+		                  	)
+		);
+		*/
+		               
+	    ?>

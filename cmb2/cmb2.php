@@ -582,6 +582,87 @@ function yourprefix_register_repeatable_group_field_metabox() {
 /**campos repetidos dos */
 
 
+add_action( 'cmb2_admin_init', 'slider' );
+/**
+ * Hook in and add a metabox to demonstrate repeatable grouped fields
+ */
+function slider() {
+
+	/**
+	 * Repeatable Field Groups
+	 */
+	$cmb_group = new_cmb2_box( array(
+		'id'           => 'slider',
+		'title'        => esc_html__( 'Slider principal', 'cmb2' ),
+		'object_types' => array( 'page' ),
+		'show_on'      => array( 'key' => 'id', 'value' => array( 10 ) ),
+	    'context'      => 'normal', //  'normal', 'advanced', or 'side'
+	    'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
+	    'show_names'   => true, // Show field names on the left
+	) );
+
+	// $group_field_id is the field id string, so in this case: 'yourprefix_group_demo'
+	$group_field_id = $cmb_group->add_field( array(
+		'id'          => 'slider',
+		'type'        => 'group',
+		'description' => esc_html__( 'Crear Campos dinamicos para mostrar en pantalla', 'cmb2' ),
+		'options'     => array(
+			'group_title'    => esc_html__( 'Campo {#}', 'cmb2' ), // {#} gets replaced by row number
+			'add_button'     => esc_html__( 'Agregar Otro Campo', 'cmb2' ),
+			'remove_button'  => esc_html__( 'Eliminar Campo', 'cmb2' ),
+			'sortable'       => true,
+			// 'closed'      => true, // true to have the groups closed by default
+			// 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+		),
+	) );
+
+	/**
+	 * Group fields works the same, except ids only need
+	 * to be unique to the group. Prefix is not needed.
+	 *
+	 * The parent field's id needs to be passed as the first argument.
+	 */
+	$cmb_group->add_group_field( $group_field_id, array(
+		'name'       => esc_html__( 'Titulo del Slider', 'cmb2' ),
+		'id'         => 'title',
+		'type'       => 'text',
+		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+	) );
+	
+
+
+	$cmb_group->add_group_field( $group_field_id, array(
+		'name'    => esc_html__( 'Descripcion del Slider', 'cmb2' ),
+		'desc'    => esc_html__( 'field description (optional)', 'cmb2' ),
+		'id'      => 'yourprefix_demo_wysiwyg',
+		'type'    => 'wysiwyg',
+		'options' => array(
+			'textarea_rows' => 5,
+		),
+	) );
+
+	$cmb_group->add_group_field( $group_field_id, array(
+		'name' => esc_html__( 'Imagen', 'cmb2' ),
+		'id'   => 'image',
+		'type' => 'file',
+	) );
+	
+	$cmb_group->add_group_field( $group_field_id, array(
+		'name' => esc_html__( 'Image Caption', 'cmb2' ),
+		'id'   => 'image_caption',
+		'type' => 'text',
+	) );
+
+	
+
+}
+
+
+/**campos repetidos dos */
+
+
+
+
 
 
 
