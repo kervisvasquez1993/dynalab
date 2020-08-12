@@ -1,6 +1,10 @@
 <?php 
 get_header();
 $sliders = get_post_meta( get_the_ID(), 'slider', true );
+$dynalab = get_page_by_title('DYNALAB');
+
+         
+      
 
 ?>
 <nav>
@@ -42,39 +46,51 @@ $sliders = get_post_meta( get_the_ID(), 'slider', true );
 
 
 <div class="container c">
-<section class="container-slider">
+      <section class="container-slider">
 
 <!-- Swiper -->
-<div class="swiper-container ">
-    <div class="swiper-wrapper">
-     <?php productos();?>
+          <div class="swiper-container ">
+               <div class="swiper-wrapper">
+                   <?php productos();?>
+               </div>
+               <!-- Add Pagination -->
+               <div class="paginacion_container">
+               <div class="swiper-button-next"></div>
+               <div class="swiper-button-prev"></div>
+               </div>
+          </div>
+      </section>
+      <?php
+        
+         
+      ?>
+    <div class="boton-productos">
+        <a href="<?php the_permalink($producto->ID) ; ?>" class="btn">Ver Todos los Productos</a> 
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-  </div>
-
-
-</section>
-
-<div class="boton-productos">
-    <button class="btn btn-primary m-4">Ver Todos los Productos</button> 
 </div>
-</div>
+
+
 
 <section class="flex-center-column section-info-front" style=" 
-background: url('<?php echo get_template_directory_uri();?>/img/img1.jpg');
-background-position: center center;
+    background: url('<?php echo get_template_directory_uri();?>/img/img1.jpg');
+    background-position: center center;
 	  background-repeat: no-repeat;
 	  background-size: cover;
 ">
-     <div class="margin-top-10 ">
-          <h3 class="text-center">Dynalab</h3>
-          <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
+     <div class="margin-top-10 center-flex ">
+          <h3 class="center">Dynalab</h3>
+          <p class="center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.  Dolores repudiandae ipsum aut vel voluptate voluptatem.  Dolores repudiandae ipsum aut vel voluptate voluptatem. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
+          <a href="<?php the_permalink($dynalab->ID) ; ?>" class="center btn ">CONOCE DYNALAB</a>
       </div>
-     <button class="btn btn-primary btn-padiing">Ver Todos los Productos</button> 
+     
 </section>
+<?php 
 
+        
+
+
+
+?>
 <section class="product-post">
      <div class="container-slider-2">
      

@@ -316,23 +316,18 @@ function filtrar_productos($busqueda)
 
 function productos()
 {
-	$args = array(
-		'posts_per_page' => 4,
-		'post_type' => 'productos',
-		'order' => 'rand',
-		);
+	$args = array('posts_per_page' => 4,'post_type' => 'productos','order' => 'rand',);
 	  $farmaco = new WP_Query($args);
 	  if($farmaco->have_posts()) {
+			
 		
 			while($farmaco->have_posts()): $farmaco->the_post();?>
 			            <div class="swiper-slide swiper-slide-border test">
 							  <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
 					    </div>
-						
-			<?php
-			endwhile; wp_reset_postdata();
-			?>
-		</div>
+			<?php endwhile; wp_reset_postdata(); ?>
+
+		
 		<?php 
 	  }
 }
