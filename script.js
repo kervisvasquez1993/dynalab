@@ -2,7 +2,7 @@ var elmento = document.querySelector('.container-slider .swiper-container')
 var elmento2 = document.querySelector('.container-slider-2 .swiper-container')
 var elmento3 = document.querySelector('.container-slider-3 .swiper-container')
 
-console.log(elmento2)
+
  if(elmento){
 var swiper = new Swiper(elmento, {
     
@@ -68,10 +68,7 @@ if(elmento2){
 
     if(elmento3){
      
-    var pushbar = new Pushbar({
-      blur: true,
-      overlay: true
-  })
+  
   var swiper = new Swiper(elmento3, {
     
     breakpoints: {

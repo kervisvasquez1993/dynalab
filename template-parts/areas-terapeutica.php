@@ -7,6 +7,7 @@
  get_header();
  
     $iconos = get_post_meta( get_the_ID(), 'campos_repetidos', true );
+    $productos = get_page_by_title('PRODUCTOS  DYNALAB');
 ?>
 <div class="hero-page" style="background:url('<?php echo get_the_post_thumbnail_url();?>');" >
     <div class="wrap-hero">
@@ -31,7 +32,7 @@
     <div class="container">
         <div class="row">
                 <?php foreach($iconos as $icono):?>
-                    <div class="col-12 col-6 col-sm-6 col-md-4 col-lg-3 flex-card">
+                    <div class="col s6 m4 l3 productos_style">
                         <div class="imagen-terapeutica">
                             <img class="imagen-card" src="<?php echo $icono[image]?>">
                          </div> 
@@ -54,11 +55,13 @@ background: url('<?php echo get_template_directory_uri();?>/img/img1.jpg');
 background-position: center center;
 	  background-repeat: no-repeat;
 	  background-size: cover;
-">
-     <div class="margin-top-10 ">
-          <h3 class="text-center">Dynalab</h3>
-          <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
-      </div>
-     <button class="btn btn-primary btn-padiing">Ver Todos los Productos</button> 
+">      <div class="center-button">
+           <div class="margin-top-10 productos_style">
+               <h3 class="text-center">Dynalab</h3>
+               <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
+            </div>
+            <a href="<?php the_permalink($productos->ID);?>" class="btn btn-boton3">Ver Todos los Productos</a> 
+       </div>
 </section>
 <?php get_footer();?>
+

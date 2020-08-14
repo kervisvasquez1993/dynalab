@@ -50,28 +50,52 @@
 
                 </div>
 				<div class="header2 position-a">
-					<a href="<?php ?>" class="custom-log-link">
+					<a href="<?php echo esc_url(home_url('/'));?>" class="custom-log-link">
 					    <img  class="custom-logo" src="<?php echo get_template_directory_uri();?>/img/logo.png" alt="logo de dyanlab">
 					</a>
 				</div>
             </div>
 		</div>
 		
-		
+		<nav>
+    <div class="nav-wrapper">
+   
+	    <?php 
+            wp_nav_menu(
+       		           array(
+       		             'theme_location' => 'menu-1',
+       		             'menu_class' => 'right hide-on-med-and-down',
+       		             'container' => 'ul',
+       		             'container_class' => 'test1'
+       		                             	)
+       		           );
+ 
+        ?>
+     
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  
+   <?php 
+     wp_nav_menu(
+		array(
+		  'theme_location' => 'menu-1',
+		  'menu_id'        => 'mobile-demo',
+		  'menu_class' => 'sidenav',
+		  'container' => 'ul',
+		  'container_class' => 'test1'
+		                  	)
+		);
+ 
+   ?>
+  
 		
 		<!--fin de site-branding-->
 		<!-- #masthead -->
 
 		<?php
-		/*wp_nav_menu(
-		array(
-		  'theme_location' => 'menu-1',
-		  'menu_id'        => 'primary-menu',
-		  'menu_class' => 'kervis-class',
-		  'container' => 'ul',
-		  'container_class' => 'test1'
-		                  	)
-		);
-		*/
+		
+		
 		               
 	    ?>

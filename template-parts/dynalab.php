@@ -36,9 +36,9 @@ $iconos = get_post_meta( get_the_ID(), 'campos_repetidos', true );
    <div class="container-slider-3">
      <!-- Swiper -->
     <div class="swiper-container">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper ">
                 <?php foreach($iconos as $icono):?>
-                    <div class="swiper-slide card">
+                    <div class="swiper-slide card ">
                         <div class="image_card">
                             <img class="icono-imagen" src="<?php echo $icono[image]?>">
                          </div> 

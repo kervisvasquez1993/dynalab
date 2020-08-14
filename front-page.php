@@ -2,31 +2,18 @@
 get_header();
 $sliders = get_post_meta( get_the_ID(), 'slider', true );
 $dynalab = get_page_by_title('DYNALAB');
-
-         
-      
+$args = array(
+  'posts_per_page' => -1,
+  'post_type' => 'post',
+  'order' => 'rand'
+);
+$farmaco2 = new WP_Query($args);
+$productos = get_page_by_title('PRODUCTOS  DYNALAB');
 
 ?>
-<nav>
-    <div class="nav-wrapper">
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
 
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
-  </ul>
 <div class="slider">
-                <ul class="slides">
+              <ul class="slides">
                   
                 <?php foreach($sliders as $slider): ?>
                   <li>
@@ -39,13 +26,13 @@ $dynalab = get_page_by_title('DYNALAB');
                     </div>
                   </li>
                 <?php endforeach;?>
-                </ul>
-        </div>
+              </ul>
+</div>
+        
       
 </header>
-
-
-<div class="container c">
+<div class="container flex-none">
+<div class="content-none"></div>
       <section class="container-slider">
 
 <!-- Swiper -->
@@ -65,23 +52,25 @@ $dynalab = get_page_by_title('DYNALAB');
          
       ?>
     <div class="boton-productos">
-        <a href="<?php the_permalink($producto->ID) ; ?>" class="btn">Ver Todos los Productos</a> 
+        <a href="<?php the_permalink($productos->ID) ; ?>" class="btn btn-boton2">Ver Todos los Productos</a> 
     </div>
 </div>
 
 
 
-<section class="flex-center-column section-info-front" style=" 
+<section class="flex-center-column section-info-front margin-top-10 center-flex " style=" 
     background: url('<?php echo get_template_directory_uri();?>/img/img1.jpg');
     background-position: center center;
 	  background-repeat: no-repeat;
 	  background-size: cover;
 ">
-     <div class="margin-top-10 center-flex ">
-          <h3 class="center">Dynalab</h3>
-          <p class="center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.  Dolores repudiandae ipsum aut vel voluptate voluptatem.  Dolores repudiandae ipsum aut vel voluptate voluptatem. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
-          <a href="<?php the_permalink($dynalab->ID) ; ?>" class="center btn ">CONOCE DYNALAB</a>
-      </div>
+     
+          <div>
+              <h3 class="center">Dynalab</h3>
+              <p class="center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.  Dolores repudiandae ipsum aut vel voluptate voluptatem.  Dolores repudiandae ipsum aut vel voluptate voluptatem. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
+          </div>
+          <a href="<?php the_permalink($dynalab->ID);?>"  class="center btn btn-boton">CONOCE DYNALAB</a>
+     
      
 </section>
 <?php 
@@ -97,40 +86,32 @@ $dynalab = get_page_by_title('DYNALAB');
      <!-- Swiper -->
           <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide imagen-producto">
-                      <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
-                      <div class="wrapper-content-card">
-                        <h3>Lorem idivsum dolor sit amet </h3> 
-                        <a href="#" class="leer-mas">Leer Más</a>
-                      </div>
-                 </div>
-                <div class="swiper-slide imagen-producto">
-                  <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eum quaerat explicabo? Ullam, laborum nisi!</p>
-                </div>
-                <div class="swiper-slide imagen-producto">
-                   <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eum quaerat explicabo? Ullam, laborum nisi!</p>
-                </div>
-                <div class="swiper-slide imagen-producto">
-                   <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eum quaerat explicabo? Ullam, laborum nisi!</p>
-                </div>
-                <div class="swiper-slide imagen-producto">
-                    <img src="<?php echo get_template_directory_uri();?>/img/img1.jpg" alt="">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eum quaerat explicabo? Ullam, laborum nisi!</p>
-                </div>
+
+            <?php
+                 while($farmaco2->have_posts()):
+                   $farmaco2->the_post();?>
+                    <div class="swiper-slide imagen-producto">
+                    <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
+                         <div class="wrapper-content-card">
+                             <h3>Lorem idivsum dolor sit amet </h3> 
+                             <a href="<?php the_permalink();?>" class="leer-mas">Leer</a>
+                         </div>
+                    </div>
+                <?php
+                 endwhile;
+            ?>
                 
-              
             </div>
             <!--navegador-->
             <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            
-            
+            <div class="swiper-button-prev"></div>
           </div>
      </div>
 </section>
+
+
+
+
 
 
 <?php get_footer();?>

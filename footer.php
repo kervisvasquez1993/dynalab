@@ -14,7 +14,7 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label " for="exampleCheck1">He leído y acepto aviso legal y la política de privacidad</label>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-boton btn-primary">Submit</button>
         </form>
 	</article>
 	<article class="footer-2">

@@ -323,7 +323,7 @@ function productos()
 		
 			while($farmaco->have_posts()): $farmaco->the_post();?>
 			            <div class="swiper-slide swiper-slide-border test">
-							  <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
+							  <?php the_post_thumbnail( $post->ID, array('class'=> '') ); ?>
 					    </div>
 			<?php endwhile; wp_reset_postdata(); ?>
 
@@ -368,4 +368,3 @@ add_action('wp_ajax_buscarResultado', 'buscarResultado');
 
 
 //url con ajax
-
