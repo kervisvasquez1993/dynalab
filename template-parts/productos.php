@@ -3,6 +3,7 @@
     Template Name: Productos
 */
 get_header();
+$dynalab_terapeutica = get_page_by_title('ÁREAS TERAPÉUTICAS');
 $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
  /*
     echo "<img src='$image'>";
@@ -59,14 +60,14 @@ background: url('<?php echo get_template_directory_uri();?>/img/img1.jpg');
 background-position: center center;
 	  background-repeat: no-repeat;
 	  background-size: cover;
-">
-     <div class="margin-top-10 ">
-          <h3 class="text-center">ÁREA TERAPÉUTICA</h3>
-          <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
-      </div>
-     <button class="btn btn-primary btn-padiing">CONOCE LAS ÁREAS TERAPÉUTICA</button> 
+">      <div class="center-button">
+           <div class="margin-top-10 productos_style">
+               <h3 class="text-center">ÁREAS TERAPEUTICAS</h3>
+               <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
+            </div>
+            <a href="<?php the_permalink($dynalab_terapeutica->ID);?>" class="btn btn-boton3">Ver Areas Terapeutica</a> 
+       </div>
 </section>
-
 
 
 

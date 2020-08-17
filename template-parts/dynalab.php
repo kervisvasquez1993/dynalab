@@ -4,11 +4,12 @@
  * **/
 get_header();
 $iconos = get_post_meta( get_the_ID(), 'campos_repetidos', true );
+$productos = get_page_by_title('PRODUCTOS  DYNALAB');
 ?>
 <div class="hero-page" style="background:url('<?php echo get_the_post_thumbnail_url();?>');" >
     <div class="wrap-hero">
          <div class="hero-content">
-             <p class="home">INICIO</p> > <p><?php the_title();?></p>
+             <p class="home">INICIO</p> <p>></p> <p><?php the_title();?></p>
          </div>
          <div class="hero-content-2">
              <h4 class="titulo">
@@ -25,12 +26,13 @@ $iconos = get_post_meta( get_the_ID(), 'campos_repetidos', true );
 </header>
 
 <main id="primary" class="site-main">
-    <div class="container">
-        <img src="<?php the_field('quienes_somos_img')?>" alt="quienes_somos_img">
-
-        <p>
+    <div class="container container_quienes_somos">
+        <div class="quienes_somos_imagen">
+             <img src="<?php the_field('quienes_somos_img')?>" alt="quienes_somos_img">
+        </div>
+        <div class="quienes_somos_content">
             <?php the_field('quienes_somos');?>
-        </p>
+        </div>
     </div>
     <!--   Icon Section   -->
    <div class="container-slider-3">
@@ -55,20 +57,20 @@ $iconos = get_post_meta( get_the_ID(), 'campos_repetidos', true );
         </div>
    </div>
 
-   <div class="container">
-        <img src="<?php the_field('mision_img')?>" alt="mision de dynalab">
-
-        <p>
-            <?php the_field('mision');?>
-        </p>
-    </div>
-
-    <div class="container">
-        <img src="<?php the_field('vision_img')?>" alt="vision de dynalab">
-
-        <p>
-            <?php the_field('vision');?>
-        </p>
+    <div class="container container_dynalab">
+        <div class="mision_wrap">
+            <img src="<?php the_field('mision_img')?>" alt="mision de dynalab">
+            <div>
+                 <?php the_field('mision');?>
+            </div>
+        </div>
+    
+        <div class="vision_wrap">
+            <div>
+                 <?php the_field('vision');?>
+            </div>
+             <img src="<?php the_field('vision_img')?>" alt="vision de dynalab">
+        </div>
     </div>
 </main><!-- #main -->
 <section class="flex-center-column section-info-front" style=" 
@@ -76,11 +78,12 @@ background: url('<?php echo get_template_directory_uri();?>/img/img1.jpg');
 background-position: center center;
 	  background-repeat: no-repeat;
 	  background-size: cover;
-">
-     <div class="margin-top-10 ">
-          <h3 class="text-center">Dynalab</h3>
-          <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
-      </div>
-     <button class="btn btn-primary btn-padiing">Ver Todos los Productos</button> 
+">      <div class="center-button">
+           <div class="margin-top-10 productos_style">
+               <h3 class="text-center">Dynalab</h3>
+               <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
+            </div>
+            <a href="<?php the_permalink($productos->ID);?>" class="btn btn-boton3">Ver Todos los Productos</a> 
+       </div>
 </section>
 <?php get_footer();?>

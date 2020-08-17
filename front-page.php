@@ -3,7 +3,7 @@ get_header();
 $sliders = get_post_meta( get_the_ID(), 'slider', true );
 $dynalab = get_page_by_title('DYNALAB');
 $args = array(
-  'posts_per_page' => -1,
+  'posts_per_page' => 5,
   'post_type' => 'post',
   'order' => 'rand'
 );
@@ -85,12 +85,14 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
      
      <!-- Swiper -->
           <div class="swiper-container">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper parent">
 
             <?php
+                 $contador = 1;
                  while($farmaco2->have_posts()):
+                  $contador++;
                    $farmaco2->the_post();?>
-                    <div class="swiper-slide imagen-producto">
+                    <div class="swiper-slide imagen-producto div<?php echo $contador;?>">
                     <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
                          <div class="wrapper-content-card">
                              <h3>Lorem idivsum dolor sit amet </h3> 

@@ -1,6 +1,19 @@
 <footer id="colophon" class="site-footer maquetacion-footer">
-
-	<article class="footer-1">
+<div class="flex-footer">	 
+    <div class="menu-footer">
+        <?php 
+             wp_nav_menu(
+                  array(
+                    'theme_location' => 'menu-1',
+                    'menu_class' => 'right hide-on-med-and-down  menu_footer_',
+                    'container' => 'ul',
+                    'container_class' => 'test1'
+                                    	)
+                  );
+             ?>
+     </div>
+     <div class="contacto-footer">
+     	<article class="footer-1">
 		<div>
 		    <h6 class="suscribete">
 		    	SUSCRÍBETE A NUESTRO BLOG
@@ -16,8 +29,8 @@
               </div>
               <button type="submit" class="btn btn-boton btn-primary">Submit</button>
         </form>
-	</article>
-	<article class="footer-2">
+     	</article>
+     	<article class="footer-2">
 
 		<div class="contact-1">
 		    <div class="footer-contacto">
@@ -52,7 +65,10 @@
 		   <img  class="icono-logo" src="<?php echo get_template_directory_uri();?>/img/footer-icono/logo-footer.png" alt="">
 		</div>
 		
-	</article>
+     	</article>
+	 </div>
+	 
+</div>
 	<article class="footer-3">
 		<a href="#"> Privacidad</a>
 		<a href="#"> Aviso Legal</a>
