@@ -30,7 +30,7 @@
             <div class="site-title flex-column">
 				<div class="header1 header-iconos ">
             	      <span>
-				         <img  class="logo-header" src="<?php echo get_stylesheet_directory_uri().'/assets/buscar-header.png';?>" alt="">   
+				         <img  class="logo-header header-search-button" id="headerSearchButton"   src="<?php echo get_stylesheet_directory_uri().'/assets/buscar-header.png';?>" alt="">   
 				      </span>
       
 				      <div class="children-iconos-header">
@@ -98,4 +98,11 @@
 		
 		
 		               
-	    ?>
+		?>
+		
+		<div id="searchArea">
+			<?php get_search_form();?>
+            <button class="material-icons red btn-small search-submit" id="closeSearchButton">
+			        highlight_off
+            </button>
+		</div>

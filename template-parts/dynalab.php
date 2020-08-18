@@ -9,7 +9,7 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
 <div class="hero-page" style="background:url('<?php echo get_the_post_thumbnail_url();?>');" >
     <div class="wrap-hero">
          <div class="hero-content">
-             <p class="home">INICIO</p> <p>></p> <p><?php the_title();?></p>
+              <a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a> <p>></p> <p><?php the_title();?></p>
          </div>
          <div class="hero-content-2">
              <h4 class="titulo">

@@ -1057,7 +1057,7 @@ max-height: 50px;
 }
 
 .hero-page{
-	min-height: 40vh !important;
+	min-height: 50vh !important;
 	background-position: center center !important;
 	background-size: cover !important;
 	background-repeat: no-repeat !important;
@@ -1066,6 +1066,7 @@ max-height: 50px;
 	justify-content: center;
 	
 }
+
 
 .hero-page > *{
 	color: white;
@@ -1156,6 +1157,13 @@ main.site-main{
 .iconos_menu img{
 	width: 100%;
 }
+
+.wrap-hero .hero-content p {
+	padding: 0 20px !important;
+	
+}
+
+
 
 @media screen and (min-width: 0px) and ( max-width: 453px){
 	.derecho-none{
