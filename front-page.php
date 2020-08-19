@@ -73,26 +73,34 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
      
      
 </section>
-<?php 
+<section class="container mostrar">
+    <div class="parent">
+    <?php
+        $contador = 0;
+        while($farmaco2->have_posts()):
+        $contador++;
+        $farmaco2->the_post();?>
+        <div class="div<?php echo $contador;?>">
+            <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
+                  
+        </div>
+        <?php  endwhile; wp_reset_postdata();?>
+    </div>
+</section>
 
-        
-
-
-
-?>
-<section class="product-post">
+<section class="product-post ocultar">
      <div class="container-slider-2">
      
      <!-- Swiper -->
           <div class="swiper-container">
-            <div class="swiper-wrapper parent">
+            <div class="swiper-wrapper">
 
             <?php
-                 $contador = 1;
+                 
                  while($farmaco2->have_posts()):
                   $contador++;
                    $farmaco2->the_post();?>
-                    <div class="swiper-slide imagen-producto div<?php echo $contador;?>">
+                    <div class="swiper-slide imagen-producto" >
                     <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
                          <div class="wrapper-content-card">
                              <h3>Lorem idivsum dolor sit amet </h3> 
@@ -100,7 +108,7 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
                          </div>
                     </div>
                 <?php
-                 endwhile;
+                 endwhile;wp_reset_postdata();
             ?>
                 
             </div>
