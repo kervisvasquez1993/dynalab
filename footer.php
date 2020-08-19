@@ -20,15 +20,20 @@
 		    </h6>
 		    <p class="footer-content">Cada dos meses haremos una selección de lo más destacado para ti</p>
 		</div>
-        <form class="formulario">
+		<!--Formullario de contacto -->
+        <form method="POST" class="row  formulario">
               <div class="form-group">
-                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe aquí tu e-mail">              </div>
+			      <input type="text" id="email" class="autocomplete" name="email">
+                  <label for="email">Email</label>     
+			  </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label " for="exampleCheck1">He leído y acepto aviso legal y la política de privacidad</label>
               </div>
-              <button type="submit" class="btn btn-boton btn-primary">Submit</button>
-        </form>
+			  <input type="submit" class="btn btn-boton btn-primary" value="enviar">
+              <input type="hidden" name="send_contact_form" value="1 ">
+		</form>
+		<!--fin-->
      	</article>
      	<article class="footer-2">
 
@@ -87,3 +92,4 @@
 
 </body>
 </html>
+

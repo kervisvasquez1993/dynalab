@@ -65,8 +65,9 @@ background-position: center center;
                <h3 class="text-center">ÁREAS TERAPEUTICAS</h3>
                <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
             </div>
-            <a href="<?php the_permalink($dynalab_terapeutica->ID);?>" class="btn btn-boton3">Ver Areas Terapeutica</a> 
+            
        </div>
+       <a href="<?php the_permalink($dynalab_terapeutica->ID);?>" class="btn btn-boton_front">Ver Areas Terapeutica</a> 
 </section>
 
 

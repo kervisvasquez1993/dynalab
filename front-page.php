@@ -69,7 +69,7 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
               <h3 class="center">Dynalab</h3>
               <p class="center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.  Dolores repudiandae ipsum aut vel voluptate voluptatem.  Dolores repudiandae ipsum aut vel voluptate voluptatem. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
           </div>
-          <a href="<?php the_permalink($dynalab->ID);?>"  class="center btn btn-boton">CONOCE DYNALAB</a>
+          <a href="<?php the_permalink($dynalab->ID);?>"  class="center btn btn-boton_front">CONOCE DYNALAB</a>
      
      
 </section>
@@ -81,7 +81,7 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
         $contador++;
         $farmaco2->the_post();?>
         <div class="div<?php echo $contador;?>">
-            <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
+            <?php the_post_thumbnail( $post->ID, array('class'=> '') ); ?>
                   
         </div>
         <?php  endwhile; wp_reset_postdata();?>

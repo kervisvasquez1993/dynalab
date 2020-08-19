@@ -73,7 +73,7 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
         </div>
     </div>
 </main><!-- #main -->
-<section class="flex-center-column section-info-front" style=" 
+<section class="flex-center-column section-info-front margin-top-10 center-flex " style=" 
 background: url('<?php echo get_template_directory_uri();?>/img/img1.jpg');
 background-position: center center;
 	  background-repeat: no-repeat;
@@ -83,7 +83,7 @@ background-position: center center;
                <h3 class="text-center">Dynalab</h3>
                <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
             </div>
-            <a href="<?php the_permalink($productos->ID);?>" class="btn btn-boton3">Ver Todos los Productos</a> 
-       </div>
+        </div>
+        <a href="<?php the_permalink($productos->ID);?>" class="btn btn-boton_front">Ver Todos los Productos</a> 
 </section>
 <?php get_footer();?>

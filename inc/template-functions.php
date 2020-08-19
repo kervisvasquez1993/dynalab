@@ -35,3 +35,8 @@ function dynalab_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'dynalab_pingback_header' );
+
+
+
+
+// crear shorcode

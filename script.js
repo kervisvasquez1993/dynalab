@@ -1,9 +1,26 @@
 let elmento = document.querySelector('.container-slider .swiper-container')
 let elmento2 = document.querySelector('.container-slider-2 .swiper-container')
 let elmento3 = document.querySelector('.container-slider-3 .swiper-container')
-let anchopantalla = window.innerWidth
+let colorCard = document.querySelectorAll('.face2')
 
-console.log(anchopantalla)
+// dom script para agregar color al card 
+if(colorCard){
+
+let colorCardArr =Array.from(colorCard)
+
+
+colorCardArr.forEach(color => 
+{  
+  colorBase = color.getAttribute('style')
+  let padre = color.parentElement
+  let hermanoElement = padre.children[1]
+  hermanoElement.setAttribute('style', colorBase)
+})
+
+}
+
+// fin del dom script 
+
 
 
  if(elmento){

@@ -60,8 +60,8 @@ background-position: center center;
                <h3 class="text-center">Dynalab</h3>
                <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
             </div>
-            <a href="<?php the_permalink($productos->ID);?>" class="btn btn-boton3">Ver Todos los Productos</a> 
        </div>
+       <a href="<?php the_permalink($productos->ID);?>" class="btn btn-boton_front">Ver Todos los Productos</a> 
 </section>
 <?php get_footer();?>
 

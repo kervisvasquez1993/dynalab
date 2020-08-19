@@ -195,7 +195,13 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+require get_template_directory().'/inc/databases.php';
 
+require get_template_directory() . '/inc/correo_contacto.php';
+
+require get_template_directory() . '/inc/correo_form_save.php';
+
+require get_template_directory() . '/inc/custom_correo.php';
 /**
  * Load Jetpack compatibility file.
  */
@@ -269,9 +275,8 @@ function filtrar_productos($busqueda)
 			while($farmaco->have_posts()): $farmaco->the_post();?>
 			                    <style>
 									 .container_ui .card_ui .face.face1 img{
-                                        border: 15px  solid #7ca7ad;
-	                                 	height: 300px;
-                                        border-radius: 30px 30px 0 0;
+                                        border: 5px solid <?php the_field('color');?>;
+                                        border-radius: 15px 15px 0 0;
 	                                 }
 									 
 									 .container_ui .card_ui .face.face2{
