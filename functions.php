@@ -276,17 +276,20 @@ function filtrar_productos($busqueda)
 			                    <style>
 									 .container_ui .card_ui .face.face1 img{
                                         border: 5px solid <?php the_field('color');?>;
-                                        border-radius: 15px 15px 0 0;
+										border-radius: 15px 15px 0 0;
+										
 	                                 }
 									 
 									 .container_ui .card_ui .face.face2{
 										border-top: 15px solid <?php the_field('color');?>;
 										border-bottom: 15px solid <?php the_field('color');?>;
 										display: flex;
-                                        justify-content: flex-end;
+										justify-content: flex-end;
+										
 									 }
 									 
                                </style>
+					 <div class="card_wrap">
 			            <div class="face face1">
 							<div class="content">
 								  
@@ -301,15 +304,10 @@ function filtrar_productos($busqueda)
 									 <img src="<?php echo $image ?>">
 								</div>
 							<div class="content">	
-								
-							    <p>
-							    	<?php the_excerpt(); ?>
-							    </p>
-							    <a href="<?php echo get_the_permalink($post->ID)?>">
-							    	<p>leer mas</p>	
-							    </a>
+		                          <?php the_content(); ?>
 							</div>
-			            </div>
+			              </div>
+						</div>
 			<?php
 			endwhile; wp_reset_postdata();
 			?>
@@ -321,7 +319,7 @@ function filtrar_productos($busqueda)
 
 function productos()
 {
-	$args = array('posts_per_page' => 4,'post_type' => 'productos','order' => 'rand',);
+	$args = array('posts_per_page' => 5,'post_type' => 'productos','order' => 'rand',);
 	  $farmaco = new WP_Query($args);
 	  if($farmaco->have_posts()) {
 			

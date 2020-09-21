@@ -29,13 +29,13 @@
 		<div class="site-branding position-a">
             <div class="site-title flex-column">
 				<div class="header1 header-iconos ">
-            	      <span>
-				         <img  class="logo-header header-search-button" id="headerSearchButton"   src="<?php echo get_stylesheet_directory_uri().'/assets/buscar-header.png';?>" alt="">   
-				      </span>
+            	      
       
 				      <div class="children-iconos-header">
       
-      
+					  <span class="wrapp-icon">
+				         <img  class="logo-header header-search-button" id="headerSearchButton"   src="<?php echo get_stylesheet_directory_uri().'/assets/buscar-header.png';?>" alt="">   
+				      </span>
 				           <span class="wrapp-icon">
 				              <img  class="logo-header" src="<?php echo get_stylesheet_directory_uri().'/assets/telefono-header.png';?>" alt="">
 				           	<p class="font-header"> (+58) 424 4444161 </p>

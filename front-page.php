@@ -3,7 +3,8 @@ get_header();
 $sliders = get_post_meta( get_the_ID(), 'slider', true );
 $dynalab = get_page_by_title('DYNALAB');
 $args = array(
-  'posts_per_page' => 5,
+  'posts_per_page' => 5
+  ,
   'post_type' => 'post',
   'order' => 'rand'
 );
@@ -18,12 +19,7 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
                 <?php foreach($sliders as $slider): ?>
                   <li>
                     <img src="<?php echo $slider['image']?>"> <!-- random image -->
-                    <div class="caption center-align">
-                      <h3><?php echo $slider['title']?></h3>
-                      <h5 class="light grey-text text-lighten-3">
-                        <?php echo $slider['yourprefix_demo_wysiwyg']; ?>
-                      </h5>
-                    </div>
+                   
                   </li>
                 <?php endforeach;?>
               </ul>
@@ -31,6 +27,10 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
         
       
 </header>
+
+<?php
+ 
+?>
 <div class="container flex-none">
 <div class="content-none"></div>
       <section class="container-slider">
