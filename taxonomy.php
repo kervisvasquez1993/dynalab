@@ -41,11 +41,9 @@ $taxonomia_actual = get_queried_object();
 					endforeach;
 				    ?>
 			</div>
-			<div id="productos" class="container_ui">
-				<?php
-				
-					foreach($terms as $term):
-						   
+			<div id="productos" class="container2">
+			  <?php
+				    foreach($terms as $term):
 						    $image = get_field('img_taxonomia', $term);
 			                $busqueda = $term->slug;
 			                filtrar_productos($busqueda);

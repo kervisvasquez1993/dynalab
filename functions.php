@@ -238,19 +238,7 @@ function filtrar_productos($busqueda)
 		$a ='AND';
 	}
    
-
-   /*
-			 $terms = get_terms(array(
-				 'taxonomy' => 'categoria-producto',
-				 'hide_empty' =>true,
-				 ));
-			 echo "<pre>";	 
-			   print_r($terms);
-			 echo "</pre>";
-
-			 */
-				
-	$args = array(
+    $args = array(
 		'posts_per_page' => -1,
 		'post_type' => 'productos',
 		'order' => 'rand',
@@ -271,15 +259,15 @@ function filtrar_productos($busqueda)
 	  );
 	  $farmaco = new WP_Query($args);
 	  if($farmaco->have_posts()) {
-		echo '<div id="'.$busqueda.'" class="card_ui">';
+		echo '<div id="'.$busqueda.'" class="card_blog">';
 			while($farmaco->have_posts()): $farmaco->the_post();?>
 			                    <style>
-									 .container_ui .card_ui .face.face1 img{
+									 .container2 .card_blog .face.face1 img{
                                         border: 5px solid <?php the_field('color');?>;
                                         border-radius: 15px 15px 0 0;
 	                                 }
 									 
-									 .container_ui .card_ui .face.face2{
+									 .container2 .card_blog .face.face2{
 										border-top: 15px solid <?php the_field('color');?>;
 										border-bottom: 15px solid <?php the_field('color');?>;
 										display: flex;
@@ -289,10 +277,8 @@ function filtrar_productos($busqueda)
                                </style>
 			            <div class="face face1">
 							<div class="content">
-								  
-                                  <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
-					             
-							</div>
+								  <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
+					        </div>
 						</div>
 						<div class="face face2" style="color: <?php the_field('color');?>">
 								<div>
@@ -301,11 +287,10 @@ function filtrar_productos($busqueda)
 									 <img src="<?php echo $image ?>">
 								</div>
 							<div class="content">	
-								
-							    <p>
+								<p>
 							    	<?php the_excerpt(); ?>
 							    </p>
-							    <a href="<?php echo get_the_permalink($post->ID)?>">
+							    <a href="#>">
 							    	<p>leer mas</p>	
 							    </a>
 							</div>
@@ -321,6 +306,7 @@ function filtrar_productos($busqueda)
 
 function productos()
 {
+	
 	$args = array('posts_per_page' => 4,'post_type' => 'productos','order' => 'rand',);
 	  $farmaco = new WP_Query($args);
 	  if($farmaco->have_posts()) {
