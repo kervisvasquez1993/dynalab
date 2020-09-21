@@ -261,40 +261,30 @@ function filtrar_productos($busqueda)
 	  if($farmaco->have_posts()) {
 		echo '<div id="'.$busqueda.'" class="card_blog">';
 			while($farmaco->have_posts()): $farmaco->the_post();?>
-			                    <style>
-									 .container2 .card_blog .face.face1 img{
-                                        border: 5px solid <?php the_field('color');?>;
-                                        border-radius: 15px 15px 0 0;
-	                                 }
-									 
-									 .container2 .card_blog .face.face2{
-										border-top: 15px solid <?php the_field('color');?>;
-										border-bottom: 15px solid <?php the_field('color');?>;
-										display: flex;
-                                        justify-content: flex-end;
-									 }
-									 
-                               </style>
-			            <div class="face face1">
-							<div class="content">
-								  <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
-					        </div>
-						</div>
-						<div class="face face2" style="color: <?php the_field('color');?>">
-								<div>
+			            <div class="content-card">
+						   <div class="face face1">
+						   	<div class="content">
+						   		  <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
+					           </div>
+						   </div>
+						   <div class="face face2" style="color: <?php the_field('color');?>">
+						   		<div>
 									 <img class="contenido-title"  src="<?php the_field('imagen_fondo_producto')?>" alt=""> 
 									 <p class="titulo_producto"><?php the_title();?></p>
 									 <img src="<?php echo $image ?>">
-								</div>
-							<div class="content">	
+						   		</div>
+						   	<div class="content">	
 								<p>
 							    	<?php the_excerpt(); ?>
 							    </p>
 							    <a href="#>">
 							    	<p>leer mas</p>	
 							    </a>
-							</div>
-			            </div>
+						   	</div>
+			               </div>
+						</div>
+
+
 			<?php
 			endwhile; wp_reset_postdata();
 			?>
