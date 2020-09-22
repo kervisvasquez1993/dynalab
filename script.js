@@ -161,6 +161,17 @@ if(elmento2){
       
     });  
 
+
+    /**agregamo elemento para resaltar  */
+
+    let resaldato = document.querySelector('.current-menu-item')
+    let divMenu = document.createElement('div')
+    divMenu.classList = ('resaltado')
+    if(resaldato)
+    {
+      resaldato.appendChild(divMenu)
+    }
+
 ;
 ((d,c,$) => {
 

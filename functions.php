@@ -155,7 +155,8 @@ function dynalab_scripts() {
 
 
 	
-	wp_enqueue_style('menu-responsive','https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.css', array(),'1.0.0','all');  
+	wp_enqueue_style('menu-responsive','https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.css', array(),'1.0.0','all'); 
+	wp_enqueue_style('font', get_template_directory_uri().'/css/font.css', array(), '1.0.0', 'all'); 
 	wp_enqueue_style('materialize','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', array(),'1.0.0'.'all');
 	wp_enqueue_style('material-icom','https://fonts.googleapis.com/icon?family=Material+Icons', array(),'4.7.0'.'all');
 	wp_enqueue_style('slider-css', 'https://unpkg.com/swiper/swiper-bundle.min.css', array(), '6.0.4', 'all');
@@ -223,6 +224,31 @@ function mostrar_post_type($query){
 add_action('pre_get_posts', 'mostrar_post_type' );
 
 
+
+function contenido_hero(){
+
+	?>
+	<div class="hero-page" style="background:url('<?php echo get_the_post_thumbnail_url();?>');" >
+    <div class="wrap-hero">
+         <div class="hero-content">
+              <p><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a><p> <p>></p> <p><?php the_title();?></p>
+         </div>
+         <div class="hero-content-2">
+             <h4 class="titulo">
+                 <?php the_title();?>
+                 <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
+             </h4>
+             <p class="slogan-title">Comprometidos <spam class="destacado"> Con Tu Salud</spam></p>
+             
+         </div>
+    </div>
+
+</div>
+
+
+<?php 
+
+}
 
 function filtrar_productos($busqueda)
 {

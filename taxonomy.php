@@ -15,7 +15,7 @@ $taxonomia_actual = get_queried_object();
 <div class="hero-page" style="background:url('<?php echo get_template_directory_uri();?>/img/taxonomia.jpg');" >
     <div class="wrap-hero">
          <div class="hero-content">
-		    <p class="home">INICIO</p> <p> > </p> <p> ÁREAS TERAPEÚTICAS</p> <p> > </p> <p> PRODUCTOS </p> <p> > </p> <p><?php echo $taxonomia_actual->name; ?></p>
+		    <p class="home">INICIO</p> <p> &gt </p> <p> ÁREAS TERAPEÚTICAS</p> <p> > </p> <p> PRODUCTOS </p> <p> > </p> <p><?php echo $taxonomia_actual->name; ?></p>
          </div>
          <div class="hero-content-2">
              <h4 class="titulo">

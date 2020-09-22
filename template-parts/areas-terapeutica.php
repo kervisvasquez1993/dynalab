@@ -8,23 +8,9 @@
  
     $iconos = get_post_meta( get_the_ID(), 'campos_repetidos', true );
     $productos = get_page_by_title('PRODUCTOS  DYNALAB');
+    contenido_hero();
 ?>
-<div class="hero-page" style="background:url('<?php echo get_the_post_thumbnail_url();?>');" >
-    <div class="wrap-hero">
-         <div class="hero-content">
-             <p><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a></p> <p>></p> <p><?php the_title();?></p>
-         </div>
-         <div class="hero-content-2">
-             <h4 class="titulo">
-                 <?php the_title();?>
-                 <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
-             </h4>
-             <p class="slogan-title">Comprometidos <spam class="destacado"> Con Tu Salud</spam></p>
-             
-         </div>
-    </div>
 
-</div>
 
 </header>
 

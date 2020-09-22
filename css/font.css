@@ -1,0 +1,27 @@
+  
+@font-face{
+    font-family: "myriadpro";
+    src: url('../fonts/myriad/MYRIADPRO-REGULAR.woff');
+}
+@font-face{
+    font-family: "nexa-ligth";
+    src: url('../fonts/Nexa/Nexa_Light.otf');
+}
+@font-face{
+    font-family: "nexa-bold";
+    src: url('../fonts/Nexa/Nexa_Bold.otf');
+}
+
+
+.myriad > *{
+    font-family: 'myriadpro' !important;
+    font-weight: bold !important;
+}
+p,span{
+	font-family: 'nexa-ligth';
+	
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: 'nexa-bold';
+	font-weight: 700;
+}

@@ -64,9 +64,9 @@
             wp_nav_menu(
        		           array(
        		             'theme_location' => 'menu-1',
-       		             'menu_class' => 'right hide-on-med-and-down',
+       		             'menu_class' => 'right hide-on-med-and-down myriad',
        		             'container' => 'ul',
-       		             'container_class' => 'test1'
+       		             'container_class' => 'test1 myriad'
        		                             	)
        		           );
  
