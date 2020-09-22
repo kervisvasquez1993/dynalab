@@ -15,7 +15,7 @@ $taxonomia_actual = get_queried_object();
 <div class="hero-page" style="background:url('<?php echo get_template_directory_uri();?>/img/taxonomia.jpg');" >
     <div class="wrap-hero">
          <div class="hero-content">
-		    <p class="home">INICIO</p> <p> &gt </p> <p> ÁREAS TERAPEÚTICAS</p> <p> > </p> <p> PRODUCTOS </p> <p> > </p> <p><?php echo $taxonomia_actual->name; ?></p>
+		    <p class="home"><a href="#">INICIO</a> &gt  <a href="#">  ÁREAS TERAPEÚTICAS</a> &gt <a href="#"> <?php echo $taxonomia_actual->name; ?> </a> </p> 
          </div>
          <div class="hero-content-2">
              <h4 class="titulo">
@@ -30,8 +30,8 @@ $taxonomia_actual = get_queried_object();
 </div>
 </header>
 	
-		<main id="filtrar" class="container">
-		 	<div class="menu">
+		<main id="filtrar">
+		 	<div class="menu" id="menu_filtro">
 			       <?php $imagen_principal = get_field('img_taxonomia',$taxonomia_actual);
 					echo "<a class='iconos_menu' href='#todos'><img src='$imagen_principal'></a>";
 					$terms = get_terms( array('taxonomy' => 'categoria-producto',) );
@@ -41,6 +41,7 @@ $taxonomia_actual = get_queried_object();
 					endforeach;
 				    ?>
 			</div>
+			<div class="mostrar_selecionado"></div>
 			<div id="productos" class="container_ui">
 				<?php
 				

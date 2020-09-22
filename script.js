@@ -2,6 +2,8 @@ let elmento = document.querySelector('.container-slider .swiper-container')
 let elmento2 = document.querySelector('.container-slider-2 .swiper-container')
 let elmento3 = document.querySelector('.container-slider-3 .swiper-container')
 let colorCard = document.querySelectorAll('.face2')
+let resaldato = document.querySelector('.current-menu-item')
+let menu_filtro = document.querySelector('#menu_filtro ')
 
 // dom script para agregar color al card 
 if(colorCard){
@@ -164,7 +166,7 @@ if(elmento2){
 
     /**agregamo elemento para resaltar  */
 
-    let resaldato = document.querySelector('.current-menu-item')
+  
     let divMenu = document.createElement('div')
     divMenu.classList = ('resaltado')
     if(resaldato)
@@ -172,6 +174,18 @@ if(elmento2){
       resaldato.appendChild(divMenu)
     }
 
+
+
+
+    /* filtro para mostrar menu */
+   
+
+    
+  
+    
+
+
+    /* fin de filtro */
 ;
 ((d,c,$) => {
 
@@ -205,8 +219,17 @@ if(elmento2){
       
       })
 
+        
+        $('#filtrar .menu  a').on('click', function(e){
 
-        $('#filtrar .menu  a').on('click', function(){
+          let nombre_selecionado = e.target.parentElement.getAttribute('href')
+          let mostar_selecionado = document.querySelector('.mostrar_selecionado')
+          nombre_selecionado.replace('#', 'kervis')
+          console.log(nombre_selecionado)
+          mostar_selecionado.textContent = nombre_selecionado
+
+
+
           var enlaces = $(this).attr('href')
           if( enlaces == '#todos'){
             $('#productos > div ').show()

@@ -1071,6 +1071,7 @@ max-height: 50px;
 .hero-page > *{
 	color: white;
 	font-weight: bold;
+	margin-left: 0 !important;
 }
 .hero-content{
 	display: flex;
