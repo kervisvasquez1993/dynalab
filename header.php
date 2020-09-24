@@ -36,20 +36,20 @@
 					  <span class="wrapp-icon">
 				         <img  class="logo-header header-search-button" id="headerSearchButton"   src="<?php echo get_stylesheet_directory_uri().'/assets/buscar-header.png';?>" alt="">   
 				      </span>
-				           <span class="wrapp-icon">
+				           <span class="wrapp-icon z-index-1000">
 				              <img  class="logo-header" src="<?php echo get_stylesheet_directory_uri().'/assets/telefono-header.png';?>" alt="">
 				           	<p class="font-header"> (+58) 424 4444161 </p>
 				           </span>
 				           
 				           
-				           <span class="wrapp-icon">
+				           <span class="wrapp-icon z-index-1000">
 				              <img  class="logo-header" src="<?php echo get_stylesheet_directory_uri().'/assets/correo-header.png';?>" alt="">
 				              <p class="font-header"> atencion@dynamics.com </p>
 				           </span>
 				      </div>
 
                 </div>
-				<div class="header2 position-a">
+				<div class="header2 position-a z-index-1000">
 					<a href="<?php echo esc_url(home_url('/'));?>" class="custom-log-link">
 					    <img  class="custom-logo" src="<?php echo get_template_directory_uri();?>/img/logo.png" alt="logo de dyanlab">
 					</a>
@@ -64,9 +64,9 @@
             wp_nav_menu(
        		           array(
        		             'theme_location' => 'menu-1',
-       		             'menu_class' => 'right hide-on-med-and-down myriad',
+       		             'menu_class' => 'right hide-on-med-and-down myriad z-index-1000',
        		             'container' => 'ul',
-       		             'container_class' => 'test1 myriad'
+       		             'container_class' => 'test1 myriad z-index-1000'
        		                             	)
        		           );
  
@@ -82,7 +82,7 @@
 		array(
 		  'theme_location' => 'menu-1',
 		  'menu_id'        => 'mobile-demo',
-		  'menu_class' => 'sidenav',
+		  'menu_class' => 'sidenav z-index-1000',
 		  'container' => 'ul',
 		  'container_class' => 'test1'
 		                  	)

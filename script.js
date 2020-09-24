@@ -4,6 +4,13 @@ let elmento3 = document.querySelector('.container-slider-3 .swiper-container')
 let colorCard = document.querySelectorAll('.face2')
 let resaldato = document.querySelector('.current-menu-item')
 let menu_filtro = document.querySelector('#menu_filtro ')
+let selector_front_page = document.querySelector('#slider')
+
+if(selector_front_page){
+  let siteHeader = document.querySelector('.site-header')
+  siteHeader.classList.add('content-before')
+  
+}
 
 
 
