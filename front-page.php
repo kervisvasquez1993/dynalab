@@ -13,8 +13,8 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
 
 ?>
 
-<div class="slider">
-              <ul class="slides">
+<div class="slider" style="height: 500px !important">
+              <ul class="slides" style="height: 450px !important">
                   
                 <?php foreach($sliders as $slider): ?>
                   <li>

@@ -231,7 +231,7 @@ function contenido_hero(){
 	<div class="hero-page" style="background:url('<?php echo get_the_post_thumbnail_url();?>');" >
     <div class="wrap-hero">
          <div class="hero-content">
-              <p><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a><p> <p>></p> <p><?php the_title();?></p>
+			  <h6 class="home"><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a> &gt  <?php the_title();?></h6> 
          </div>
          <div class="hero-content-2">
              <h4 class="titulo">
@@ -297,43 +297,42 @@ function filtrar_productos($busqueda)
 	  );
 	  $farmaco = new WP_Query($args);
 	  if($farmaco->have_posts()) {
-		echo '<div id="'.$busqueda.'" class="card_ui">';
+		echo '<div id="'.$busqueda.'" class="card_blog">';
 			while($farmaco->have_posts()): $farmaco->the_post();?>
-			                    <style>
-									 .container_ui .card_ui .face.face1 img{
-                                        border: 5px solid <?php the_field('color');?>;
-										border-radius: 15px 15px 0 0;
-										
-	                                 }
-									 
-									 .container_ui .card_ui .face.face2{
-										border-top: 15px solid <?php the_field('color');?>;
-										border-bottom: 15px solid <?php the_field('color');?>;
-										display: flex;
-										justify-content: flex-end;
-										
-									 }
-									 
-                               </style>
-					 <div class="card_wrap">
-			            <div class="face face1">
+			                    
+					<div class="card_wrap">
+			            <div class="face face1" style="color: <?php the_field('color');?>">
 							<div class="content">
+							
 								  
-                                  <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
-					             
+								  <?php 
+								  $thumbID = get_post_thumbnail_id( $post->ID );
+								  $imgDestacada = wp_get_attachment_url( $thumbID );
+								  
+								 //the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
+								 <img height="300" src="<?php echo $imgDestacada?>" class="test-imagen" style="
+								 		border: 3px solid <?php the_field('color');?>;
+										border-radius: 15px 15px 0 0;
+								 "> 
 							</div>
 						</div>
-						<div class="face face2" style="color: <?php the_field('color');?>">
-								<div>
-									 <img class="contenido-title"  src="<?php the_field('imagen_fondo_producto')?>" alt=""> 
-									 <p class="titulo_producto"><?php the_title();?></p>
-									 <img src="<?php echo $image ?>">
+						<div class="face face2" style="
+						   color:<?php the_field('color');?>;
+						   border-top: 15px solid <?php the_field('color');?>;
+						   border-bottom: 15px solid <?php the_field('color');?>;
+						   display: flex;
+						   flex-direction: column;
+					   ">
+								<div class="face_imagen">
+									 <img  class="contenido-title_blog"  src="<?php the_field('imagen_fondo_producto')?>" alt=""> 
+									 <p class="titulo_producto_blog"><?php the_title();?></p>
+									
 								</div>
 							<div class="content">	
 		                          <?php the_content(); ?>
 							</div>
-			              </div>
-						</div>
+			            </div>
+					</div>
 			<?php
 			endwhile; wp_reset_postdata();
 			?>

@@ -5,6 +5,29 @@ let colorCard = document.querySelectorAll('.face2')
 let resaldato = document.querySelector('.current-menu-item')
 let menu_filtro = document.querySelector('#menu_filtro ')
 
+
+
+//menu pegajoso para el menu
+
+if(menu_filtro){
+var stickymenu = menu_filtro
+	var stickymenuoffset = stickymenu.offsetTop
+
+window.addEventListener("scroll", function(e){
+    requestAnimationFrame(function(){
+        if (window.pageYOffset > stickymenuoffset){
+            stickymenu.classList.add('p')
+        }
+        else{
+            stickymenu.classList.remove('p')
+        }
+    })
+})
+}
+
+
+//fin del menu pegajoso
+
 // dom script para agregar color al card 
 if(colorCard){
 
@@ -224,9 +247,19 @@ if(elmento2){
 
           let nombre_selecionado = e.target.parentElement.getAttribute('href')
           let mostar_selecionado = document.querySelector('.mostrar_selecionado')
-          nombre_selecionado.replace('#', 'kervis')
-          console.log(nombre_selecionado)
-          mostar_selecionado.textContent = nombre_selecionado
+          let regex = /-/gi;
+          if(nombre_selecionado != null)
+          {
+
+             let var1 = nombre_selecionado.replace('#', " ")
+             let var2 = var1.replace(regex , " ")
+             mostar_selecionado.classList.add('center-filtro')
+             
+             mostar_selecionado.textContent = var2
+          }
+          
+          
+          
 
 
 
