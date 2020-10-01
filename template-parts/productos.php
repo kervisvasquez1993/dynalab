@@ -4,6 +4,7 @@
 */
 get_header();
 $dynalab_terapeutica = get_page_by_title('ÁREAS TERAPÉUTICAS');
+$todo_los_productos = get_page_by_title('PRODUCTOS  DYNALAB');
 $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
  /*
     echo "<img src='$image'>";
@@ -16,7 +17,8 @@ $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
 <div class="hero-page" style="background:url('<?php echo get_the_post_thumbnail_url();?>');" >
     <div class="wrap-hero">
          <div class="hero-content">
-              <a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a> > <p>ÁREAS TERAPEÚTICAS</p> > <p><?php the_title();?></p>
+             
+              <p class="home"><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt  <a href="<?php the_permalink($todo_los_productos>ID);?>">  ÁREAS TERAPEÚTICAS</a> &gt <a href="#"> <?php the_title();?> </a> </p>
          </div>
          <div class="hero-content-2">
              <h4 class="titulo">

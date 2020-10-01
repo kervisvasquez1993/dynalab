@@ -342,9 +342,9 @@ function filtrar_productos($busqueda)
 }
 
 
-function productos()
+function productos_slider()
 {
-	$args = array('posts_per_page' => 5,'post_type' => 'productos','order' => 'rand',);
+	$args = array('posts_per_page' => 4,'post_type' => 'productos','order' => 'rand',);
 	  $farmaco = new WP_Query($args);
 	  if($farmaco->have_posts()) {
 			
@@ -361,6 +361,35 @@ function productos()
 }
 
 
+function productos()
+{
+	$args = array('posts_per_page' => 4,'post_type' => 'productos','order' => 'rand',);
+	  $farmaco = new WP_Query($args);
+	  if($farmaco->have_posts()) {
+			
+	?>  <div class="productos_container_principal "><?php
+			while($farmaco->have_posts()): $farmaco->the_post();?>
+			            	<div class="imagen_producto">
+							  <?php the_post_thumbnail( $post->ID, array('class'=> '') ); ?>
+							</div>
+			<?php endwhile; wp_reset_postdata(); ?>
+		</div>
+		
+		<?php 
+	  }
+}
+
+function banner($titulo, $contenido)
+{?>
+
+	<div class=conoce_dynalab>
+              <h3> <?php echo $titulo; ?>
+                <span class="resaltado_contenido"></span>
+              </h3>
+              <p><?php echo $contenido; ?></p>
+		  </div>
+<?php
+}
 
 //curpo de la funcion
 function buscarResultado(){

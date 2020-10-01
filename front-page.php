@@ -2,6 +2,8 @@
 get_header();
 $sliders = get_post_meta( get_the_ID(), 'slider', true );
 $dynalab = get_page_by_title('DYNALAB');
+//$titulo_dynalab = get_field('conoce_dynalab');
+$conoce_dynala = get_field('contenido_dybalab');
 $args = array(
   'posts_per_page' => 5
   ,
@@ -31,14 +33,14 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
 <?php
  
 ?>
-<div class="container flex-none">
-<div class="content-none"></div>
-      <section class="container-slider">
-
-<!-- Swiper -->
+<div class="container_productos flex-none">
+     <?php productos();?>
+    <div class="content-none"></div>
+      <section class="container-slider ocultar">
+         <!-- Swiper -->
           <div class="swiper-container ">
                <div class="swiper-wrapper">
-                   <?php productos();?>
+                   <?php productos_slider();?>
                </div>
                <!-- Add Pagination -->
                <div class="paginacion_container">
@@ -65,13 +67,11 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
 	  background-size: cover;
 ">
      
-          <div>
-              <h3 class="center">Dynalab</h3>
-              <p class="center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.  Dolores repudiandae ipsum aut vel voluptate voluptatem.  Dolores repudiandae ipsum aut vel voluptate voluptatem. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
-          </div>
+          <?php 
+          $titulo_dynalab = 'CONOCE DYNALAB';
+          $titlulo_contenido = 'En Dynalab estamos comprometidos con tu salud. Nuestra empresa se centra en otorgar una solución comercial al sector farmacéutico venezolano, ofertando medicamentos de la más alta calidad.';
+          banner($titulo_dynalab, $titlulo_contenido);?>
           <a href="<?php the_permalink($dynalab->ID);?>"  class="center btn btn-boton_front">CONOCE DYNALAB</a>
-     
-     
 </section>
 <section class="container mostrar">
     <div class="parent">

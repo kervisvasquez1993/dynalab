@@ -9,13 +9,14 @@
 
 get_header();
 $taxonomia_actual = get_queried_object();
+$todo_los_productos = get_page_by_title('PRODUCTOS  DYNALAB');
 
 ?>
 
 <div class="hero-page" style="background:url('<?php echo get_template_directory_uri();?>/img/taxonomia.jpg');" >
     <div class="wrap-hero">
          <div class="hero-content">
-		    <p class="home"><a href="#">INICIO</a> &gt  <a href="#">  ÁREAS TERAPEÚTICAS</a> &gt <a href="#"> <?php echo $taxonomia_actual->name; ?> </a> </p> 
+		    <p class="home"><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt  <a href="<?php the_permalink($todo_los_productos->ID);?>">  ÁREAS TERAPEÚTICAS</a> &gt <a href="#"> <?php echo $taxonomia_actual->name; ?> </a> </p> 
          </div>
          <div class="hero-content-2">
              <h4 class="titulo">
@@ -29,7 +30,7 @@ $taxonomia_actual = get_queried_object();
 
 </div>
 </header>
-	
+
 		<main id="filtrar">
 		 	<div class="menu" id="menu_filtro">
 			       <?php $imagen_principal = get_field('img_taxonomia',$taxonomia_actual);
