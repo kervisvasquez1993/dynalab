@@ -25,6 +25,7 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
                   </li>
                 <?php endforeach;?>
               </ul>
+              <h6 class="titulo-slider">Comprometidos Con tu Salud</h6>
 </div>
         
       

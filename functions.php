@@ -263,18 +263,7 @@ function filtrar_productos($busqueda)
 	}else{
 		$a ='AND';
 	}
-   
 
-   /*
-			 $terms = get_terms(array(
-				 'taxonomy' => 'categoria-producto',
-				 'hide_empty' =>true,
-				 ));
-			 echo "<pre>";	 
-			   print_r($terms);
-			 echo "</pre>";
-
-			 */
 				
 	$args = array(
 		'posts_per_page' => -1,
@@ -326,10 +315,12 @@ function filtrar_productos($busqueda)
 								<div class="face_imagen">
 									 <img  class="contenido-title_blog"  src="<?php the_field('imagen_fondo_producto')?>" alt=""> 
 									 <p class="titulo_producto_blog"><?php the_title();?></p>
-									
 								</div>
-							<div class="content">	
-		                          <?php the_content(); ?>
+							<div class="content">
+								<span>
+								    <?php the_content();?>
+								</span>
+								<a href="<?php the_field('agregar_archivo');?>" class="pdf">Ver Productos</a>							
 							</div>
 			            </div>
 					</div>
