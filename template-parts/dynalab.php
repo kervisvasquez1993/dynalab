@@ -11,7 +11,10 @@ contenido_hero();
 
 
 </header>
+<?php
 
+
+?>
 <main id="primary" class="site-main">
     <div class="container container_quienes_somos">
         <div class="quienes_somos_imagen">

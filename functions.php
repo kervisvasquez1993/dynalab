@@ -416,3 +416,5 @@ add_action('wp_ajax_buscarResultado', 'buscarResultado');
 
 
 //url con ajax
+
+

@@ -121,8 +121,8 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
 </section>
 
 
-
-
-
+<?php
+dynalab_marca();
+?>
 
 <?php get_footer();?>
