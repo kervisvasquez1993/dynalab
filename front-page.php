@@ -5,7 +5,7 @@ $dynalab = get_page_by_title('DYNALAB');
 //$titulo_dynalab = get_field('conoce_dynalab');
 $conoce_dynala = get_field('contenido_dybalab');
 $args = array(
-  'posts_per_page' => 5,
+  'posts_per_page' => 1,
   'post_type' => 'post',
   'order' => 'rand'
 );
@@ -79,51 +79,16 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
           banner($titulo_dynalab, $titlulo_contenido);?>
           <a href="<?php the_permalink($dynalab->ID);?>"  class="center btn btn-boton_front">CONOCE DYNALAB</a>
 </section>
-<section class="container mostrar">
-    <div class="parent">
-    <?php
-        $contador = 0;
+<section class="container">
+     <?php 
         while($farmaco2->have_posts()):
-        $contador++;
-        $farmaco2->the_post();?>
-        <div class="div<?php echo $contador;?>">
-            <?php the_post_thumbnail( $post->ID, array('class'=> '') ); ?>
-                  
-        </div>
-        <?php  endwhile; wp_reset_postdata();?>
-    </div>
+          $farmaco2->the_post();
+           the_post_thumbnail( $post->ID, array('class'=> '') ); 
+        endwhile;wp_reset_postdata();
+     ?>
+
 </section>
 
-<section class="product-post ocultar">
-     <div class="container-slider-2">
-     
-     <!-- Swiper -->
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-
-            <?php
-                 
-                 while($farmaco2->have_posts()):
-                  $contador++;
-                   $farmaco2->the_post();?>
-                    <div class="swiper-slide imagen-producto" >
-                    <?php the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
-                         <div class="wrapper-content-card">
-                             <h3>Lorem idivsum dolor sit amet </h3> 
-                             <a href="<?php the_permalink();?>" class="leer-mas">Leer</a>
-                         </div>
-                    </div>
-                <?php
-                 endwhile;wp_reset_postdata();
-            ?>
-                
-            </div>
-            <!--navegador-->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-     </div>
-</section>
 
 
 
