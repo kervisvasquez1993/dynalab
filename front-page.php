@@ -24,7 +24,9 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
                   </li>
                 <?php endforeach;?>
               </ul>
-              <h6 class="titulo-slider">Comprometidos Con tu Salud</h6>
+              <h3 class="titulo-slider">
+                 <span class="titulo_slider_1">Comprometidos</span> <span class="titulo_slider_2">Con tu Salud</span>
+              </h3>
 </div>
         
       
@@ -34,8 +36,11 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
  
 ?>
 <div class="container_productos flex-none">
+
      <?php productos();?>
-    <div class="content-none"></div>
+
+
+    <div class="content-none">
       <section class="container-slider ocultar">
          <!-- Swiper -->
           <div class="swiper-container ">
@@ -49,6 +54,7 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
                </div>
           </div>
       </section>
+      </div>
       <?php
         
          

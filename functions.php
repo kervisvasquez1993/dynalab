@@ -341,7 +341,7 @@ function filtrar_productos($busqueda)
 
 function productos_slider()
 {
-	$args = array('posts_per_page' => 4,'post_type' => 'productos','order' => 'rand',);
+	$args = array('posts_per_page' => 4,'post_type' => 'productos','order' => 'DESC',);
 	  $farmaco = new WP_Query($args);
 	  if($farmaco->have_posts()) {
 			
@@ -360,7 +360,7 @@ function productos_slider()
 
 function productos()
 {
-	$args = array('posts_per_page' => 4,'post_type' => 'productos','order' => 'rand',);
+	$args = array('posts_per_page' => 4,'post_type' => 'productos','order' => 'ASC',);
 	  $farmaco = new WP_Query($args);
 	  if($farmaco->have_posts()) {
 			
@@ -420,6 +420,46 @@ function buscarResultado(){
 add_action('wp_ajax_nopriv_buscarResultado', 'buscarResultado');
 add_action('wp_ajax_buscarResultado', 'buscarResultado');
 
+
+
+add_filter('posts_join', 'childorbit_search_join');
+
+function childorbit_search_join($join){
+	global $wpdb;
+	
+	if ( is_search() ) {
+		$join .= "INNER JOIN {$wpdb->term_relationships} tr ON {$wpdb->posts}.ID = tr.object_id INNER JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id=tr.term_taxonomy_id INNER JOIN {$wpdb->terms} t ON t.term_id = tt.term_id INNER JOIN {$wpdb->postmeta} pm ON {$wpdb->posts}.ID = pm.post_id ";
+	}
+	return $join;
+}
+
+add_filter('posts_where','childorbit_search_where');
+
+function childorbit_search_where($where){
+	global $wpdb;
+	
+	if ( is_search() ) {
+		$where .= " OR (t.name LIKE '%".get_search_query()."%') ";
+		$where .= " OR (pm.meta_value LIKE '%".get_search_query()."%') ";
+	}
+	return $where;
+}
+
+add_filter('posts_groupby', 'childorbit_search_groupby');
+
+function childorbit_search_groupby($groupby){
+    global $wpdb;
+
+    // we need to group on post ID
+    $groupby_id = "{$wpdb->posts}.ID";
+    if(!is_search() || strpos($groupby, $groupby_id) !== false) return $groupby;
+
+    // groupby was empty, use ours
+    if(!strlen(trim($groupby))) return $groupby_id;
+
+    // wasn't empty, append ours
+    return $groupby.", ".$groupby_id;
+}   
 
 //url con ajax
 
