@@ -658,7 +658,12 @@ function slider() {
 }
 
 
+
+
 /**campos repetidos dos */
+
+
+// campos repetidos para productos
 
 
 

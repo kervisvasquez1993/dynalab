@@ -8,32 +8,45 @@
  */
 
 get_header();
+
 ?>
+<div class="hero-page" style="background:url('<?php echo get_template_directory_uri();?>/img/imagen_blog.jpg');" >
+    <div class="wrap-hero">
+         <div class="hero-content">
+			  <h6 class="home"><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a> &gt  BLOG </h6> 
+         </div>
+         <div class="hero-content-2">
+             <h4 class="titulo">
+                  BLOG 
+                 <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
+             </h4>
+             <p class="slogan-title">Comprometidos <spam class="destacado"> Con Tu Salud</spam></p>
+             
+         </div>
+    </div>
 
-	<main id="primary" class="site-main">
+</div>
+</header>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', get_post_type() );
-
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'dynalab' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'dynalab' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
+<main id="primary" class="site-main">
+	<div class="container section_blog">
+		  <section class="entradas_blog">
+		      <?php
+		        while ( have_posts() ) : the_post();
+		      ?>
+		      	<h3><?php the_title()?></h3>
+			   <img src="<?php  the_post_thumbnail_url();?>" alt=" imagen destacada">
+			   <div class="flex-wrap_blog"><?php the_content(); ?></div>   
+      
+		      <?php
+     	      endwhile; // End of the loop.
+		      ?>
+		 </section>
+		 <aside>
+			<?php get_sidebar();?>
+		 </aside>
+    </div>
+</main><!-- #main -->
 
 <?php
 get_footer();

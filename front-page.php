@@ -5,8 +5,7 @@ $dynalab = get_page_by_title('DYNALAB');
 //$titulo_dynalab = get_field('conoce_dynalab');
 $conoce_dynala = get_field('contenido_dybalab');
 $args = array(
-  'posts_per_page' => 5
-  ,
+  'posts_per_page' => 5,
   'post_type' => 'post',
   'order' => 'rand'
 );
@@ -121,8 +120,5 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
 </section>
 
 
-<?php
-dynalab_marca();
-?>
 
 <?php get_footer();?>

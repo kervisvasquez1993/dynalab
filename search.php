@@ -1,22 +1,38 @@
 <?php
 /**
- * The template for displaying search results pages
+ * The main template file
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Dynalab
  */
 
 get_header();
+
+$pagina_blog = get_option('page_for_posts');
+$imagen = get_post_thumbnail_id($pagina_blog);
+$imagen = wp_get_attachment_image_src($imagen,'full');
+$link_blog = get_page_by_title('BLOG');
 ?>
-<div class="hero-page" style="background:url('<?php echo get_the_post_thumbnail_url();?>');" >
+<div class="hero-page" style="background:url('<?php echo $imagen[0];?>');" >
     <div class="wrap-hero">
          <div class="hero-content">
-             <p class="home">INICIO</p> <p>></p> <p><?php the_title();?></p>
+             <p class=""><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt <a href="<?php the_permalink($link_blog->ID);?>">BLOG</a> </p>
+             
+
+             <?php $current_tag = single_tag_title( "", false );
+                
+             ?>
+
          </div>
          <div class="hero-content-2">
              <h4 class="titulo">
-                 <?php the_title();?>
+                 <?php echo $current_tag;?>
                  <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
              </h4>
              <p class="slogan-title">Comprometidos <spam class="destacado"> Con Tu Salud</spam></p>
@@ -30,42 +46,64 @@ get_header();
 
 
 	<main id="primary" class="site-main">
+		<div class="page_blog">
+	        <div class="sidebar_blog">
+				<?php get_sidebar();?>
+			</div>
+		     <?php
+		     if ( have_posts() ) :
+     
+		     	if ( is_home() && ! is_front_page() ) :
+		     		?>
+		     		<header>
+		     			<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+		     		</header>
+		     		<?php
+		     	endif;
 
-		<div class="buscar_search" id="buscar_search">
-		<?php
-		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
-
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+            /* Start the Loop */
+            ?>
+            <div  class="container_entrada">
+			<?php while ( have_posts() ) : the_post();?>
+			<div class="card_wrap card_entradas">
+			            <div class="face face1" style="color: <?php the_field('color');?>">
+							<div class="content">
+							    <?php 
+								  $thumbID = get_post_thumbnail_id( $post->ID );
+								  $imgDestacada = wp_get_attachment_url( $thumbID );
+								 //the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
+								 <img height="300" src="<?php echo $imgDestacada?>" class="test-imagen" style="
+								 		border: 3px solid #00a0df;
+										border-radius: 15px 15px 0 0;"> 
+							</div>
+						</div>
+						<div class="face face2">
+								<div class="face_imagen2">
+									 <img  class="contenido-title_blog"  src="<?php echo get_template_directory_uri();?>/img/foto.png" alt="test">
+                                     <p class="titulo_blog2"><?php the_time('F j, Y'); ?></p>
+								</div>
+							<div class="content">
+								<span>
+								    <?php the_title();?>
+								</span>
+								<a href="<?php the_permalink(); ?>" class="pdf">Leer Más</a>							
+							</div>
+			            </div>
+					</div>
+			
+			
+			<?php endwhile;
+            the_posts_navigation();
+            ?>
+            </div>
+            <?php 
+		    else :
+    
+		    	get_template_part( 'template-parts/content', 'none' );
+    
+		    endif;
+		   ?>
 		</div>
-
 	</main><!-- #main -->
 
 <?php

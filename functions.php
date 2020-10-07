@@ -173,6 +173,12 @@ function dynalab_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	if ( is_tax() ) {
+		wp_enqueue_style('bootstrap','https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', array(),'4.5.0','all'); 
+		wp_enqueue_script( 'bootstrap_scripts_poppers', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', array('jquery'), '4.5.0', true );
+		wp_enqueue_script( 'bootstrap_scripts', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', array('bootstrap_scripts_poppers'), '4.5.0', true );
+	}
 	
 }
 add_action( 'wp_enqueue_scripts', 'dynalab_scripts' );
@@ -417,4 +423,23 @@ add_action('wp_ajax_buscarResultado', 'buscarResultado');
 
 //url con ajax
 
+
+/*
+
+function wpdocs_remove_menus(){
+   
+  remove_menu_page( 'index.php' );                  //Dashboard
+
+  remove_menu_page( 'edit.php' );                   //Posts
+  remove_menu_page( 'upload.php' );                 //Media
+  remove_menu_page( 'edit.php?post_type=page' );    //Pages
+  remove_menu_page( 'edit-comments.php' );          //Comments
+  remove_menu_page( 'themes.php' );                 //Appearance
+  remove_menu_page( 'plugins.php' );                //Plugins
+  remove_menu_page( 'users.php' );                  //Users
+  remove_menu_page( 'tools.php' );                  //Tools
+  remove_menu_page( 'options-general.php' );        //Settings
+   
+}
+add_action( 'admin_menu', 'wpdocs_remove_menus' );
 

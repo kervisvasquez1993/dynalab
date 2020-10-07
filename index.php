@@ -71,10 +71,9 @@ $imagen = wp_get_attachment_image_src($imagen,'full');
 							</div>
 						</div>
 						<div class="face face2">
-								<div class="face_imagen">
+								<div class="face_imagen2">
 									 <img  class="contenido-title_blog"  src="<?php echo get_template_directory_uri();?>/img/foto.png" alt="test">
-
-									 <p class="titulo_blog"><?php the_time('F j, Y'); ?></p>
+                                     <p class="titulo_blog2"><?php the_time('F j, Y'); ?></p>
 								</div>
 							<div class="content">
 								<span>
