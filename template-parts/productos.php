@@ -5,6 +5,7 @@
 get_header();
 $dynalab_terapeutica = get_page_by_title('ÁREAS TERAPÉUTICAS');
 $todo_los_productos = get_page_by_title('PRODUCTOS  DYNALAB');
+$todo_los_productos_id = $dynalab_terapeutica->ID;
 $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
  /*
     echo "<img src='$image'>";
@@ -57,22 +58,15 @@ $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
 
  
 </main>
-<section class="flex-center-column section-info-front" style=" 
-background: url('<?php echo get_template_directory_uri();?>/img/img1.jpg');
-background-position: center center;
-	  background-repeat: no-repeat;
-	  background-size: cover;
-">      <div class="center-button">
-           <div class="margin-top-10 productos_style">
-               <h3 class="text-center">ÁREAS TERAPEUTICAS</h3>
-               <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repudiandae ipsum aut vel voluptate voluptatem.</p>
-            </div>
-            
-       </div>
-       <a href="<?php the_permalink($dynalab_terapeutica->ID);?>" class="btn btn-boton_front">Ver Areas Terapeutica</a> 
-</section>
 
+<?php 
 
+$titulo_dynalab = "CONOCE LAS ÁREAS TERAPÉUTICAS";
+$contenido = "Buscamos atender y satisfacer las necesidades del paciente, por ello contamos con un amplio portafolios de medicamentos a usarse en distintas áreas terapéuticas.";
+$imagen = "banner.jpg";
+$nombre_enlace = "Ver Todos los Productos";
+banner_section($titulo_dynalab, $contenido,$imagen, $todo_los_productos_id,$nombre_enlace)
+?>
 
 
 <?php get_footer();?>

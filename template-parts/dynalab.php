@@ -5,6 +5,7 @@
 get_header();
 $iconos = get_post_meta( get_the_ID(), 'campos_repetidos', true );
 $productos = get_page_by_title('PRODUCTOS  DYNALAB');
+$id_productos = $productos->ID;
 
 contenido_hero();
 ?>
@@ -77,19 +78,11 @@ contenido_hero();
         </div>
     </div>
 </main><!-- #main -->
-<section class="flex-center-column section-info-front margin-top-10 center-flex " style=" 
-background: url('<?php echo get_template_directory_uri();?>/img/img1.jpg');
-background-position: center center;
-	  background-repeat: no-repeat;
-	  background-size: cover;
-">      <div class="center-button">
-                <?php
+<?php
+                 $titulo_enlace = 'Ver Todos los Productos';
                  $titulo='CONOCE NUESTROS PRODUCTOS';
                  $contenido = 'Encuentra en nuestro amplio portafolio de productos desde medicamentos antialérgicos y antivirales, hasta medicamentos para las funciones gástricas, respiratorias, sistema nervioso, urológicas entre otras.';
-                
-                 banner($titulo, $contenido)
-           ?>
-        </div>
-        <a href="<?php the_permalink($productos->ID);?>" class="btn btn-boton_front">Ver Todos los Productos</a> 
-</section>
+                 $imagen = 'banner.jpg';
+                 banner_section($titulo, $contenido,$imagen,$id_productos,$titulo_enlace);
+                 ?>
 <?php get_footer();?>

@@ -6,6 +6,7 @@ let resaldato = document.querySelector('.current-menu-item')
 let menu_filtro = document.querySelector('#menu_filtro ')
 let selector_front_page = document.querySelector('#slider')
 
+console.log('hola mundo')
 if(selector_front_page){
   let siteHeader = document.querySelector('.site-header')
   siteHeader.classList.add('content-before')
@@ -190,6 +191,9 @@ if(elmento2){
       var elems2 = document.querySelectorAll('.sidenav');
       var instances = M.Slider.init(elems),
           instances2 = M.Sidenav.init(elems2);
+      var elems3 = document.querySelectorAll('.collapsible');
+      var instances3 = M.Collapsible.init(elems3);
+    
       
     });  
 
