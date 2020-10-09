@@ -44,6 +44,7 @@ $todo_los_productos_id = $todo_los_productos->ID;
 				    ?>
 			</div>
 			<div class="mostrar_selecionado"></div>
+			
 			<div id="productos" class="container_ui">
 				<?php
 				

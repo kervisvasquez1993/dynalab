@@ -21,18 +21,7 @@
 		    <p class="footer-content">Cada dos meses haremos una selección de lo más destacado para ti</p>
 		</div>
 		<!--Formullario de contacto -->
-        <form method="POST" class="row  formulario">
-              <div class="form-group">
-			      <input type="text" id="email" class="autocomplete" name="email">
-                  <label for="email">Email</label>     
-			  </div>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label " for="exampleCheck1">He leído y acepto aviso legal y la política de privacidad</label>
-              </div>
-			  <input type="submit" class="btn btn-boton btn-primary" value="enviar">
-              <input type="hidden" name="send_contact_form" value="1 ">
-		</form>
+		<?php echo do_shortcode('[contact-form-7 id="568" title="suscripción"]'); ?>
 		<!--fin-->
      	</article>
      	<article class="footer-2">
@@ -90,6 +79,15 @@
 
 <?php wp_footer(); ?>
 
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147284475-8"></script>
+<script type='text/javascript'>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147284475-8');
+</script>
+-->
 </body>
 </html>
 

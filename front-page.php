@@ -20,8 +20,7 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
                   
                 <?php foreach($sliders as $slider): ?>
                   <li>
-                    <img src="<?php echo $slider['image']?>"> <!-- random image -->
-                   
+                    <img src="<?php echo $slider['image'];?>"> <!-- random image -->
                   </li>
                 <?php endforeach;?>
               </ul>

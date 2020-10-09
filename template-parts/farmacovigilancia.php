@@ -4,6 +4,8 @@
  * **/
 get_header();
 contenido_hero();
+$todo_los_productos = get_page_by_title('DYNALAB');
+$id = $todo_los_productos->ID;
 ?>
 
 
@@ -36,10 +38,10 @@ contenido_hero();
 $titulo_dynalab = "Dynalab";
 $contenido = "En Dynalab estamos comprometidos con tu salud. Nuestra empresa se centra en otorgar una solución comercial al sector farmacéutico venezolano, ofertando medicamentos de la más alta calidad.";
 $imagen = "banner_dynalab.jpg";
-$nombre_enlace = "Conoce Nuestros Productos";
+$nombre_enlace = "Conoce Dynalab";
 
-banner_section($titulo_dynalab, $contenido,$imagen,$productos_id,$nombre_enlace)
-
+banner_section($titulo_dynalab, $contenido,$imagen,$id,$nombre_enlace);
 ?>
+
 
 <?php get_footer();?>

@@ -157,32 +157,22 @@ function dynalab_scripts() {
 	
 	wp_enqueue_style('menu-responsive','https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.css', array(),'1.0.0','all'); 
 	wp_enqueue_style('font', get_template_directory_uri().'/css/font.css', array(), '1.0.0', 'all'); 
-	
-	
-	     wp_enqueue_style('materialize','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', array(),'1.0.0'.'all');
-	     wp_enqueue_style('material-icom','https://fonts.googleapis.com/icon?family=Material+Icons', array(),'4.7.0'.'all');
-     
-	     wp_enqueue_script('materialize-js','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js', array(),'1.0.0', true);
-
-	
+	wp_enqueue_style('materialize','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', array(),'1.0.0'.'all');
+	wp_enqueue_style('material-icom','https://fonts.googleapis.com/icon?family=Material+Icons', array(),'4.7.0'.'all'); 
+	wp_enqueue_script('materialize-js','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js', array(),'1.0.0', true);
 	wp_enqueue_style('slider-css', 'https://unpkg.com/swiper/swiper-bundle.min.css', array(), '6.0.4', 'all');
 	wp_enqueue_style( 'dynalab-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'dynalab-style', 'rtl', 'replace' );
-
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/script-principal.js', array(), '1.0.0', true );
 	wp_enqueue_script( 'filter', get_template_directory_uri() . '/js/jquery.filterizr.min.js', array('jquery'), '1.0.0', true );
 	wp_enqueue_script('slider-js','https://unpkg.com/swiper/swiper-bundle.min.js', array(),'1.0.0', true);
-	
 	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js'), '1.0.0', true );
 	wp_localize_script( 'script', 'admin_url', array('ajax_url' => admin_url( 'admin-ajax.php' )));
-	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
 	if ( is_page('ÁREAS TERAPÉUTICAS') ) {
-		
 		wp_enqueue_style('bootstrap','https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', array(),'4.5.0','all'); 
 		wp_enqueue_script( 'bootstrap_scripts_poppers', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', array('jquery'), '4.5.0', true );
 		wp_enqueue_script( 'bootstrap_scripts', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', array('bootstrap_scripts_poppers'), '4.5.0', true );
@@ -303,7 +293,7 @@ function filtrar_productos($busqueda)
 		echo '<div id="'.$busqueda.'" class="card_blog">';
 			while($farmaco->have_posts()): $farmaco->the_post();?>
 			                    
-					<div class="card_wrap">
+					<div class="card_wrap" id="<?php echo $busqueda?>">
 			            <div class="face face1" style="color: <?php the_field('color');?>">
 							<div class="content">
 							
@@ -398,6 +388,7 @@ function banner_section($titulo_dynalab, $titlulo_contenido,$imagen,$id_enlace,$
     background-position: center center;
 	  background-repeat: no-repeat;
 	  background-size: cover;
+	  color: black;
 ">
           <div class="conoce_dynalab">
                <h3> <?php echo $titulo_dynalab; ?>
@@ -486,26 +477,3 @@ function childorbit_search_groupby($groupby){
     // wasn't empty, append ours
     return $groupby.", ".$groupby_id;
 }   
-
-//url con ajax
-
-
-/*
-
-function wpdocs_remove_menus(){
-   
-  remove_menu_page( 'index.php' );                  //Dashboard
-
-  remove_menu_page( 'edit.php' );                   //Posts
-  remove_menu_page( 'upload.php' );                 //Media
-  remove_menu_page( 'edit.php?post_type=page' );    //Pages
-  remove_menu_page( 'edit-comments.php' );          //Comments
-  remove_menu_page( 'themes.php' );                 //Appearance
-  remove_menu_page( 'plugins.php' );                //Plugins
-  remove_menu_page( 'users.php' );                  //Users
-  remove_menu_page( 'tools.php' );                  //Tools
-  remove_menu_page( 'options-general.php' );        //Settings
-   
-}
-add_action( 'admin_menu', 'wpdocs_remove_menus' );
-

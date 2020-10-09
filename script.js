@@ -5,8 +5,19 @@ let colorCard = document.querySelectorAll('.face2')
 let resaldato = document.querySelector('.current-menu-item')
 let menu_filtro = document.querySelector('#menu_filtro ')
 let selector_front_page = document.querySelector('#slider')
+let p = document.querySelectorAll('p')
 
-console.log('hola mundo')
+if(p){
+let pArr = Array.from(p)
+pArr.forEach(e => {
+  let peli = e.textContent
+  if( peli === ''){
+    e.remove()
+  }
+})
+
+}
+
 if(selector_front_page){
   let siteHeader = document.querySelector('.site-header')
   siteHeader.classList.add('content-before')
@@ -289,3 +300,4 @@ if(elmento2){
         })
     })
 })(document,console.log,jQuery.noConflict())
+

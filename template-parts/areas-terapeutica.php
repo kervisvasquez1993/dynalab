@@ -29,18 +29,18 @@
     ?>
  <div class="col s6 m4 l3 productos_style">
         <div class="imagen-terapeutica">
-            <img class="imagen-card" src="<?php echo $icono[image]?>">
+            <img class="imagen-card" src="<?php echo $icono[image];?>">
         </div> 
-        <div class="body_card" style="background: <?php  echo $icono[background]?>">
+        <div class="body_card" style="background: <?php  echo $icono[background];?>">
            <div  id="<?php echo $valor;?>">
               <a class="btn-link" data-toggle="collapse" data-target="#<?php echo $valor2?>" aria-expanded="true" aria-controls="<?php echo $valor2?>">
-                 <h5><?php echo $icono[title]?> </h5>
+                 <h5><?php echo $icono[title];?> </h5>
               </a>
            </div>
            <div id="<?php echo $valor2?>" class="collapse" aria-labelledby="<?php echo $valor;?>" data-parent="#accordion">
                 <div>
                     <p>
-                       <?php   echo $icono[description] ?>
+                       <?php   echo $icono[description];?>
                    </p>
                 </div>
            </div>

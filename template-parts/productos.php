@@ -41,16 +41,11 @@ $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
                      ?>
                      <div class="flex-card2">
                            <div class="imagen-terapeutica">
+                           <a href="<?php echo $link; ?>">
                                <img class="imagen-card" src="<?php echo $image;?>">
+                            </a>
                             </div> 
-                            <div class="body_card" style="background:blue">
-                                <h5 class="titulo-terapeutica">
-                                   <a href="<?php echo $link; ?>">
-                                      <?php echo $terminos_toaxonomia->name; ?>
-                                    </a>
-                                </h5>
-                                <p class=""><?php ?></p>
-                            </div>
+                            
                      </div>
                  <?php endforeach; ?>
         </div>
