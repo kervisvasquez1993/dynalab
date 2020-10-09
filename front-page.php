@@ -37,29 +37,9 @@ $productos = get_page_by_title('PRODUCTOS  DYNALAB');
  
 ?>
 <div class="container_productos flex-none">
-
-     <?php productos();?>
-
-
-    <div class="content-none">
-      <section class="container-slider ocultar">
-         <!-- Swiper -->
-          <div class="swiper-container ">
-               <div class="swiper-wrapper">
-                   <?php productos_slider();?>
-               </div>
-               <!-- Add Pagination -->
-               <div class="paginacion_container">
-               <div class="swiper-button-next"></div>
-               <div class="swiper-button-prev"></div>
-               </div>
-          </div>
-      </section>
-      </div>
-      <?php
-        
-         
-      ?>
+    <div class="">
+       <?php productos();?>
+    </div>
     <div class="boton-productos">
         <a href="<?php the_permalink($productos->ID) ; ?>" class="btn btn-boton2">Ver Todos los Productos</a> 
     </div>

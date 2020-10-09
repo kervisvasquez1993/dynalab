@@ -35,7 +35,7 @@ contenido_hero();
 <?php 
 $titulo_dynalab = "Dynalab";
 $contenido = "En Dynalab estamos comprometidos con tu salud. Nuestra empresa se centra en otorgar una solución comercial al sector farmacéutico venezolano, ofertando medicamentos de la más alta calidad.";
-$imagen = "bannerterapeutica_.jpg";
+$imagen = "banner_dynalab.jpg";
 $nombre_enlace = "Conoce Nuestros Productos";
 
 banner_section($titulo_dynalab, $contenido,$imagen,$productos_id,$nombre_enlace)

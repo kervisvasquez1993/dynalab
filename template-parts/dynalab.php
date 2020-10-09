@@ -26,19 +26,21 @@ contenido_hero();
         </div>
     </div>
     <!--   Icon Section   -->
-    <div class="container-slider-3 ocultar">
+    <div class="container-slider-3 no-mostrar_nuevo">
      <!-- Swiper -->
         <div class="swiper-container">
             <div class="swiper-wrapper ">
                 <?php foreach($iconos as $icono):?>
-                    <div class="swiper-slide card ">
-                        <div class="image_card">
-                            <img class="icono-imagen" src="<?php echo $icono[image]?>">
-                         </div> 
-                         <div class="body_card">
-                             <h5 class="center color-titulos"><?php echo $icono[title]?></h5>
-                             <p class="light center"><?php echo $icono[description] ?></p>
-                          </div>
+                    <div class="swiper-slide  altura-carusel">
+                        <div class="contenido_card">
+                             <div class="imagen_repetir">
+                                <img class="icono-imagen" src="<?php echo $icono[image]?>">
+                                <h5><?php echo $icono[title]?></h5>
+                             </div >
+                             <div class="contenido_repedito">
+                                 <p><?php echo $icono[description] ?></p>
+                              </div>
+                        </div>
                     </div>
                 <?php endforeach;?> 
                
@@ -48,34 +50,38 @@ contenido_hero();
         </div>
     </div>
 
-    <div class="container_dynalab_objetivos  ">
+    <div class="container_dynalab_objetivos mostrar">
+            
                 <?php foreach($iconos as $icono):?>
                     <div class="contenido_card">
                         <div class="imagen_repetir">
                             <img class="icono-imagen" src="<?php echo $icono[image]?>">
-                         </div> 
+                            <h5><?php echo $icono[title]?></h5>
+                         </div >
                          <div class="contenido_repedito">
-                             <h5><?php echo $icono[title]?></h5>
                              <p><?php echo $icono[description] ?></p>
                           </div>
                     </div>
                 <?php endforeach;?>
+               
     </div>
 
     <div class="container container_dynalab">
-        <div class="mision_wrap">
+        
+            <div class="mision_wrap">
             <img src="<?php the_field('mision_img')?>" alt="mision de dynalab">
             <div>
                  <?php the_field('mision');?>
             </div>
-        </div>
-    
-        <div class="vision_wrap">
+            </div>
+        
+            <div class="vision_wrap">
             <div>
                  <?php the_field('vision');?>
             </div>
              <img src="<?php the_field('vision_img')?>" alt="vision de dynalab">
-        </div>
+            </div>
+        
     </div>
 </main><!-- #main -->
 <?php

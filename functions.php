@@ -171,6 +171,7 @@ function dynalab_scripts() {
 
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/script-principal.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'filter', get_template_directory_uri() . '/js/jquery.filterizr.min.js', array('jquery'), '1.0.0', true );
 	wp_enqueue_script('slider-js','https://unpkg.com/swiper/swiper-bundle.min.js', array(),'1.0.0', true);
 	
 	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js'), '1.0.0', true );
@@ -348,7 +349,7 @@ function filtrar_productos($busqueda)
 
 function productos_slider()
 {
-	$args = array('posts_per_page' => 4,'post_type' => 'productos','order' => 'DESC',);
+	$args = array('posts_per_page' => 4,'post_type' => 'productos','order' => 'ASC',);
 	  $farmaco = new WP_Query($args);
 	  if($farmaco->have_posts()) {
 			
@@ -358,11 +359,17 @@ function productos_slider()
 							  <?php the_post_thumbnail( $post->ID, array('class'=> '') ); ?>
 					    </div>
 			<?php endwhile; wp_reset_postdata(); ?>
-
 		
 		<?php 
 	  }
 }
+
+
+
+
+
+
+
 
 
 function productos()
