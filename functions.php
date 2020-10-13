@@ -234,10 +234,8 @@ function contenido_hero(){
 	?>
 	<div class="hero-page" style="background:url('<?php echo get_the_post_thumbnail_url();?>');" >
     <div class="wrap-hero">
-         <div class="hero-content">
-			  <h6 class="home"><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a> &gt  <?php the_title();?></h6> 
-         </div>
          <div class="hero-content-2">
+		 <p class="home"><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a> &gt  <?php the_title();?></p>
              <h4 class="titulo">
                  <?php the_title();?>
                  <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
@@ -388,9 +386,9 @@ function banner_section($titulo_dynalab, $titlulo_contenido,$imagen,$id_enlace,$
     background-position: center center;
 	  background-repeat: no-repeat;
 	  background-size: cover;
-	  color: black;
+	  color: black !important;
 ">
-          <div class="conoce_dynalab">
+          <div class="conoce_dynalab color_dynalab">
                <h3> <?php echo $titulo_dynalab; ?>
                  <span class="resaltado_contenido"></span>
                </h3>

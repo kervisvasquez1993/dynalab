@@ -1,11 +1,11 @@
 <?php
 /**
- * The template for displaying all pages
+ * The main template file
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -13,26 +13,72 @@
  */
 
 get_header();
+
+$pagina_blog = get_option('page_for_posts');
+$imagen = get_post_thumbnail_id($pagina_blog);
+$imagen = wp_get_attachment_image_src($imagen,'full');
+$link_blog = get_page_by_title('BLOG');
 ?>
+<div class="hero-page" style="background:url('<?php echo $imagen[0];?>');" >
+    <div class="wrap-hero">
+         <div class="hero-content">
+             <p class=""><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt <a href="<?php the_permalink($link_blog->ID);?>"><?php the_title(); ?></a> </p>
+             
+
+             <?php $current_tag = single_tag_title( "", false );
+                
+             ?>
+
+         </div>
+         <div class="hero-content-2">
+             <h4 class="titulo">
+                 <?php echo $current_tag;?>
+                 <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
+             </h4>
+             <p class="slogan-title">Comprometidos <spam class="destacado"> Con Tu Salud</spam></p>
+             
+         </div>
+    </div>
+
+</div>
+
+</header>
+
 
 	<main id="primary" class="site-main">
+		<div class="page_blog">
+	        <div class="sidebar_blog">
+				<?php get_sidebar();?>
+			</div>
+		     <?php
+		     if ( have_posts() ) :
+     
+		     	if ( is_home() && ! is_front_page() ) :
+		     		?>
+		     		<header>
+		     			<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+		     		</header>
+		     		<?php
+		     	endif;
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
+            /* Start the Loop */
+            ?>
+            <div  class="container_entrada">
+			<?php while ( have_posts() ) : the_post();?>
+				 	<?php the_content(); ?>
+			<?php endwhile;
+            the_posts_navigation();
+            ?>
+            </div>
+            <?php 
+		    else :
+    
+		    	get_template_part( 'template-parts/content', 'none' );
+    
+		    endif;
+		   ?>
+		</div>
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

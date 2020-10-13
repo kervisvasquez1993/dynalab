@@ -1,6 +1,6 @@
-<footer id="colophon" class="site-footer maquetacion-footer">
+<footer id="colophon" class="site-footer footer maquetacion-footer">
 <div class="flex-footer">	 
-    <div class="menu-footer">
+    <div class="menu-footer z-index-1000">
         <?php 
              wp_nav_menu(
                   array(
@@ -13,7 +13,7 @@
              ?>
      </div>
      <div class="contacto-footer">
-     	<article class="footer-1">
+     	<article class="footer-1 z-index-1000">
 		<div>
 		    <h6 class="suscribete">
 		    	SUSCRÍBETE A NUESTRO BLOG
@@ -21,6 +21,7 @@
 		    <p class="footer-content">Cada dos meses haremos una selección de lo más destacado para ti</p>
 		</div>
 		<!--Formullario de contacto -->
+		 
 		<?php echo do_shortcode('[contact-form-7 id="568" title="suscripción"]'); ?>
 		<!--fin-->
      	</article>
@@ -34,18 +35,17 @@
 		    <div class="footer-logo">
 		    		<div class="icono-contactos">
 		    			<img  class="icono" src="<?php echo get_template_directory_uri();?>/img/footer-icono/telefono-footer.png" alt="">
-		    			<p>(+58) 294 000 000</p>
+		    			<p>(+58)424-4143803</p>
 		    		</div>
 		    		<div class="icono-contactos">
 		    		    <img  class="icono" src="<?php echo get_template_directory_uri();?>/img/footer-icono/correo-footer.png" alt="">
-		    			<p>atencion@dynamics.com</p>
+		    			<p>cuentasclaves@dynamics.life</p>
 		    		</div>
 		    		<div class="icono-contactos">
 		    		    <img  class="icono" src="<?php echo get_template_directory_uri();?>/img/footer-icono/reloj-footer.png" alt="">
 						
 						<div>
-							<p>Lunes a Viernes</p>
-						    <p>8:00 am a 5:00 pm</p>
+							<p>Lunes a Viernes 8:00 am a 5:00 pm</p>
                         </div>
 		    		</div>
     
@@ -63,31 +63,23 @@
 	 </div>
 	 
 </div>
-	<article class="footer-3">
-		<a href="#"> Privacidad</a>
-		<a href="#"> Aviso Legal</a>
-		<a href="#">Política de Cookies</a>
+
+<div class="footer_piliticas">
+	<article class="enlaces_politicas z-index-1000">
+		<?php $privacidad = get_page_by_title('Política de privacidad');?>
+		<a href="<?php the_permalink($privacidad->ID);?>"> Politicas de Privacidad</a>
 	</article>
 	<article class="footer-4">
 		<p> Última actualización 07/04/2020 </p>
 		<p class="derecho-none"> | </p>
-		<p> &copy Dynamics. Todos los derechos reservados</p>
+		<p> &copy Dynalab. Todos los Derechos Reservados</p>
 	</article>
-		
+</div>	
+
+	<?php wp_footer(); ?>
+
+
 </footer>
-
-
-<?php wp_footer(); ?>
-
-<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147284475-8"></script>
-<script type='text/javascript'>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-147284475-8');
-</script>
--->
 </body>
 </html>
 

@@ -16,10 +16,9 @@ $todo_los_productos_id = $todo_los_productos->ID;
 
 <div class="hero-page" style="background:url('<?php echo get_template_directory_uri();?>/img/taxonomia.jpg');" >
     <div class="wrap-hero">
-         <div class="hero-content">
-		    <p class="home"><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt  <a href="<?php the_permalink($todo_los_productos->ID);?>">  ÁREAS TERAPEÚTICAS</a> &gt <a href="#"> <?php echo $taxonomia_actual->name; ?> </a> </p> 
-         </div>
+        
          <div class="hero-content-2">
+		 <p class="home"><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt  <a href="<?php the_permalink($todo_los_productos->ID);?>">  ÁREAS TERAPEÚTICAS</a> &gt <a href="#"> <?php echo $taxonomia_actual->name; ?> </a> </p>
              <h4 class="titulo">
 			 <?php echo $taxonomia_actual->name; ?>
                  <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
