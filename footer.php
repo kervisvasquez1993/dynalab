@@ -56,7 +56,7 @@
 		    </div>
 		</div>
 		<div class="contact-2">
-		   <img  class="icono-logo" src="<?php echo get_template_directory_uri();?>/img/footer-icono/logo-footer.png" alt="">
+		   <img loading="lazy" class="icono-logo" src="<?php echo get_template_directory_uri();?>/img/footer-icono/logo-footer.png" alt="">
 		</div>
 		
      	</article>

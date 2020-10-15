@@ -30,7 +30,7 @@
  <div class="col s6 m4 l2 productos_style">
         <div class="imagen-terapeutica" id="<?php echo $valor;?>">
          <a class="btn-link" data-toggle="collapse" data-target="#<?php echo $valor2?>" aria-expanded="true" aria-controls="<?php echo $valor2?>">
-            <img class="imagen-card" src="<?php echo $icono['image'];?>">
+            <img class="imagen-card" loading="lazy" src="<?php echo $icono['image'];?>">
          </a>
         <div class="body_card" style="background: <?php  echo $icono['background'];?>">
           
@@ -57,7 +57,7 @@
 <?php 
 $titulo_dynalab = "Nuestros Productos";
 $contenido = "Encuentra en nuestro amplio portafolio de productos desde medicamentos antialérgicos y antivirales, hasta medicamentos para las funciones gástricas, respiratorias, sistema nervioso, urológicas entre otras.";
-$imagen = "bannerterapeutica_.jpg";
+$imagen = "banner_areas.jpg";
 $nombre_enlace = "Conoce Nuestros Productos";
 
 banner_section($titulo_dynalab, $contenido,$imagen,$productos_id,$nombre_enlace)?>
