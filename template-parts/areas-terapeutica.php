@@ -58,7 +58,7 @@
 $titulo_dynalab = "Nuestros Productos";
 $contenido = "Encuentra en nuestro amplio portafolio de productos desde medicamentos antialérgicos y antivirales, hasta medicamentos para las funciones gástricas, respiratorias, sistema nervioso, urológicas entre otras.";
 $imagen = "banner_areas.jpg";
-$nombre_enlace = "Conoce Nuestros Productos";
+$nombre_enlace = "CONOCE NUESTROS PRODUCTOS";
 
 banner_section($titulo_dynalab, $contenido,$imagen,$productos_id,$nombre_enlace)?>
 <?php get_footer();?>

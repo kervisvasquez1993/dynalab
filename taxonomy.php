@@ -9,7 +9,7 @@
 
 get_header();
 $taxonomia_actual = get_queried_object();
-$todo_los_productos = get_page_by_title('PRODUCTOS  DYNALAB');
+$todo_los_productos = get_page_by_title('ÁREAS TERAPÉUTICAS');
 $todo_los_productos_id = $todo_los_productos->ID;
 
 ?>
@@ -62,7 +62,7 @@ $todo_los_productos_id = $todo_los_productos->ID;
 $titulo_dynalab = "CONOCE LAS ÁREAS TERAPÉUTICAS";
 $contenido = "Buscamos atender y satisfacer las necesidades del paciente, por ello contamos con un amplio portafolios de medicamentos a usarse en distintas áreas terapéuticas.";
 $imagen = "productos.jpg";
-$nombre_enlace = "Ver Todos los Productos";
+$nombre_enlace = "CONOCE LAS ÁREAS TERAPÉUTICAS";
 banner_section($titulo_dynalab, $contenido,$imagen, $todo_los_productos_id,$nombre_enlace)?>
 
 <?php   

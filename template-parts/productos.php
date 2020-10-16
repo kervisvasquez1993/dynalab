@@ -19,9 +19,10 @@ $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
     <div class="wrap-hero">
          <div class="hero-content">
              
-              <p class="home"><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt  <a href="<?php the_permalink($todo_los_productos>ID);?>">  ÁREAS TERAPEÚTICAS</a> &gt <a href="#"> <?php the_title();?> </a> </p>
+              
          </div>
          <div class="hero-content-2">
+         <p class="home"><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt  <a href="<?php the_permalink($todo_los_productos>ID);?>">  ÁREAS TERAPEÚTICAS</a> &gt <a href="#"> <?php the_title();?> </a> </p>
              <h4 class="titulo">
                  <?php the_title();?>
                  <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
@@ -59,7 +60,7 @@ $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
 $titulo_dynalab = "CONOCE LAS ÁREAS TERAPÉUTICAS";
 $contenido = "Buscamos atender y satisfacer las necesidades del paciente, por ello contamos con un amplio portafolios de medicamentos a usarse en distintas áreas terapéuticas.";
 $imagen = "banner.jpg";
-$nombre_enlace = "Ver Todos los Productos";
+$nombre_enlace = "CONOCE LAS ÁREAS TERAPÉUTICAS";
 banner_section($titulo_dynalab, $contenido,$imagen, $todo_los_productos_id,$nombre_enlace)
 ?>
 

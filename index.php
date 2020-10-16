@@ -17,6 +17,9 @@ get_header();
 $pagina_blog = get_option('page_for_posts');
 $imagen = get_post_thumbnail_id($pagina_blog);
 $imagen = wp_get_attachment_image_src($imagen,'full');
+$dynalab_terapeutica = get_page_by_title('ÁREAS TERAPÉUTICAS');
+$id_areas_terapeutica = $dynalab_id->ID;
+
 ?>
 <div class="hero-page" style="background:url('<?php echo $imagen[0];?>');" >
     <div class="wrap-hero">
@@ -64,7 +67,7 @@ $imagen = wp_get_attachment_image_src($imagen,'full');
 								  $thumbID = get_post_thumbnail_id( $post->ID );
 								  $imgDestacada = wp_get_attachment_url( $thumbID );
 								 //the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
-								 <a href="<?php the_permalink(); ?>" class="pdf"> 
+								 <a href="<?php the_permalink(); ?>" > 
 								       <img height="300" src="<?php echo $imgDestacada?>" class="test-imagen" style="
 								 		border: 3px solid #00a0df;
 										border-radius: 15px 15px 0 0;">
@@ -105,7 +108,8 @@ $titlulo_contenido = 'Buscamos atender y satisfacer las necesidades del paciente
 $imagen = 'banner_blog.jpg';
 $nombre_enlace = "Conoce Las Áreas TERAPÉUTICA";
 echo "<div class='section_home'>";
-banner_section($titulo_dynalab, $titlulo_contenido,$imagen,$dynalab_id,$nombre_enlace);
+banner_section($titulo_dynalab, $titlulo_contenido,$imagen,$id_areas_terapeutica,$nombre_enlace);
+echo $id_areas_terapeutica;
 echo "</div>";
 ?>
 

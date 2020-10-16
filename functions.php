@@ -227,16 +227,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 
 
-function mostrar_post_type($query){
-	//que no se ala pantalla de admin y que sea el query principal
-	if(!is_admin() && $query->is_main_query){
-		// que sea el homepage
-		if(is_home()){
-			$query->set('post_type', array('post', 'productos'));
-		}
-	}
-}
-add_action('pre_get_posts', 'mostrar_post_type' );
 
 
 
@@ -333,7 +323,7 @@ function filtrar_productos($busqueda)
 								<span>
 								    <?php the_content();?>
 								</span>
-								<a href="<?php the_field('agregar_archivo');?>" class="pdf">Ver Productos</a>							
+								<a href="<?php the_field('agregar_archivo');?>" class="pdf">Ver Prospecto</a>							
 							</div>
 			            </div>
 					</div>
@@ -406,7 +396,7 @@ function banner_section($titulo_dynalab, $titlulo_contenido,$imagen,$id_enlace,$
                <p><?php echo $titlulo_contenido; ?></p>
 	      </div>
 		  <div class="enlace_dynalab">
-               <a href="<?php the_permalink( $id_enlace);?>"  class="center btn btn-boton_front"><?php echo $nombre_enlace ?></a>
+               <a href="<?php the_permalink($id_enlace);?>"  class="center btn btn-boton_front"><?php echo $nombre_enlace ?></a>
 		  </div>
 </section>
 <?php 
@@ -486,3 +476,13 @@ function childorbit_search_groupby($groupby){
     // wasn't empty, append ours
     return $groupby.", ".$groupby_id;
 }   
+
+
+function mostrar_post_y_eventos($query) {
+	if ( !is_admin() && $query->is_main_query() ) {
+		if ($query->is_search) {
+		$query->set('post_type', array('productos' ) );
+		}
+	}
+  }
+  add_action('pre_get_posts','mostrar_post_y_eventos');

@@ -21,16 +21,8 @@ $link_blog = get_page_by_title('BLOG');
 ?>
 <div class="hero-page" style="background:url('<?php echo $imagen[0];?>');" >
     <div class="wrap-hero">
-         <div class="hero-content">
-             <p class=""><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt <a href="<?php the_permalink($link_blog->ID);?>">BLOG</a> </p>
-             
-
-             <?php $current_tag = single_tag_title( "", false );
-                
-             ?>
-
-         </div>
          <div class="hero-content-2">
+		 <p class=""><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt <a href="<?php the_permalink($link_blog->ID);?>">BLOG</a> </p>
              <h4 class="titulo">
                  <?php echo $current_tag;?>
                  <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
@@ -80,13 +72,14 @@ $link_blog = get_page_by_title('BLOG');
 						<div class="face face2">
 								<div class="face_imagen2">
 									 <img  class="contenido-title_blog"  src="<?php echo get_template_directory_uri();?>/img/foto.png" alt="test">
-                                     <p class="titulo_blog2"><?php the_time('F j, Y'); ?></p>
+                                     <p class="titulo_blog2"> <?php the_title();?></p>
 								</div>
 							<div class="content">
 								<span>
-								    <?php the_title();?>
+				 						<?php the_content();?>
 								</span>
-								<a href="<?php the_permalink(); ?>" class="pdf">Leer Más</a>							
+								<a href="<?php the_field('agregar_archivo');?>" class="pdf">Ver Prospecto</a>
+								<p><strong> esto es una prueba </strong> : <?php the_field('agregar_archivo'); ?></p>						
 							</div>
 			            </div>
 					</div>
