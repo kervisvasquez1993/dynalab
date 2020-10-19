@@ -242,7 +242,9 @@ if(elmento2){
 ;
 ((d,c,$) => {
 
-  
+  if($('.filtro-container').length){
+    $('.filtro-container').filterizr();
+  }
 
   $(function() {
 
