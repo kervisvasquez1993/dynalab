@@ -178,7 +178,7 @@ function dynalab_scripts() {
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/script-principal.js', array(), '1.0.0', true );
 	wp_enqueue_script( 'filter', get_template_directory_uri() . '/js/jquery.filterizr.min.js', array('jquery'), '1.0.0', true );
 	wp_enqueue_script('slider-js','https://unpkg.com/swiper/swiper-bundle.min.js', array(),'1.0.0', true);
-	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js'), '1.0.0', true );
+	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js', 'filter'), '1.0.0', true );
 	wp_localize_script( 'script', 'admin_url', array('ajax_url' => admin_url( 'admin-ajax.php' )));
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -431,53 +431,8 @@ function buscarResultado(){
 	echo json_encode($listado);
 	die;
 }
-
-
 add_action('wp_ajax_nopriv_buscarResultado', 'buscarResultado');
 add_action('wp_ajax_buscarResultado', 'buscarResultado');
-
-
-
-add_filter('posts_join', 'childorbit_search_join');
-
-function childorbit_search_join($join){
-	global $wpdb;
-	
-	if ( is_search() ) {
-		$join .= "INNER JOIN {$wpdb->term_relationships} tr ON {$wpdb->posts}.ID = tr.object_id INNER JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id=tr.term_taxonomy_id INNER JOIN {$wpdb->terms} t ON t.term_id = tt.term_id INNER JOIN {$wpdb->postmeta} pm ON {$wpdb->posts}.ID = pm.post_id ";
-	}
-	return $join;
-}
-
-add_filter('posts_where','childorbit_search_where');
-
-function childorbit_search_where($where){
-	global $wpdb;
-	
-	if ( is_search() ) {
-		$where .= " OR (t.name LIKE '%".get_search_query()."%') ";
-		$where .= " OR (pm.meta_value LIKE '%".get_search_query()."%') ";
-	}
-	return $where;
-}
-
-add_filter('posts_groupby', 'childorbit_search_groupby');
-
-function childorbit_search_groupby($groupby){
-    global $wpdb;
-
-    // we need to group on post ID
-    $groupby_id = "{$wpdb->posts}.ID";
-    if(!is_search() || strpos($groupby, $groupby_id) !== false) return $groupby;
-
-    // groupby was empty, use ours
-    if(!strlen(trim($groupby))) return $groupby_id;
-
-    // wasn't empty, append ours
-    return $groupby.", ".$groupby_id;
-}   
-
-
 function mostrar_post_y_eventos($query) {
 	if ( !is_admin() && $query->is_main_query() ) {
 		if ($query->is_search) {
@@ -486,3 +441,4 @@ function mostrar_post_y_eventos($query) {
 	}
   }
   add_action('pre_get_posts','mostrar_post_y_eventos');
+  ?>

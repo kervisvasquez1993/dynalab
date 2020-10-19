@@ -67,7 +67,7 @@
 <div class="footer_piliticas">
 	<article class="enlaces_politicas z-index-1000">
 		<?php $privacidad = get_page_by_title('Política de privacidad');?>
-		<a href="<?php the_permalink($privacidad->ID);?>"> <p> Politicas de Privacidad </p> </a>
+		<p class="politicas1">  <a href="<?php the_permalink($privacidad->ID);?>"> Politicas de Privacidad  </a> </p>
 	</article>
 	<article class="footer-4">
 		<p> Última actualización 07/04/2020 </p>

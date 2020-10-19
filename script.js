@@ -6,7 +6,12 @@ let resaldato = document.querySelector('.current-menu-item')
 let menu_filtro = document.querySelector('#menu_filtro ')
 let selector_front_page = document.querySelector('#slider')
 let p = document.querySelectorAll('p')
-
+let areas_terapeutica = document.querySelector('.productos_style')
+if(areas_terapeutica)
+{
+	let boton_footer = document.querySelector('.boton_enviar')
+	boton_footer.classList.add('boton_enviar2')
+}
 if(p){
 let pArr = Array.from(p)
 pArr.forEach(e => {
@@ -17,6 +22,9 @@ pArr.forEach(e => {
 })
 
 }
+
+
+
 
 if(selector_front_page){
   let siteHeader = document.querySelector('.site-header')
@@ -274,7 +282,7 @@ if(elmento2){
       
       
       })
-
+  
         
         $('#filtrar .menu  a').on('click', function(e){
 
@@ -311,4 +319,3 @@ if(elmento2){
         })
     })
 })(document,console.log,jQuery.noConflict())
-

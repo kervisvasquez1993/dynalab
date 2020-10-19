@@ -79,7 +79,7 @@ $link_blog = get_page_by_title('BLOG');
 				 						<?php the_content();?>
 								</span>
 								<a href="<?php the_field('agregar_archivo');?>" class="pdf">Ver Prospecto</a>
-								<p><strong> esto es una prueba </strong> : <?php the_field('agregar_archivo'); ?></p>						
+													
 							</div>
 			            </div>
 					</div>

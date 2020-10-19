@@ -32,7 +32,7 @@ $todo_los_productos_id = $todo_los_productos->ID;
 </header>
 
 		<main id="filtrar">
-		 	<div class="menu" id="menu_filtro">
+		 	<div class="menu simplefilter" id="menu_filtro">
 			       <?php $imagen_principal = get_field('img_taxonomia',$taxonomia_actual);
 					echo "<a class='iconos_menu' href='#todos'><img src='$imagen_principal'></a>";
 					$terms = get_terms( array('taxonomy' => 'categoria-producto',) );

@@ -17,17 +17,17 @@ get_header();
 $pagina_blog = get_option('page_for_posts');
 $imagen = get_post_thumbnail_id($pagina_blog);
 $imagen = wp_get_attachment_image_src($imagen,'full');
+$link_blog = get_page_by_title('BLOG');
 ?>
 <div class="hero-page" style="background:url('<?php echo $imagen[0];?>');" >
     <div class="wrap-hero">
          <div class="hero-content-2">
-		 <p class="home"><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a> &gt  BLOG</p>
-			 
-             <h4 class="titulo">
-                 BLOG
-                 <img loading="lazy" src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
+		 <p class=""><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a></p>
+             <h4>
+			 <p class="slogan-title">Comprometidos <spam class="destacado"> Con Tu Salud</spam></p>
+                 <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
              </h4>
-             <p class="slogan-title">Comprometidos <spam class="destacado"> Con Tu Salud</spam></p>
+             
              
          </div>
     </div>
