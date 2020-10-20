@@ -62,7 +62,7 @@ $args = array(
 </div>
 </header>
 
-		<main>
+		<main class="main_block">
 		 		<div class="menu" id="menu_filtro">
 			       <?php $imagen_principal = get_field('img_taxonomia',$taxonomia_actual);
 					$terms = get_terms( array('taxonomy' => 'categoria-producto') );
@@ -85,12 +85,12 @@ $args = array(
 			<?php
 			  $farmaco = new WP_Query($args); 
 	          if($farmaco->have_posts()) : ?>
-		      <div>
+		      <div class="container_productos">
 		         <div class="row">
 			         <div class="filtro-container">
 			        <?php while($farmaco->have_posts()): $farmaco->the_post();?>
 				       <?php $terms = wp_get_post_terms(get_the_ID(), 'categoria-producto')?>  
-				       <div class="col-12 col-sm-6 col-md-3 col-lg-3 card_wrap filtr-item" data-category="<?php echo $terms[0]->term_taxonomy_id?>">
+				       <div class="col-12  card_wrap filtr-item" data-category="<?php echo $terms[0]->term_taxonomy_id?>">
 				       	       <div class="face face1">
 								  <div class="content" style="
 								  		border: 3px solid <?php the_field('color');?>;
@@ -120,7 +120,7 @@ $args = array(
 				       </div>
 			        <?php endwhile; wp_reset_postdata();?>
 			     </div>
-		       </div>
+		      </div>
 		
 			 <?php 
 			  endif;?>
