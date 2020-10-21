@@ -85,13 +85,14 @@ $args = array(
 			<?php
 			  $farmaco = new WP_Query($args); 
 	          if($farmaco->have_posts()) : ?>
-		      <div class="container_productos">
+		      <div >
 		         <div class="row">
 			         <div class="filtro-container">
 			        <?php while($farmaco->have_posts()): $farmaco->the_post();?>
 				       <?php $terms = wp_get_post_terms(get_the_ID(), 'categoria-producto')?>  
-				       <div class="col-12  card_wrap filtr-item" data-category="<?php echo $terms[0]->term_taxonomy_id?>">
-				       	       <div class="face face1">
+				       <div class="card_wrap filtr-item" data-category="<?php echo $terms[0]->term_taxonomy_id?>">
+				       	   <div class="interno_card">
+								  <div class="face face1">
 								  <div class="content" style="
 								  		border: 3px solid <?php the_field('color');?>;
 										border-radius: 15px 15px 0 0;
@@ -117,6 +118,7 @@ $args = array(
 								       <a href="<?php the_field('agregar_archivo');?>" class="pdf">Ver Prospecto</a>							
 							         </div>
 								</div>
+							</div>
 				       </div>
 			        <?php endwhile; wp_reset_postdata();?>
 			     </div>

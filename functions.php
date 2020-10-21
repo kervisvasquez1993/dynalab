@@ -8,8 +8,6 @@
  */
 
 
-
- add_image_size('entrada', 619,462,true);
 if( !class_exists("cmb2") ){
     require_once( dirname(__FILE__)."/cmb2/init.php" );
     
@@ -178,16 +176,14 @@ function dynalab_scripts() {
 	wp_style_add_data( 'dynalab-style', 'rtl', 'replace' );
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/script-principal.js', array(), '1.0.0', true );
-	
+	wp_enqueue_script( 'filter', get_template_directory_uri() . '/js/jquery.filterizr.min.js', array('jquery'), '1.0.0', true );
 	wp_enqueue_script('slider-js','https://unpkg.com/swiper/swiper-bundle.min.js', array(),'1.0.0', true);
-	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js', 'filter'), '1.0.0', true );
+	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js'), '1.0.0', true );
 	wp_localize_script( 'script', 'admin_url', array('ajax_url' => admin_url( 'admin-ajax.php' )));
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-	
-	if ( is_page('ÁREAS TERAPÉUTICAS') || is_tax() ) {
-		wp_enqueue_script( 'filter', get_template_directory_uri() . '/js/jquery.filterizr.min.js', array('jquery'), '1.0.0', true );
+	if ( is_page('ÁREAS TERAPÉUTICAS') ) {
 		wp_enqueue_style('bootstrap','https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', array(),'4.5.0','all'); 
 		wp_enqueue_script( 'bootstrap_scripts_poppers', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', array('jquery'), '4.5.0', true );
 		wp_enqueue_script( 'bootstrap_scripts', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', array('bootstrap_scripts_poppers'), '4.5.0', true );
@@ -256,10 +252,7 @@ function contenido_hero(){
 <?php 
 
 }
-
-
-/*
-function filtrar_productos($busqueda)
+/*function filtrar_productos($busqueda)
 {
 	$termino_actual = get_queried_object();
 	//print_r($termino_actual);
@@ -277,8 +270,7 @@ function filtrar_productos($busqueda)
 	$args = array(
 		'posts_per_page' => -1,
 		'post_type' => 'productos',
-		'order' => 'ASC',
-		'order_by' => 'title',
+		'order' => 'rand',
 		'tax_query' => array(
 			'relation' => $a,
 			[
@@ -294,27 +286,54 @@ function filtrar_productos($busqueda)
 
 		),
 	  );
-	  $farmaco = new WP_Query($args); 
-	  if($farmaco->have_posts()) : ?>
-		  <div class='row'>
-		     <div class="filtr-container">'
-				 <div class="container">
-			<?php
+	  $farmaco = new WP_Query($args);
+	  if($farmaco->have_posts()) {
+		echo '<div id="'.$busqueda.'" class="card_blog">';
 			while($farmaco->have_posts()): $farmaco->the_post();?>
-				  <?php $terms = wp_get_post_terms(get_the_ID(), 'categoria-producto')?>  
-				  <div class="filtr-item" data-category="<?php echo $terms[0]->term_taxonomy_id?>">
-				  		<?php the_title();?>
-
-				  </div>
+			                    
+					<div class="card_wrap" id="<?php echo $busqueda?>">
+			            <div class="face face1" style="color: <?php the_field('color');?>">
+							<div class="content">
+							
+								  
+								  <?php 
+								  $thumbID = get_post_thumbnail_id( $post->ID );
+								  $imgDestacada = wp_get_attachment_url( $thumbID );
+								  
+								 //the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
+								 <img height="300" src="<?php echo $imgDestacada?>" class="test-imagen" style="
+								 		border: 3px solid <?php the_field('color');?>;
+										border-radius: 15px 15px 0 0;
+								 "> 
+							</div>
+						</div>
+						<div class="face face2" style="
+						   color:<?php the_field('color');?>;
+						   border-top: 15px solid <?php the_field('color');?>;
+						   border-bottom: 15px solid <?php the_field('color');?>;
+						   display: flex;
+						   flex-direction: column;
+					   ">
+								<div class="face_imagen">
+									 <img  class="contenido-title_blog"  src="<?php the_field('imagen_fondo_producto')?>" alt=""> 
+									 <p class="titulo_producto_blog"><?php the_title();?></p>
+								</div>
+							<div class="content">
+								<span>
+								    <?php the_content();?>
+								</span>
+								<a href="<?php the_field('agregar_archivo');?>" class="pdf">Ver Prospecto</a>							
+							</div>
+			            </div>
+					</div>
 			<?php
 			endwhile; wp_reset_postdata();
 			?>
-			</div>
-		  </div>
 		</div>
 		<?php 
-	  endif;
+	  }
 }
+
 */
 
 function productos_slider()
@@ -412,8 +431,13 @@ function buscarResultado(){
 	echo json_encode($listado);
 	die;
 }
+
+
 add_action('wp_ajax_nopriv_buscarResultado', 'buscarResultado');
 add_action('wp_ajax_buscarResultado', 'buscarResultado');
+
+/* filtrar entradas */
+
 function mostrar_post_y_eventos($query) {
 	if ( !is_admin() && $query->is_main_query() ) {
 		if ($query->is_search) {
