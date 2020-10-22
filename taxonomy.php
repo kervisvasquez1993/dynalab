@@ -62,7 +62,7 @@ $args = array(
 </div>
 </header>
 
-		<main class="main_block">
+	<main class="main_block">
 		 		<div class="menu" id="menu_filtro">
 			       <?php $imagen_principal = get_field('img_taxonomia',$taxonomia_actual);
 					$terms = get_terms( array('taxonomy' => 'categoria-producto') );
@@ -91,35 +91,33 @@ $args = array(
 			        <?php while($farmaco->have_posts()): $farmaco->the_post();?>
 				       <?php $terms = wp_get_post_terms(get_the_ID(), 'categoria-producto')?>  
 				       <div class="card_wrap filtr-item" data-category="<?php echo $terms[0]->term_taxonomy_id?>">
-				       	   <div class="interno_card">
-								  <div class="face face1">
-								  <div class="content" style="
-								  		border: 3px solid <?php the_field('color');?>;
-										border-radius: 15px 15px 0 0;
-								  ">
-								     <?php the_post_thumbnail('entrda'); ?>
-								   </div>
-							   </div>
-							   <div class="face face2" style="
-							 	           color:<?php the_field('color');?>;
-						                   border-top: 15px solid <?php the_field('color');?>;
-						                   border-bottom: 15px solid <?php the_field('color');?>;
-						                   display: flex;
-						                   flex-direction: column;  
-							   ">
-							   		<div class="face_imagen" style="display: flex;">
-									     <img  class="contenido-title_blog"  src="<?php the_field('imagen_fondo_producto')?>" alt=""> 
-									     <p class="titulo_producto_blog"><?php the_title();?></p>
-									</div>
-									<div class="content">
-								       <span>
-								           <?php the_content();?>
-								       </span>
-								       <a href="<?php the_field('agregar_archivo');?>" class="pdf">Ver Prospecto</a>							
-							         </div>
-								</div>
-							</div>
-				       </div>
+					   <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light" style="
+							 border: 3px solid <?php the_field('color');?>;
+							 border-radius: 15px 15px 0 0;
+							 							 
+							 ">
+								   <?php the_post_thumbnail('entrda', array('class' => 'activator')); ?>
+                            </div>
+                            <div class="card-content activator" 
+							style="
+							  border-top: 3px solid <?php the_field('color');?>;
+							 
+							"
+							>
+                               
+								  <img  class="contenido-title_blog"  src="<?php the_field('imagen_fondo_producto')?>" alt="">
+								   <span class="content_title_card"><?php the_title('<h6>', '</h6>');?><span>
+									<p style="color: transparent">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita repellat eos quia delectus illum debitis accusamus inventore commodi saepe ipsa iure possimus at illo labore, quae quam maiores in placeat.</p>
+                                 
+                            </div>
+                           <div class="card-reveal">
+                               <span class="card-title grey-text text-darken-4"><?php the_title();?><i class="material-icons right">close</i></span>
+                                   <p><?php the_content();?></p>
+								   <a href="<?php the_field('agregar_archivo');?>" class="pdf">Ver Prospecto</a>
+                                </div>
+                        </div>
+					   </div>
 			        <?php endwhile; wp_reset_postdata();?>
 			     </div>
 		      </div>
