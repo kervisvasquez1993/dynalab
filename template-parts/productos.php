@@ -33,9 +33,9 @@ $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
     </div>
 </div>
 </header>
-<main id="primary" class="site-main">
+<main id="primary" class="site-main-productos">
     <div class="container">
-        <div class="row flex-card">
+        <div class="row flex-card" style="margin: 0px !important">
                  <?php foreach( $terminos_toaxonomias as $terminos_toaxonomia):
                      $image = get_field('img_taxonomia', $terminos_toaxonomia);
                      $link = get_term_link($terminos_toaxonomia);
@@ -54,7 +54,30 @@ $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
 
  
 </main>
+<a class="waves-effect waves-light btn modal-trigger none" href="#modal1">Modal</a>
 
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>ÁREA RESTRINGIDA</h4>
+    <p>
+        La información en esta página está destinada exclusivamente a profesionales sanitarios facultados para
+        prescribir o dispensar medicamentos y, por lo tanto, es necesaria una formación especializada para su correcta interpretación.
+        En caso de no cumplir con dichos requisitos no puede acceder a esta área.
+
+        <br>
+        <br>
+
+        Al pulsar sobre el botón "Aceptar", estaré manidestando que es usted un profesional sanitario habilitado para prescribir o dispensar 
+        medicamentos, así como su voluntad de acceder en calidad de tal a la información contenido en esta sección.
+    
+    </p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat blue accent-4">Aceptar</a>
+    <a href="<?php echo esc_url(home_url('/'));?>" class="modal-close waves-effect waves-green btn-flat red">Cancelar</a>
+  </div>
+</div>
 <?php 
 
 $titulo_dynalab = "CONOCE LAS ÁREAS TERAPÉUTICAS";

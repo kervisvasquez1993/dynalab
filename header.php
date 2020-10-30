@@ -56,13 +56,6 @@
 					  <span class="wrapp-icon">
 				         <img  class="logo-header header-search-button" id="headerSearchButton"   src="<?php echo get_stylesheet_directory_uri().'/assets/buscar-header.png';?>" alt="">   
 					  </span>
-					  
-					  	
-				           <span class="wrapp-icon  z-index-1000">
-				              <img  class="logo-header" src="<?php echo get_stylesheet_directory_uri().'/assets/telefono-header.png';?>" alt="">
-				           	<p class="font-header"> (+58) 424 - 4143803</p>
-				           </span>
-				           
 				           
 				           <span class="wrapp-icon z-index-1000">
 				              <img  class="logo-header" src="<?php echo get_stylesheet_directory_uri().'/assets/correo-header.png';?>" alt="">

@@ -64,7 +64,7 @@ $args = array(
 
 	<main class="main_block">
 		 		<div class="menu" id="menu_filtro">
-			       <?php $imagen_principal = get_field('img_taxonomia',$taxonomia_actual);
+				   <?php $imagen_principal = get_field('img_taxonomia',$taxonomia_actual);
 					$terms = get_terms( array('taxonomy' => 'categoria-producto') );
 					$imagen_principal = get_field('img_taxonomia',$taxonomia_actual);?>
 					<div class="menu_iconos" data-filter="all">
@@ -72,6 +72,7 @@ $args = array(
 					</div>
 					<?php
 					foreach($terms as $term):
+						
 					     $image = get_field('img_taxonomia', $term); ?>
 					     <div  class="menu_iconos" data-filter="<?php echo $term->term_taxonomy_id;?>">
 						 	<img src="<?php echo $image;?>" alt="<?php echo $term->name;?>"> 
@@ -89,7 +90,11 @@ $args = array(
 		         <div class="row">
 			         <div class="filtro-container">
 			        <?php while($farmaco->have_posts()): $farmaco->the_post();?>
-				       <?php $terms = wp_get_post_terms(get_the_ID(), 'categoria-producto')?>  
+					   <?php 
+					    $terms = wp_get_post_terms(get_the_ID(), 'categoria-producto');
+					    $id_tax = $terms[0];
+					    $imagen_categoria_producto = get_field('img_taxonomia',$id_tax);
+					   ?>  
 				       <div class="card_wrap filtr-item" data-category="<?php echo $terms[0]->term_taxonomy_id?>">
 					   <div class="card">
                             <div class="card-image waves-effect waves-block waves-light" style="
@@ -97,19 +102,25 @@ $args = array(
 							 border-radius: 15px 15px 0 0;
 							 							 
 							 ">
-								   <?php the_post_thumbnail('entrda', array('class' => 'activator')); ?>
+								   <?php the_post_thumbnail('entrda', array('class' => ' activator')); ?>
                             </div>
-                            <div class="card-content activator" 
-							style="
-							  border-top: 3px solid <?php the_field('color');?>;
-							 
-							"
+                            <div class="card-content " 
+							style="border-top: 3px solid <?php the_field('color');?>;
+							        border-bottom: 3px solid <?php the_field('color');?>;
+							      "
 							>
                                
-								  <img  class="contenido-title_blog"  src="<?php the_field('imagen_fondo_producto')?>" alt="">
-								   <span class="content_title_card"><?php the_title('<h6>', '</h6>');?><span>
-									<p style="color: transparent">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita repellat eos quia delectus illum debitis accusamus inventore commodi saepe ipsa iure possimus at illo labore, quae quam maiores in placeat.</p>
-                                 
+								<img  class="contenido-title_blog"  src="<?php the_field('imagen_fondo_producto')?>" alt="">
+								<span class="content_title_card  "><?php the_title('<h6 class="activator">', '</h6>');?><span>
+								<p style="color: transparent">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita repellat eos quia delectus illum debitis accusamus inventore commodi saepe ipsa iure possimus at illo labore, quae quam maiores in placeat.</p>
+                                <div>
+								    <?php $imagen_principal = get_field('img_taxonomia',$taxonomia_actual);?>
+					                <div  class="menu_iconos" data-filter="all">
+					                	<img src='<?php the_field('imagen_categoria_principal') ?>'>
+										<img src="<?php echo $imagen_categoria_producto?>">
+					                </div>
+
+								</div>	 
                             </div>
                            <div class="card-reveal">
                                <span class="card-title grey-text text-darken-4"><?php the_title();?><i class="material-icons right">close</i></span>

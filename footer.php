@@ -34,10 +34,6 @@
 		    </div>
 		    <div class="footer-logo">
 		    		<div class="icono-contactos">
-		    			<img  class="icono" src="<?php echo get_template_directory_uri();?>/img/footer-icono/telefono-footer.png" alt="">
-		    			<p>(+58)424-4143803</p>
-		    		</div>
-		    		<div class="icono-contactos">
 		    		    <img  class="icono" src="<?php echo get_template_directory_uri();?>/img/footer-icono/correo-footer.png" alt="">
 		    			<p>cuentasclaves@dynamics.life</p>
 		    		</div>
@@ -78,7 +74,15 @@
 
 	<?php wp_footer(); ?>
 
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147284475-8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-147284475-8');
+</script>
+-->
 </footer>
 </body>
 </html>

@@ -205,14 +205,22 @@ if(elmento2){
 
    
     }
+
+   
     document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('.slider');
       var elems2 = document.querySelectorAll('.sidenav');
+      var elems3 = document.querySelectorAll('.modal');
+      var modalClick = document.querySelector('.waves-effect.waves-light.btn')
       var instances = M.Slider.init(elems),
-          instances2 = M.Sidenav.init(elems2);
+          instances2 = M.Sidenav.init(elems2),
+          instances3 = M.Modal.init(elems3);
       var elems3 = document.querySelectorAll('.collapsible');
       var instances3 = M.Collapsible.init(elems3);
     
+      modalClick.click()
+      console.log(modalClick)
+      
       
     });  
 
