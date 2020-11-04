@@ -34,11 +34,19 @@ contenido_hero();
                     <div class="swiper-slide  altura-carusel">
                         <div class="contenido_card">
                              <div class="imagen_repetir">
+<<<<<<< HEAD
                                 <img class="icono-imagen" src="<?php echo $icono['image'];?>">
                                 <h5><?php echo $icono['title'];?></h5>
                              </div >
                              <div class="contenido_repedito">
                                  <p><?php echo $icono['description']; ?></p>
+=======
+                                <img class="icono-imagen" src="<?php echo $icono[image];?>">
+                                <h5><?php echo $icono[title];?></h5>
+                             </div >
+                             <div class="contenido_repedito">
+                                 <p><?php echo $icono[description]; ?></p>
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
                               </div>
                         </div>
                     </div>
@@ -55,11 +63,19 @@ contenido_hero();
                 <?php foreach($iconos as $icono):?>
                     <div class="contenido_card">
                         <div class="imagen_repetir">
+<<<<<<< HEAD
                             <img class="icono-imagen" src="<?php echo $icono['image'];?>">
                             <h5><?php echo $icono['title'];?></h5>
                          </div >
                          <div class="contenido_repedito">
                              <p><?php echo $icono['description']; ?></p>
+=======
+                            <img class="icono-imagen" src="<?php echo $icono[image];?>">
+                            <h5><?php echo $icono[title];?></h5>
+                         </div >
+                         <div class="contenido_repedito">
+                             <p><?php echo $icono[description]; ?></p>
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
                           </div>
                     </div>
                 <?php endforeach;?>

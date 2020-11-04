@@ -7,6 +7,7 @@ let menu_filtro = document.querySelector('#menu_filtro ')
 let selector_front_page = document.querySelector('#slider')
 let p = document.querySelectorAll('p')
 let areas_terapeutica = document.querySelector('.productos_style')
+<<<<<<< HEAD
 let img = document.querySelectorAll('.imagen_card img')
 let imgArr = Array.from(img)
 if(img)
@@ -19,6 +20,8 @@ imgArr.forEach(e => {
   }
 })
 }
+=======
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
 if(areas_terapeutica)
 {
 	let boton_footer = document.querySelector('.boton_enviar')

@@ -22,7 +22,11 @@ $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
               
          </div>
          <div class="hero-content-2">
+<<<<<<< HEAD
          <p class="home"><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt  <a href="#"> <?php the_title();?> </a> </p>
+=======
+         <p class="home"><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt  <a href="<?php the_permalink($todo_los_productos>ID);?>">  ÁREAS TERAPEÚTICAS</a> &gt <a href="#"> <?php the_title();?> </a> </p>
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
              <h4 class="titulo">
                  <?php the_title();?>
                  <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">

@@ -27,6 +27,7 @@
     $valor2 = $content_body.$valor;
     $num += 1;
     ?>
+<<<<<<< HEAD
  <div class="col s12 m4 l2 productos_style">
        <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
@@ -41,6 +42,25 @@
                  
              </div>
       </div>
+=======
+ <div class="col s6 m4 l2 productos_style">
+        <div class="imagen-terapeutica" id="<?php echo $valor;?>">
+         <a class="btn-link" data-toggle="collapse" data-target="#<?php echo $valor2?>" aria-expanded="true" aria-controls="<?php echo $valor2?>">
+            <img class="imagen-card" loading="lazy" src="<?php echo $icono['image'];?>">
+         </a>
+        <div class="body_card" style="background: <?php  echo $icono['background'];?>">
+          
+           <div id="<?php echo $valor2?>" class="collapse" aria-labelledby="<?php echo $valor;?>" data-parent="#accordion">
+                <div>
+                    <p>
+                       <?php   echo $icono['description'];?>
+                   </p>
+                </div>
+           </div>
+        </div> 
+       </div> 
+          
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
  </div>
  <?php endforeach;?> 
 </div> 

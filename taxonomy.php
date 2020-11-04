@@ -9,7 +9,7 @@
 
 get_header();
 $taxonomia_actual = get_queried_object();
-$todo_los_productos = get_page_by_title('PRODUCTOS  DYNALAB');
+$todo_los_productos = get_page_by_title('ÁREAS TERAPÉUTICAS');
 $todo_los_productos_id = $todo_los_productos->ID;
 $termino_actual = get_queried_object();
 //print_r($termino_actual);
@@ -49,7 +49,11 @@ $args = array(
     <div class="wrap-hero">
         
          <div class="hero-content-2">
+<<<<<<< HEAD
 		 <p class="home"><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt  <a href="<?php the_permalink($todo_los_productos->ID);?>">  PRODUCTOS DYNALAB</a> &gt <a href="#"> <?php echo $taxonomia_actual->name; ?> </a> </p>
+=======
+		 <p class="home"><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt  <a href="<?php the_permalink($todo_los_productos->ID);?>">  ÁREAS TERAPEÚTICAS</a> &gt <a href="#"> <?php echo $taxonomia_actual->name; ?> </a> </p>
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
              <h4 class="titulo">
 			 <?php echo $taxonomia_actual->name; ?>
                  <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
@@ -62,6 +66,7 @@ $args = array(
 </div>
 </header>
 
+<<<<<<< HEAD
 	<main class="main_block">
     
 		 		<div class="menu" id="menu_filtro">
@@ -72,6 +77,13 @@ $args = array(
 						<img src='<?php echo $imagen_principal; ?>'>
 					</div>
 					<?php
+=======
+		<main id="filtrar">
+		 	<div class="menu simplefilter" id="menu_filtro">
+			       <?php $imagen_principal = get_field('img_taxonomia',$taxonomia_actual);
+					echo "<a class='iconos_menu' href='#todos'><img src='$imagen_principal'></a>";
+					$terms = get_terms( array('taxonomy' => 'categoria-producto',) );
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
 					foreach($terms as $term):
 						$image = get_field('img_taxonomia', $term); ?>
 					    <div  class="menu_iconos" data-filter="<?php echo $term->term_taxonomy_id;?>">
@@ -79,8 +91,27 @@ $args = array(
 						</div>
 						<?php
 					endforeach;
+<<<<<<< HEAD
 				   ?>
 				</div>
+=======
+				    ?>
+			</div>
+			<div class="mostrar_selecionado"></div>
+			
+			<div id="productos" class="container_ui">
+				<?php
+				
+					foreach($terms as $term):
+						   
+						    $image = get_field('img_taxonomia', $term);
+			                $busqueda = $term->slug;
+			                filtrar_productos($busqueda);
+			        endforeach;	  				 
+                    ?>
+			</div>
+		</main>
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
 			
 			<div class="mostrar_selecionado"></div>
 			<?php

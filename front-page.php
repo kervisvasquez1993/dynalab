@@ -79,8 +79,13 @@ $farmaco = new WP_Query($args);
 <?php 
 $titulo_dynalab = 'DYNALAB';
 $titlulo_contenido = 'En Dynalab estamos comprometidos con tu salud. Nuestra empresa se centra en otorgar una solución comercial al sector farmacéutico venezolano, ofertando medicamentos de la más alta calidad.';
+<<<<<<< HEAD
 $imagen = 'banner_home.jpg';
 $nombre_enlace = "CONOCE LAS ÁREAS TERAPÉUTICAS";
+=======
+$imagen = 'home_slider.jpg';
+$nombre_enlace = "Conoce Dynalab";
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
 echo "<div class='section_home'>";
 banner_section($titulo_dynalab, $titlulo_contenido,$imagen,$dynalab_id,$nombre_enlace);
 echo "</div>";

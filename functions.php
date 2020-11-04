@@ -178,7 +178,11 @@ function dynalab_scripts() {
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/script-principal.js', array(), '1.0.0', true );
 	wp_enqueue_script( 'filter', get_template_directory_uri() . '/js/jquery.filterizr.min.js', array('jquery'), '1.0.0', true );
 	wp_enqueue_script('slider-js','https://unpkg.com/swiper/swiper-bundle.min.js', array(),'1.0.0', true);
+<<<<<<< HEAD
 	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js'), '1.0.0', true );
+=======
+	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js', 'filter'), '1.0.0', true );
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
 	wp_localize_script( 'script', 'admin_url', array('ajax_url' => admin_url( 'admin-ajax.php' )));
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -431,13 +435,14 @@ function buscarResultado(){
 	echo json_encode($listado);
 	die;
 }
-
-
 add_action('wp_ajax_nopriv_buscarResultado', 'buscarResultado');
 add_action('wp_ajax_buscarResultado', 'buscarResultado');
+<<<<<<< HEAD
 
 /* filtrar entradas */
 
+=======
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
 function mostrar_post_y_eventos($query) {
 	if ( !is_admin() && $query->is_main_query() ) {
 		if ($query->is_search) {

@@ -4,8 +4,13 @@
  * **/
 get_header();
 contenido_hero();
+<<<<<<< HEAD
 $todo_los_productos = get_page_by_title('DYNALAB');
 $id = $todo_los_productos->ID;
+=======
+$dynalab = get_page_by_title('DYNALAB');
+$dynalab_id = $dynalab->ID;
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
 ?>
 
 
@@ -40,7 +45,11 @@ $contenido = "En Dynalab estamos comprometidos con tu salud. Nuestra empresa se 
 $imagen = "banner_dynalab.jpg";
 $nombre_enlace = "Conoce Dynalab";
 
+<<<<<<< HEAD
 banner_section($titulo_dynalab, $contenido,$imagen,$id,$nombre_enlace);
+=======
+banner_section($titulo_dynalab, $contenido,$imagen,$dynalab_id,$nombre_enlace);
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
 ?>
 
 

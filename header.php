@@ -42,7 +42,7 @@
 	-->
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php /* body_class(); */ ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'test' ); ?></a>
@@ -57,14 +57,25 @@
       
 					  <span class="wrapp-icon">
 				         <img  class="logo-header header-search-button" id="headerSearchButton"   src="<?php echo get_stylesheet_directory_uri().'/assets/buscar-header.png';?>" alt="">   
+<<<<<<< HEAD
 				      </span>
 				           
+=======
+					  </span>
+					  
+					  	
+				           <span class="wrapp-icon  z-index-1000">
+				              <img  class="logo-header" src="<?php echo get_stylesheet_directory_uri().'/assets/telefono-header.png';?>" alt="">
+				           	<p class="font-header"> (+58) 424 - 4143803</p>
+				           </span>
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
 				           
 				           
 				           <span class="wrapp-icon z-index-1000">
 				              <img  class="logo-header" src="<?php echo get_stylesheet_directory_uri().'/assets/correo-header.png';?>" alt="">
 				              <p class="font-header">cuentasclaves@dynamics.life</p>
-				           </span>
+						   </span>
+						
 				      </div>
 
                 </div>

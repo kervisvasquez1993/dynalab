@@ -28,8 +28,13 @@ $farmaco2 = new WP_Query($args);
                 <?php foreach($iconos as $icono):?>
                     <div class="p-4">
                       <div class="flex-contacto">
+<<<<<<< HEAD
                             <img class="imagen-card" src="<?php echo $icono['image'];?>">
                             <p class="descripcion_contacto"><?php  echo $icono['description']; ?></p>
+=======
+                            <img class="imagen-card" src="<?php echo $icono[image];?>">
+                            <p class="descripcion_contacto"><?php  echo $icono[description]; ?></p>
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
                       </div>
                     </div>
                <?php endforeach;?> 

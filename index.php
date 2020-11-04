@@ -18,8 +18,12 @@ $pagina_blog = get_option('page_for_posts');
 $imagen = get_post_thumbnail_id($pagina_blog);
 $imagen = wp_get_attachment_image_src($imagen,'full');
 $dynalab_terapeutica = get_page_by_title('ÁREAS TERAPÉUTICAS');
+<<<<<<< HEAD
 $id_areas_terapeutica = $dynalab_terapeutica->ID;
 print_r( $id_areas_terapeutica);
+=======
+$id_areas_terapeutica = $dynalab_id->ID;
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
 
 ?>
 <div class="hero-page" style="background:url('<?php echo $imagen[0];?>');" >
@@ -107,9 +111,16 @@ print_r( $id_areas_terapeutica);
 $titulo_dynalab = 'ÁREAS TERAPÉUTICAS';
 $titlulo_contenido = 'Buscamos atender y satisfacer las necesidades del paciente, por ello contamos con un amplio portafolios de medicamentos a usarse en distintas áreas terapéuticas.';
 $imagen = 'banner_blog.jpg';
+<<<<<<< HEAD
 $nombre_enlace = "CONOCE LAS ÁREAS TERAPÉUTICAS";
 echo "<div class='section_home'>";
 banner_section($titulo_dynalab, $titlulo_contenido,$imagen,'14',$nombre_enlace);
+=======
+$nombre_enlace = "Conoce Las Áreas TERAPÉUTICA";
+echo "<div class='section_home'>";
+banner_section($titulo_dynalab, $titlulo_contenido,$imagen,$id_areas_terapeutica,$nombre_enlace);
+echo $id_areas_terapeutica;
+>>>>>>> 6b1d4b778072f1a7995f4bb5d1f6c13cc45ae94f
 echo "</div>";
 ?>
 
