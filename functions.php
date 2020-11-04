@@ -145,6 +145,17 @@ function dynalab_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar2', 'dynalab' ),
+			'id'            => 'sidebar-2',
+			'description'   => esc_html__( 'Add widgets here.', 'dynalab' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 }
 add_action( 'widgets_init', 'dynalab_widgets_init' );
 
@@ -157,32 +168,22 @@ function dynalab_scripts() {
 	
 	wp_enqueue_style('menu-responsive','https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.css', array(),'1.0.0','all'); 
 	wp_enqueue_style('font', get_template_directory_uri().'/css/font.css', array(), '1.0.0', 'all'); 
-	
-	
-	     wp_enqueue_style('materialize','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', array(),'1.0.0'.'all');
-	     wp_enqueue_style('material-icom','https://fonts.googleapis.com/icon?family=Material+Icons', array(),'4.7.0'.'all');
-     
-	     wp_enqueue_script('materialize-js','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js', array(),'1.0.0', true);
-
-	
+	wp_enqueue_style('materialize','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', array(),'1.0.0'.'all');
+	wp_enqueue_style('material-icom','https://fonts.googleapis.com/icon?family=Material+Icons', array(),'4.7.0'.'all'); 
+	wp_enqueue_script('materialize-js','https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js', array(),'1.0.0', true);
 	wp_enqueue_style('slider-css', 'https://unpkg.com/swiper/swiper-bundle.min.css', array(), '6.0.4', 'all');
 	wp_enqueue_style( 'dynalab-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'dynalab-style', 'rtl', 'replace' );
-
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'dynalab-navigation', get_template_directory_uri() . '/js/script-principal.js', array(), '1.0.0', true );
 	wp_enqueue_script( 'filter', get_template_directory_uri() . '/js/jquery.filterizr.min.js', array('jquery'), '1.0.0', true );
 	wp_enqueue_script('slider-js','https://unpkg.com/swiper/swiper-bundle.min.js', array(),'1.0.0', true);
-	
 	wp_enqueue_script( 'script', get_template_directory_uri().'/script.js', array('slider-js'), '1.0.0', true );
 	wp_localize_script( 'script', 'admin_url', array('ajax_url' => admin_url( 'admin-ajax.php' )));
-	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
 	if ( is_page('ÁREAS TERAPÉUTICAS') ) {
-		
 		wp_enqueue_style('bootstrap','https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', array(),'4.5.0','all'); 
 		wp_enqueue_script( 'bootstrap_scripts_poppers', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', array('jquery'), '4.5.0', true );
 		wp_enqueue_script( 'bootstrap_scripts', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', array('bootstrap_scripts_poppers'), '4.5.0', true );
@@ -226,16 +227,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 
 
-function mostrar_post_type($query){
-	//que no se ala pantalla de admin y que sea el query principal
-	if(!is_admin() && $query->is_main_query){
-		// que sea el homepage
-		if(is_home()){
-			$query->set('post_type', array('post', 'productos'));
-		}
-	}
-}
-add_action('pre_get_posts', 'mostrar_post_type' );
 
 
 
@@ -244,13 +235,11 @@ function contenido_hero(){
 	?>
 	<div class="hero-page" style="background:url('<?php echo get_the_post_thumbnail_url();?>');" >
     <div class="wrap-hero">
-         <div class="hero-content">
-			  <h6 class="home"><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a> &gt  <?php the_title();?></h6> 
-         </div>
          <div class="hero-content-2">
+		 <p class="home"><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a> &gt  <?php the_title();?></p>
              <h4 class="titulo">
                  <?php the_title();?>
-                 <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
+                 <img loading="lazy" src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
              </h4>
              <p class="slogan-title">Comprometidos <spam class="destacado"> Con Tu Salud</spam></p>
              
@@ -263,8 +252,7 @@ function contenido_hero(){
 <?php 
 
 }
-
-function filtrar_productos($busqueda)
+/*function filtrar_productos($busqueda)
 {
 	$termino_actual = get_queried_object();
 	//print_r($termino_actual);
@@ -303,7 +291,7 @@ function filtrar_productos($busqueda)
 		echo '<div id="'.$busqueda.'" class="card_blog">';
 			while($farmaco->have_posts()): $farmaco->the_post();?>
 			                    
-					<div class="card_wrap">
+					<div class="card_wrap" id="<?php echo $busqueda?>">
 			            <div class="face face1" style="color: <?php the_field('color');?>">
 							<div class="content">
 							
@@ -334,7 +322,7 @@ function filtrar_productos($busqueda)
 								<span>
 								    <?php the_content();?>
 								</span>
-								<a href="<?php the_field('agregar_archivo');?>" class="pdf">Ver Productos</a>							
+								<a href="<?php the_field('agregar_archivo');?>" class="pdf">Ver Prospecto</a>							
 							</div>
 			            </div>
 					</div>
@@ -346,6 +334,7 @@ function filtrar_productos($busqueda)
 	  }
 }
 
+*/
 
 function productos_slider()
 {
@@ -398,15 +387,16 @@ function banner_section($titulo_dynalab, $titlulo_contenido,$imagen,$id_enlace,$
     background-position: center center;
 	  background-repeat: no-repeat;
 	  background-size: cover;
+	  color: black !important;
 ">
-          <div class="conoce_dynalab">
+          <div class="conoce_dynalab color_dynalab">
                <h3> <?php echo $titulo_dynalab; ?>
                  <span class="resaltado_contenido"></span>
                </h3>
                <p><?php echo $titlulo_contenido; ?></p>
 	      </div>
 		  <div class="enlace_dynalab">
-               <a href="<?php the_permalink( $id_enlace);?>"  class="center btn btn-boton_front"><?php echo $nombre_enlace ?></a>
+               <a href="<?php the_permalink($id_enlace);?>"  class="center btn btn-boton_front"><?php echo $nombre_enlace ?></a>
 		  </div>
 </section>
 <?php 
@@ -446,66 +436,14 @@ function buscarResultado(){
 add_action('wp_ajax_nopriv_buscarResultado', 'buscarResultado');
 add_action('wp_ajax_buscarResultado', 'buscarResultado');
 
+/* filtrar entradas */
 
-
-add_filter('posts_join', 'childorbit_search_join');
-
-function childorbit_search_join($join){
-	global $wpdb;
-	
-	if ( is_search() ) {
-		$join .= "INNER JOIN {$wpdb->term_relationships} tr ON {$wpdb->posts}.ID = tr.object_id INNER JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id=tr.term_taxonomy_id INNER JOIN {$wpdb->terms} t ON t.term_id = tt.term_id INNER JOIN {$wpdb->postmeta} pm ON {$wpdb->posts}.ID = pm.post_id ";
+function mostrar_post_y_eventos($query) {
+	if ( !is_admin() && $query->is_main_query() ) {
+		if ($query->is_search) {
+		$query->set('post_type', array('productos' ) );
+		}
 	}
-	return $join;
-}
-
-add_filter('posts_where','childorbit_search_where');
-
-function childorbit_search_where($where){
-	global $wpdb;
-	
-	if ( is_search() ) {
-		$where .= " OR (t.name LIKE '%".get_search_query()."%') ";
-		$where .= " OR (pm.meta_value LIKE '%".get_search_query()."%') ";
-	}
-	return $where;
-}
-
-add_filter('posts_groupby', 'childorbit_search_groupby');
-
-function childorbit_search_groupby($groupby){
-    global $wpdb;
-
-    // we need to group on post ID
-    $groupby_id = "{$wpdb->posts}.ID";
-    if(!is_search() || strpos($groupby, $groupby_id) !== false) return $groupby;
-
-    // groupby was empty, use ours
-    if(!strlen(trim($groupby))) return $groupby_id;
-
-    // wasn't empty, append ours
-    return $groupby.", ".$groupby_id;
-}   
-
-//url con ajax
-
-
-/*
-
-function wpdocs_remove_menus(){
-   
-  remove_menu_page( 'index.php' );                  //Dashboard
-
-  remove_menu_page( 'edit.php' );                   //Posts
-  remove_menu_page( 'upload.php' );                 //Media
-  remove_menu_page( 'edit.php?post_type=page' );    //Pages
-  remove_menu_page( 'edit-comments.php' );          //Comments
-  remove_menu_page( 'themes.php' );                 //Appearance
-  remove_menu_page( 'plugins.php' );                //Plugins
-  remove_menu_page( 'users.php' );                  //Users
-  remove_menu_page( 'tools.php' );                  //Tools
-  remove_menu_page( 'options-general.php' );        //Settings
-   
-}
-add_action( 'admin_menu', 'wpdocs_remove_menus' );
-
+  }
+  add_action('pre_get_posts','mostrar_post_y_eventos');
+  ?>

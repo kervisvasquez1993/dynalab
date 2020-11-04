@@ -1,24 +1,30 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The main template file
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Dynalab
  */
 
 get_header();
 
+$pagina_blog = get_option('page_for_posts');
+$imagen = get_post_thumbnail_id($pagina_blog);
+$imagen = wp_get_attachment_image_src($imagen,'full');
 ?>
-<div class="hero-page" style="background:url('<?php echo get_template_directory_uri();?>/img/imagen_blog.jpg');" >
+<div class="hero-page" style="background:url('<?php echo $imagen[0];?>');" >
     <div class="wrap-hero">
-         <div class="hero-content">
-			  <h6 class="home"><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a> &gt  BLOG </h6> 
-         </div>
          <div class="hero-content-2">
-             <h4 class="titulo">
-                  BLOG 
-                 <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
+		 <p class="home"><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a> &gt  <?php the_title();?></p>
+		   <h4 class="titulo">
+                 <?php the_title();?>
+                 <img loading="lazy" src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
              </h4>
              <p class="slogan-title">Comprometidos <spam class="destacado"> Con Tu Salud</spam></p>
              
@@ -27,9 +33,9 @@ get_header();
 
 </div>
 </header>
-
 <main id="primary" class="site-main">
 	<div class="container section_blog">
+		  
 		  <section class="entradas_blog">
 		      <?php
 		        while ( have_posts() ) : the_post();
@@ -42,9 +48,7 @@ get_header();
      	      endwhile; // End of the loop.
 		      ?>
 		 </section>
-		 <aside>
-			<?php get_sidebar();?>
-		 </aside>
+		
     </div>
 </main><!-- #main -->
 

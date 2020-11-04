@@ -19,9 +19,10 @@ $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
     <div class="wrap-hero">
          <div class="hero-content">
              
-              <p class="home"><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt  <a href="<?php the_permalink($todo_los_productos>ID);?>">  ÁREAS TERAPEÚTICAS</a> &gt <a href="#"> <?php the_title();?> </a> </p>
+              
          </div>
          <div class="hero-content-2">
+         <p class="home"><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt  <a href="#"> <?php the_title();?> </a> </p>
              <h4 class="titulo">
                  <?php the_title();?>
                  <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
@@ -41,16 +42,11 @@ $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
                      ?>
                      <div class="flex-card2">
                            <div class="imagen-terapeutica">
+                           <a href="<?php echo $link; ?>">
                                <img class="imagen-card" src="<?php echo $image;?>">
+                            </a>
                             </div> 
-                            <div class="body_card" style="background:blue">
-                                <h5 class="titulo-terapeutica">
-                                   <a href="<?php echo $link; ?>">
-                                      <?php echo $terminos_toaxonomia->name; ?>
-                                    </a>
-                                </h5>
-                                <p class=""><?php ?></p>
-                            </div>
+                            
                      </div>
                  <?php endforeach; ?>
         </div>
@@ -58,13 +54,35 @@ $terminos_toaxonomias = get_terms(array('taxonomy' => 'tipo-Producto'));
 
  
 </main>
+<a class="waves-effect waves-light btn modal-trigger none" href="#modal1">Modal</a>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal modal_estilos">
+  <div class="modal-content">
+    <h4>ÁREA RESTRINGIDA</h4>
+    <p>
+        La información en esta página está destinada exclusivamente a profesionales sanitarios facultados para
+        prescribir o dispensar medicamentos y, por lo tanto, es necesaria una formación especializada para su correcta interpretación.
+        En caso de no cumplir con dichos requisitos no debería acceder a esta área.
+        <br>
+        <br>
+        Al pulsar sobre el botón "Aceptar", estará manifestando que es usted un profesional sanitario habilitado para prescribir o dispensar 
+        medicamentos, así como su voluntad de acceder en calidad de tal a la información contenido en esta sección.
+    
+    </p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat color_principal accent-4 ">Aceptar</a>
+    <a href="<?php echo esc_url(home_url('/'));?>" class="modal-close modal-close-2 waves-effect waves-green btn-flat">Rechazar</a>
+  </div>
+</div>
 
 <?php 
 
 $titulo_dynalab = "CONOCE LAS ÁREAS TERAPÉUTICAS";
 $contenido = "Buscamos atender y satisfacer las necesidades del paciente, por ello contamos con un amplio portafolios de medicamentos a usarse en distintas áreas terapéuticas.";
 $imagen = "banner.jpg";
-$nombre_enlace = "Ver Todos los Productos";
+$nombre_enlace = "CONOCE LAS ÁREAS TERAPÉUTICAS";
 banner_section($titulo_dynalab, $contenido,$imagen, $todo_los_productos_id,$nombre_enlace)
 ?>
 

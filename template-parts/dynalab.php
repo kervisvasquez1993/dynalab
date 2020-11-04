@@ -34,11 +34,11 @@ contenido_hero();
                     <div class="swiper-slide  altura-carusel">
                         <div class="contenido_card">
                              <div class="imagen_repetir">
-                                <img class="icono-imagen" src="<?php echo $icono[image]?>">
-                                <h5><?php echo $icono[title]?></h5>
+                                <img class="icono-imagen" src="<?php echo $icono['image'];?>">
+                                <h5><?php echo $icono['title'];?></h5>
                              </div >
                              <div class="contenido_repedito">
-                                 <p><?php echo $icono[description] ?></p>
+                                 <p><?php echo $icono['description']; ?></p>
                               </div>
                         </div>
                     </div>
@@ -55,11 +55,11 @@ contenido_hero();
                 <?php foreach($iconos as $icono):?>
                     <div class="contenido_card">
                         <div class="imagen_repetir">
-                            <img class="icono-imagen" src="<?php echo $icono[image]?>">
-                            <h5><?php echo $icono[title]?></h5>
+                            <img class="icono-imagen" src="<?php echo $icono['image'];?>">
+                            <h5><?php echo $icono['title'];?></h5>
                          </div >
                          <div class="contenido_repedito">
-                             <p><?php echo $icono[description] ?></p>
+                             <p><?php echo $icono['description']; ?></p>
                           </div>
                     </div>
                 <?php endforeach;?>

@@ -17,23 +17,15 @@ get_header();
 $pagina_blog = get_option('page_for_posts');
 $imagen = get_post_thumbnail_id($pagina_blog);
 $imagen = wp_get_attachment_image_src($imagen,'full');
-$link_blog = get_page_by_title('BLOG');
 ?>
 <div class="hero-page" style="background:url('<?php echo $imagen[0];?>');" >
     <div class="wrap-hero">
-         <div class="hero-content">
-             <p class=""><a href="<?php echo esc_url(home_url('/'));?>">INICIO</a> &gt <a href="<?php the_permalink($link_blog->ID);?>">BLOG</a> </p>
-             
-
-             <?php $current_tag = single_tag_title( "", false );
-                
-             ?>
-
-         </div>
          <div class="hero-content-2">
+		 <p class="home"><a href="<?php echo esc_url(home_url('/'));?>" class="home">INICIO</a> &gt  BLOG</p>
+			 
              <h4 class="titulo">
-                 <?php echo $current_tag;?>
-                 <img src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
+                 BLOG
+                 <img loading="lazy" src="<?php echo get_template_directory_uri();?>/img/linea-areas-terapeuticas.png" alt="">
              </h4>
              <p class="slogan-title">Comprometidos <spam class="destacado"> Con Tu Salud</spam></p>
              
@@ -72,9 +64,11 @@ $link_blog = get_page_by_title('BLOG');
 								  $thumbID = get_post_thumbnail_id( $post->ID );
 								  $imgDestacada = wp_get_attachment_url( $thumbID );
 								 //the_post_thumbnail( $post->ID, array('class'=> 'test-imagen') ); ?>
-								 <img height="300" src="<?php echo $imgDestacada?>" class="test-imagen" style="
+								 <a href="<?php the_permalink(); ?>"> 
+								       <img height="300" src="<?php echo $imgDestacada?>" class="test-imagen" style="
 								 		border: 3px solid #00a0df;
-										border-radius: 15px 15px 0 0;"> 
+										border-radius: 15px 15px 0 0;">
+								</a> 
 							</div>
 						</div>
 						<div class="face face2">
@@ -82,7 +76,7 @@ $link_blog = get_page_by_title('BLOG');
 									 <img  class="contenido-title_blog"  src="<?php echo get_template_directory_uri();?>/img/foto.png" alt="test">
                                      <p class="titulo_blog2"><?php the_time('F j, Y'); ?></p>
 								</div>
-							<div class="content">
+							<div class="blog_content">
 								<span>
 								    <?php the_title();?>
 								</span>
@@ -105,6 +99,18 @@ $link_blog = get_page_by_title('BLOG');
 		   ?>
 		</div>
 	</main><!-- #main -->
+	<?php 
+$titulo_dynalab = 'ÁREAS TERAPÉUTICAS';
+$titlulo_contenido = 'Buscamos atender y satisfacer las necesidades del paciente, por ello contamos con un amplio portafolios de medicamentos a usarse en distintas áreas terapéuticas.';
+$imagen = 'banner_blog.jpg';
+$nombre_enlace = "Conoce Las Áreas TERAPÉUTICA";
+echo "<div class='section_home'>";
+banner_section($titulo_dynalab, $titlulo_contenido,$imagen,$dynalab_id,$nombre_enlace);
+echo "</div>";
+?>
+
+
+
 
 <?php
 get_footer();

@@ -5,7 +5,7 @@
 }
 @font-face{
     font-family: "nexa-ligth";
-    src: url('../fonts/Nexa/Nexa_Light.otf');
+    src: url('../fonts/Nexa/Nexa_Regular.otf');
 }
 @font-face{
     font-family: "nexa-bold";
@@ -18,7 +18,9 @@
     font-weight: bold !important;
 }
 p,span{
-	font-family: 'nexa-ligth';
+	font-family: 'myriadpro';
+
+
 	
 }
 h1,h2,h3,h4,h5,h6{

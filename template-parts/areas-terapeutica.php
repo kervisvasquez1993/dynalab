@@ -27,24 +27,20 @@
     $valor2 = $content_body.$valor;
     $num += 1;
     ?>
- <div class="col s6 m4 l3 productos_style">
-        <div class="imagen-terapeutica">
-            <img class="imagen-card" src="<?php echo $icono[image]?>">
-        </div> 
-        <div class="body_card" style="background: <?php  echo $icono[background]?>">
-           <div  id="<?php echo $valor;?>">
-              <a class="btn-link" data-toggle="collapse" data-target="#<?php echo $valor2?>" aria-expanded="true" aria-controls="<?php echo $valor2?>">
-                 <h5><?php echo $icono[title]?> </h5>
-              </a>
-           </div>
-           <div id="<?php echo $valor2?>" class="collapse" aria-labelledby="<?php echo $valor;?>" data-parent="#accordion">
-                <div>
-                    <p>
-                       <?php   echo $icono[description] ?>
-                   </p>
-                </div>
-           </div>
-        </div>   
+ <div class="col s12 m4 l2 productos_style">
+       <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img class="imagen-card activator" loading="lazy" src="<?php echo $icono['image'];?>">
+            </div>
+             <div class="card-reveal" style="border: <?php  echo $icono['background'];?> solid 4px; border-radius: 10% 10% 0 0;">
+                  <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+                  <br>
+                  <p class="parrafo">
+                      <?php   echo $icono['description'];?>
+                  </p>
+                 
+             </div>
+      </div>
  </div>
  <?php endforeach;?> 
 </div> 
@@ -58,8 +54,8 @@
 <?php 
 $titulo_dynalab = "Nuestros Productos";
 $contenido = "Encuentra en nuestro amplio portafolio de productos desde medicamentos antialérgicos y antivirales, hasta medicamentos para las funciones gástricas, respiratorias, sistema nervioso, urológicas entre otras.";
-$imagen = "bannerterapeutica_.jpg";
-$nombre_enlace = "Conoce Nuestros Productos";
+$imagen = "banner_areas.jpg";
+$nombre_enlace = "CONOCE NUESTROS PRODUCTOS";
 
 banner_section($titulo_dynalab, $contenido,$imagen,$productos_id,$nombre_enlace)?>
 <?php get_footer();?>

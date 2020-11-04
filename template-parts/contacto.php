@@ -6,6 +6,8 @@
  */
 $iconos = get_post_meta( get_the_ID(), 'campos_repetidos', true );
 $terapeutica = get_page_by_title('ÁREAS TERAPÉUTICAS');
+$dynalab = get_page_by_title('DYNALAB');
+$dynalab_id = $dynalab->ID;
 $args = array(
      'posts_per_page' => 1,
      'post_type' => 'post',
@@ -26,23 +28,21 @@ $farmaco2 = new WP_Query($args);
                 <?php foreach($iconos as $icono):?>
                     <div class="p-4">
                       <div class="flex-contacto">
-                            <img class="imagen-card" src="<?php echo $icono[image]?>">
-                            <p class="descripcion_contacto"><?php  echo $icono[description] ?></p>
+                            <img class="imagen-card" src="<?php echo $icono['image'];?>">
+                            <p class="descripcion_contacto"><?php  echo $icono['description']; ?></p>
                       </div>
                     </div>
                <?php endforeach;?> 
           </div>
      </section>
 <?php 
-$titulo_dynalab = "Farmacovigilancia";
-$contenido = "A fin de seguir ofreciendo medicamentos de la mas alta calidad, y brindar apoyo tanto a pacientes
-como especialistas de la salud, contamos con un riguroso sistema de farmacovigilancia que nos
-permite recolectar la información pertinente sobre reacciones adversas de nuestros medicamentos.";
-$imagen = "contacto_farmaco.jpg";
-$nombre_enlace = "IR A FARMACOVIGILANCIA";
-$id = 16;
+$titulo_dynalab = "CONOCE DYNALAB";
+$contenido = "En Dynalab estamos comprometidos con tu salud. Nuestra empresa se centra en otorgar una solución comercial al sector farmacéutico venezolano, ofertando medicamentos de la más alta calidad.";
+$imagen = "home_slider.jpg";
+$nombre_enlace = "Conoce Dynalab";
 
-banner_section($titulo_dynalab, $contenido,$imagen,$id,$nombre_enlace);?>
+
+banner_section($titulo_dynalab, $contenido,$imagen,$dynalab_id,$nombre_enlace);?>
 
 
 <section class=" h-50vh">
@@ -56,7 +56,7 @@ banner_section($titulo_dynalab, $contenido,$imagen,$id,$nombre_enlace);?>
         <div class="content_post">
                 <h2><?php the_title();?></h2>
                 <p><?php the_excerpt();?></p>
-                <a href="<?php the_permalink();?>">Leer Más</a>
+                
         </div>
   </article>
   <?php

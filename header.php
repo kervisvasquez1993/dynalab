@@ -16,6 +16,8 @@
     
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=ISO-8859-1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-title" content="Dynalab">
@@ -28,6 +30,16 @@
 	<link rel="icon" type="image/png" href="<?php echo get_template_directory_uri();?>/img/icono.png" sizes="200x200">
 	
 	<?php wp_head(); ?>
+
+	<!--<script type='text/javascript'>
+        window.smartlook||(function(d) {
+        var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+        var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+        c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
+        })(document);
+        smartlook('init', '46828197f6ca6c4323984c2a3327f1ba66f1e554');
+	</script>
+	-->
 </head>
 
 <body <?php body_class(); ?>>
@@ -46,10 +58,7 @@
 					  <span class="wrapp-icon">
 				         <img  class="logo-header header-search-button" id="headerSearchButton"   src="<?php echo get_stylesheet_directory_uri().'/assets/buscar-header.png';?>" alt="">   
 				      </span>
-				           <span class="wrapp-icon z-index-1000">
-				              <img  class="logo-header" src="<?php echo get_stylesheet_directory_uri().'/assets/telefono-header.png';?>" alt="">
-				           	<p class="font-header"> (+58) 424 - 4143803</p>
-				           </span>
+				           
 				           
 				           
 				           <span class="wrapp-icon z-index-1000">
@@ -70,35 +79,12 @@
 		<nav>
     <div class="nav-wrapper">
    
-	    <?php 
-            wp_nav_menu(
-       		           array(
-       		             'theme_location' => 'menu-1',
-       		             'menu_class' => 'right hide-on-med-and-down myriad z-index-1000',
-       		             'container' => 'ul',
-       		             'container_class' => 'test1 myriad z-index-1000'
-       		                             	)
-       		           );
- 
-        ?>
-     
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+	   
     </div>
   </nav>
 
   
-   <?php 
-     wp_nav_menu(
-		array(
-		  'theme_location' => 'menu-1',
-		  'menu_id'        => 'mobile-demo',
-		  'menu_class' => 'sidenav z-index-1000',
-		  'container' => 'ul',
-		  'container_class' => 'test1'
-		                  	)
-		);
- 
-   ?>
+  
   
 		
 		<!--fin de site-branding-->
@@ -111,7 +97,7 @@
 		?>
 		
 		<div id="searchArea">
-			<?php get_search_form();?>
+			<?php  echo do_shortcode( '[wpdreams_ajaxsearchlite]' );?>
             <button class="material-icons red btn-small search-submit" id="closeSearchButton">
 			        highlight_off
             </button>

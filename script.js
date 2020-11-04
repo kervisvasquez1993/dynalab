@@ -5,8 +5,39 @@ let colorCard = document.querySelectorAll('.face2')
 let resaldato = document.querySelector('.current-menu-item')
 let menu_filtro = document.querySelector('#menu_filtro ')
 let selector_front_page = document.querySelector('#slider')
+let p = document.querySelectorAll('p')
+let areas_terapeutica = document.querySelector('.productos_style')
+let img = document.querySelectorAll('.imagen_card img')
+let imgArr = Array.from(img)
+if(img)
+{
+imgArr.forEach(e => {
+  if(e.getAttribute('src') == ''  )
+  {
+    let imagenEliminar = e.parentElement
+    imagenEliminar.remove()
+  }
+})
+}
+if(areas_terapeutica)
+{
+	let boton_footer = document.querySelector('.boton_enviar')
+	boton_footer.classList.add('boton_enviar2')
+}
+if(p){
+let pArr = Array.from(p)
+pArr.forEach(e => {
+  let peli = e.textContent
+  if( peli === ''){
+    e.remove()
+  }
+})
 
-console.log('hola mundo')
+}
+
+
+
+
 if(selector_front_page){
   let siteHeader = document.querySelector('.site-header')
   siteHeader.classList.add('content-before')
@@ -186,28 +217,32 @@ if(elmento2){
 
    
     }
-    document.addEventListener('DOMContentLoaded', function() {
+     document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('.slider');
       var elems2 = document.querySelectorAll('.sidenav');
+      var elems3 = document.querySelectorAll('.modal');
+      var modalClick = document.querySelector('.waves-effect.waves-light.btn')
       var instances = M.Slider.init(elems),
-          instances2 = M.Sidenav.init(elems2);
+          instances2 = M.Sidenav.init(elems2),
+          instances3 = M.Modal.init(elems3);
       var elems3 = document.querySelectorAll('.collapsible');
       var instances3 = M.Collapsible.init(elems3);
     
+      if(modalClick){
+        modalClick.click()
+      }
+      
+      
+      
       
     });  
+
 
 
     /**agregamo elemento para resaltar  */
 
   
-    let divMenu = document.createElement('div')
-    divMenu.classList = ('resaltado')
-    if(resaldato)
-    {
-      resaldato.appendChild(divMenu)
-    }
-
+  
 
 
 
@@ -223,9 +258,22 @@ if(elmento2){
 ;
 ((d,c,$) => {
 
-  
+  if($('.filtro-container').length){
+    $('.filtro-container').filterizr();
+  }
 
+  $(function() {
 
+    var $body = $(document);
+    $body.bind('scroll', function() {
+        // "Desactivar" el scroll horizontal
+        if ($body.scrollLeft() !== 0) {
+            $body.scrollLeft(0);
+      
+        }
+    });
+
+}); 
 
     $(function($){
 
@@ -252,7 +300,7 @@ if(elmento2){
       
       
       })
-
+  
         
         $('#filtrar .menu  a').on('click', function(e){
 
